@@ -6,12 +6,10 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Dean Perry"]
   spec.email         = ["dean@deanpcmad.com"]
 
-  spec.summary       = "A Ruby library for accessing the Twitch API"
+  spec.summary       = "A Ruby library for interacting with the Twitch API"
   spec.homepage      = "https://twitchrb.com"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
-
-  spec.metadata["allowed_push_host"] = "TODO: Set to 'http://mygemserver.com'"
 
   spec.metadata["homepage_uri"] = spec.homepage
   spec.metadata["source_code_uri"] = "https://github.com/deanpcmad/twitchrb"
