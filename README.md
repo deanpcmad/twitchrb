@@ -1,38 +1,27 @@
-# Twitch
+# TwitchRB
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/twitch`. To experiment with that code, run `bin/console` for an interactive prompt.
+**This library is a work in progress**
 
-TODO: Delete this and the text above, and describe your gem
+This RubyGem is a library for intereacting with the Twitch API.
+
+It will allow you to easily interact with both the Kraken and Helix APIs.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'twitchrb'
+gem "twitchrb", require: "twitch"
 ```
 
 And then execute:
 
     $ bundle install
 
-Or install it yourself as:
-
-    $ gem install twitch
-
-## Usage
-
-TODO: Write usage instructions here
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/twitch.
+Bug reports and pull requests are welcome on GitHub at https://github.com/deanpcmad/twitchrb.
 
 
 ## License
