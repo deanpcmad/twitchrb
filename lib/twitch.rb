@@ -10,6 +10,7 @@ require "twitch/initializable"
 # Helix API
 require "twitch/channels"
 require "twitch/emotes"
+require "twitch/badges"
 
 # Kraken (v5) API
 require "twitch/kraken/user"
