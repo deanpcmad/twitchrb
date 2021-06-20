@@ -1,27 +1,19 @@
 module Twitch
   class Games
 
-    include Initializable
-
-    attr_accessor :id, :name, :box_art_url
-
-    def box_art_380
-      box_art_url.gsub("{width}", "285").gsub("{height}", "380")
-    end
-
     class << self
 
       # Gets Badges for a channel ID
       def get_by_name(name)
         response = Twitch.client.get(:helix, "games?name=#{name}")
 
-        new(response["data"][0])
+        Twitch::Models::Game.new(response["data"][0])
       end
 
       def get_by_id(id)
         response = Twitch.client.get(:helix, "games?id=#{id}")
 
-        new(response["data"][0])
+        Twitch::Models::Game.new(response["data"][0])
       end
 
       # Gets Top Games
@@ -37,7 +29,7 @@ module Twitch
         games = []
 
         data.each do |g|
-          games << new(g)
+          games << Twitch::Models::Game.new(g)
         end
 
         games

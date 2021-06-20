@@ -1,22 +1,6 @@
 module Twitch
   class Emotes
 
-    include Initializable
-
-    attr_accessor :id, :name, :images, :tier, :emote_type, :emote_set_id, :owner_id
-
-    def url_1x
-      images["url_1x"]
-    end
-
-    def url_2x
-      images["url_2x"]
-    end
-
-    def url_4x
-      images["url_4x"]
-    end
-
     class << self
 
       # Gets Emotes for a channel ID
@@ -46,7 +30,7 @@ module Twitch
         emotes = []
 
         data.each do |e|
-          emotes << new(e)
+          emotes << Twitch::Models::Emote.new(e)
         end
 
         emotes

@@ -8,6 +8,10 @@ require "twitch/client"
 require "twitch/initializable"
 
 # Models
+require "twitch/models/channel"
+require "twitch/models/badge"
+require "twitch/models/game"
+require "twitch/models/emote"
 require "twitch/models/poll"
 require "twitch/models/poll_choice"
 

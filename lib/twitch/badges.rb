@@ -1,10 +1,6 @@
 module Twitch
   class Badges
 
-    include Initializable
-
-    attr_accessor :id, :image_url_1x, :image_url_2x, :image_url_4x
-
     class << self
 
       # Gets Badges for a channel ID
@@ -27,7 +23,7 @@ module Twitch
         badges = []
 
         data.each do |e|
-          badges << {set_id: e["set_id"], versions: e["versions"].map {|v| new(v)} }
+          badges << {set_id: e["set_id"], versions: e["versions"].map {|v| Twitch::Models::Badge.new(v)} }
         end
 
         badges
