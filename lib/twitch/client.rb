@@ -24,6 +24,7 @@ module Twitch
         {
           "Client-ID" => @client_id,
           "Accept" => "application/json",
+          "Content-Type" => "application/json",
           "Authorization" => "Bearer #{@access_token}"
         }
       else
@@ -47,9 +48,6 @@ module Twitch
       success = case response.code
       when 200
         JSON.parse(body)
-      when 400
-        json = JSON.parse(body)
-        raise Twitch::Errors::NotFound, json['error']
       when 503
         raise Twitch::Errors::ServiceUnavailable
       when 401, 403
@@ -57,24 +55,21 @@ module Twitch
         raise Twitch::Errors::AccessDenied, "Access Denied for '#{@client_id}'"
       when 400
         json = JSON.parse(body)
-        raise Twitch::Errors::ValidationError, json['errors'].to_s
+        raise Twitch::Errors::ValidationError, json['message'].to_s
       else
         raise Twitch::Errors::CommunicationError, body
       end
     end
 
-    def patch(kind, url, params={})
-      response = HTTParty.patch("https://api.twitch.tv/#{kind}/#{url}", {
+    def post(kind, url, params={})
+      response = HTTParty.post("https://api.twitch.tv/#{kind}/#{url}", {
         headers: headers(kind),
-        body: params
+        body: params.to_json
       })
 
       success = case response.code
-      when 204
-        return true
-      when 400
-        json = JSON.parse(response.body)
-        raise Twitch::Errors::NotFound, json['error']
+      when 200
+        JSON.parse(response.body)
       when 503
         raise Twitch::Errors::ServiceUnavailable
       when 401, 403
@@ -82,7 +77,31 @@ module Twitch
         raise Twitch::Errors::AccessDenied, "Access Denied for '#{@client_id}'"
       when 400
         json = JSON.parse(response.body)
-        raise Twitch::Errors::ValidationError, json['errors'].to_s
+        raise Twitch::Errors::ValidationError, json['message'].to_s
+      else
+        raise Twitch::Errors::CommunicationError, response.body
+      end
+    end
+
+    def patch(kind, url, params={})
+      response = HTTParty.patch("https://api.twitch.tv/#{kind}/#{url}", {
+        headers: headers(kind),
+        body: params.to_json
+      })
+
+      success = case response.code
+      when 200
+        JSON.parse(response.body)
+      when 204
+        return true
+      when 503
+        raise Twitch::Errors::ServiceUnavailable
+      when 401, 403
+        puts response.body.inspect
+        raise Twitch::Errors::AccessDenied, "Access Denied for '#{@client_id}'"
+      when 400
+        json = JSON.parse(response.body)
+        raise Twitch::Errors::ValidationError, json['message'].to_s
       else
         raise Twitch::Errors::CommunicationError, response.body
       end

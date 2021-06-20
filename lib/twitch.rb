@@ -7,11 +7,16 @@ require "twitch/version"
 require "twitch/client"
 require "twitch/initializable"
 
+# Models
+require "twitch/models/poll"
+require "twitch/models/poll_choice"
+
 # Helix API
 require "twitch/channels"
 require "twitch/emotes"
 require "twitch/badges"
 require "twitch/games"
+require "twitch/polls"
 
 # Kraken (v5) API
 require "twitch/kraken/user"
