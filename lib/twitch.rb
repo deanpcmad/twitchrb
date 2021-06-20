@@ -9,6 +9,7 @@ require "twitch/initializable"
 
 # Helix API
 require "twitch/channels"
+require "twitch/emotes"
 
 # Kraken (v5) API
 require "twitch/kraken/user"
