@@ -14,7 +14,7 @@ module Twitch
         new(response["data"][0])
       end
 
-      # Gets a specified channel object
+      # Update a channel
       def update(id, params={})
         Twitch.client.patch(:helix, "channels?broadcaster_id=#{id}", params)
       end
