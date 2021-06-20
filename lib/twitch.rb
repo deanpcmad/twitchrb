@@ -11,6 +11,7 @@ require "twitch/initializable"
 require "twitch/channels"
 require "twitch/emotes"
 require "twitch/badges"
+require "twitch/games"
 
 # Kraken (v5) API
 require "twitch/kraken/user"
