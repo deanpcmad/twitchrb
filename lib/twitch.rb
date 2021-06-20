@@ -7,6 +7,9 @@ require "twitch/version"
 require "twitch/client"
 require "twitch/initializable"
 
+# Helix API
+require "twitch/channel"
+
 # Kraken (v5) API
 require "twitch/kraken/user"
 require "twitch/kraken/users"
@@ -18,8 +21,8 @@ module Twitch
   class << self
     attr_reader :client
 
-    def access_details(client_id)
-      @client = Client.new(client_id)
+    def access_details(client_id, access_token=nil)
+      @client = Client.new(client_id, access_token)
       # @client.access_token = access_token if access_token
     end
   end
