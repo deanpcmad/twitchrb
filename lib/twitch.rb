@@ -8,7 +8,7 @@ require "twitch/client"
 require "twitch/initializable"
 
 # Helix API
-require "twitch/channel"
+require "twitch/channels"
 
 # Kraken (v5) API
 require "twitch/kraken/user"

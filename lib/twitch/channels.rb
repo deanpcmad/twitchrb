@@ -1,5 +1,5 @@
 module Twitch
-  class Channel
+  class Channels
 
     include Initializable
 
