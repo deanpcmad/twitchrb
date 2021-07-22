@@ -4,8 +4,8 @@ module Twitch
     class << self
 
       # Gets Emotes for a channel ID
-      def get_channel(id)
-        response = Twitch.client.get(:helix, "chat/emotes?broadcaster_id=#{id}")
+      def get_channel(broadcaster_id)
+        response = Twitch.client.get(:helix, "chat/emotes?broadcaster_id=#{broadcaster_id}")
 
         emote_array(response["data"])
       end
@@ -18,8 +18,8 @@ module Twitch
       end
 
       # Gets Emotes for an Emote Set ID
-      def get_emote_set(id)
-        response = Twitch.client.get(:helix, "chat/emotes/set?emote_set_id=#{id}")
+      def get_emote_set(emote_set_id)
+        response = Twitch.client.get(:helix, "chat/emotes/set?emote_set_id=#{emote_set_id}")
 
         emote_array(response["data"])
       end
