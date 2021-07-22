@@ -22,12 +22,6 @@ require "twitch/badges"
 require "twitch/games"
 require "twitch/polls"
 
-# Kraken (v5) API
-require "twitch/kraken/user"
-require "twitch/kraken/users"
-require "twitch/kraken/channels"
-require "twitch/kraken/clips"
-
 module Twitch
 
   class << self

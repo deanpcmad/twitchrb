@@ -4,10 +4,7 @@
 
 This RubyGem is a library for intereacting with the Twitch API.
 
-It will allow you to easily interact with both the Kraken and Helix APIs.
-
-The main API methods use the Helix API as this is the most up to date. The Kraken
-API is deprecated and you should really use the new Helix API.
+It will allow you to easily interact with the Helix API.
 
 ## Installation
 
