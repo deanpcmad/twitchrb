@@ -1,111 +1,56 @@
-require "httparty"
+# require "httparty"
+
+
+#     def headers(kind)
+#       if kind == :helix
+#         {
+#           "Client-ID" => @client_id,
+#           "Accept" => "application/json",
+#           "Content-Type" => "application/json",
+#           "Authorization" => "Bearer #{@access_token}"
+#         }
+#       else
+#         {
+#           "Client-ID" => @client_id,
+#           "Accept" => "application/vnd.twitchtv.v5+json",
+#           # "Authorization" => "OAuth #{@access_token}"
+#         }
+#       end
+#     end
+
+
 
 module Twitch
   class Client
+    BASE_URL = "https://api.twitch.tv/helix"
 
-    # def initialize(client_id, client_secret, access_token=nil)
-    def initialize(client_id, access_token=nil)
-      puts "initialize"
+    attr_reader :client_id, :client_secret, :access_token, :adapter
 
+    def initialize(client_id:, client_secret:, access_token:, adapter: Faraday.default_adapter, stubs: nil)
       @client_id = client_id
+      @client_secret = client_secret
       @access_token = access_token
+      @adapter = adapter
 
-      # if client_id && client_secret
-      #   @client_id = client_id
-      #   @client_secret = client_secret
-      #   @access_token = access_token
-      # else
-      #   raise Twitch::ClientError.new('Client ID or Client Secret not set')
-      # end
+      # Test stubs for requests
+      @stubs = stubs
     end
 
-    def headers(kind)
-      if kind == :helix
-        {
-          "Client-ID" => @client_id,
-          "Accept" => "application/json",
-          "Content-Type" => "application/json",
-          "Authorization" => "Bearer #{@access_token}"
-        }
-      else
-        {
-          "Client-ID" => @client_id,
-          "Accept" => "application/vnd.twitchtv.v5+json",
-          # "Authorization" => "OAuth #{@access_token}"
-        }
+    def users
+      UsersResource.new(self)
+    end
+
+    def connection
+      @connection ||= Faraday.new(BASE_URL) do |conn|
+        conn.request :authorization, :Bearer, access_token
+        conn.headers = { "Client-ID": client_id }
+        conn.request :json
+
+        conn.response :dates
+        conn.response :json, content_type: "application/json"
+
+        conn.adapter adapter, @stubs
       end
     end
-
-
-    def get(kind, url)
-      response = HTTParty.get("https://api.twitch.tv/#{kind}/#{url}", {
-        headers: headers(kind)
-      })
-
-      # Force encoding as the reponse may have emojis
-      body = response.body.force_encoding('UTF-8')
-
-      success = case response.code
-      when 200
-        JSON.parse(body)
-      when 503
-        raise Twitch::Errors::ServiceUnavailable
-      when 401, 403
-        puts body.inspect
-        raise Twitch::Errors::AccessDenied, "Access Denied for '#{@client_id}'"
-      when 400
-        json = JSON.parse(body)
-        raise Twitch::Errors::ValidationError, json['message'].to_s
-      else
-        raise Twitch::Errors::CommunicationError, body
-      end
-    end
-
-    def post(kind, url, params={})
-      response = HTTParty.post("https://api.twitch.tv/#{kind}/#{url}", {
-        headers: headers(kind),
-        body: params.to_json
-      })
-
-      success = case response.code
-      when 200
-        JSON.parse(response.body)
-      when 503
-        raise Twitch::Errors::ServiceUnavailable
-      when 401, 403
-        puts response.body.inspect
-        raise Twitch::Errors::AccessDenied, "Access Denied for '#{@client_id}'"
-      when 400
-        json = JSON.parse(response.body)
-        raise Twitch::Errors::ValidationError, json['message'].to_s
-      else
-        raise Twitch::Errors::CommunicationError, response.body
-      end
-    end
-
-    def patch(kind, url, params={})
-      response = HTTParty.patch("https://api.twitch.tv/#{kind}/#{url}", {
-        headers: headers(kind),
-        body: params.to_json
-      })
-
-      success = case response.code
-      when 200
-        JSON.parse(response.body)
-      when 204
-        return true
-      when 503
-        raise Twitch::Errors::ServiceUnavailable
-      when 401, 403
-        puts response.body.inspect
-        raise Twitch::Errors::AccessDenied, "Access Denied for '#{@client_id}'"
-      when 400
-        json = JSON.parse(response.body)
-        raise Twitch::Errors::ValidationError, json['message'].to_s
-      else
-        raise Twitch::Errors::CommunicationError, response.body
-      end
-    end
-
   end
 end

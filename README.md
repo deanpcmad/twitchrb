@@ -26,7 +26,11 @@ And then execute:
 Firstly you'll need to set a Client ID, and if required, an access token.
 
 ```ruby
-Twitch.access_details("client_id", "access_token")
+@client = Twitch::Client.new(client_id: "", secret_key: "", access_token: "")
+
+## Users
+@client.users.get_by_id(user_id: 141981764)
+@client.users.get_by_username(username: "twitchdev")
 ```
 
 ### Emotes
