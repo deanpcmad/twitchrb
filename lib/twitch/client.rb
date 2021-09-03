@@ -40,6 +40,14 @@ module Twitch
       UsersResource.new(self)
     end
 
+    def emotes
+      EmotesResource.new(self)
+    end
+
+    def badges
+      BadgesResource.new(self)
+    end
+
     def connection
       @connection ||= Faraday.new(BASE_URL) do |conn|
         conn.request :authorization, :Bearer, access_token

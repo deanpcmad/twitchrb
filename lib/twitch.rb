@@ -31,8 +31,12 @@ module Twitch
   autoload :Object, "twitch/object"
 
   autoload :UsersResource, "twitch/resources/users"
+  autoload :EmotesResource, "twitch/resources/emotes"
+  autoload :BadgesResource, "twitch/resources/badges"
 
   autoload :User, "twitch/objects/user"
+  autoload :Emote, "twitch/objects/emote"
+  autoload :Badge, "twitch/objects/badge"
 
   # class << self
   #   attr_reader :client
