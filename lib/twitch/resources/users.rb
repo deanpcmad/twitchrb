@@ -29,5 +29,15 @@ module Twitch
       Collection.from_response(response, key: "data", type: BlockedUser)
     end
 
+    # Required scope: user:manage:blocked_users
+    def block_user(target_user_id:, **attributes)
+      put_request("users/blocks?target_user_id=#{target_user_id}", body: attributes)
+    end
+
+    # Required scope: user:manage:blocked_users
+    def unblock_user(target_user_id:)
+      delete_request("users/blocks?target_user_id=#{target_user_id}")
+    end
+
   end
 end
