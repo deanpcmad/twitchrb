@@ -34,11 +34,13 @@ module Twitch
   autoload :ChannelsResource, "twitch/resources/channels"
   autoload :EmotesResource, "twitch/resources/emotes"
   autoload :BadgesResource, "twitch/resources/badges"
+  autoload :GamesResource, "twitch/resources/games"
 
   autoload :User, "twitch/objects/user"
   autoload :Channel, "twitch/objects/channel"
   autoload :ChannelEditor, "twitch/objects/channel_editor"
   autoload :Emote, "twitch/objects/emote"
   autoload :Badge, "twitch/objects/badge"
+  autoload :Game, "twitch/objects/game"
 
 end
