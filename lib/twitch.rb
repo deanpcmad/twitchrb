@@ -42,5 +42,7 @@ module Twitch
   autoload :Emote, "twitch/objects/emote"
   autoload :Badge, "twitch/objects/badge"
   autoload :Game, "twitch/objects/game"
+  autoload :FollowedUser, "twitch/objects/followed_user"
+  autoload :BlockedUser, "twitch/objects/blocked_user"
 
 end

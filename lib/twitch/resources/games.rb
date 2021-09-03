@@ -12,7 +12,7 @@ module Twitch
     end
 
     def top(**params)
-      response = get_request("games/top", params)
+      response = get_request("games/top", params: params)
       Collection.from_response(response, key: "data", type: Game)
     end
 

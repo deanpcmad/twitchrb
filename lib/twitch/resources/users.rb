@@ -10,10 +10,23 @@ module Twitch
     end
 
     # Updates the current users description
-    # Requires scope: user:edit
+    # Required scope: user:edit
     def update(description:)
       response = put_request("users", body: {description: description})
       User.new response.body.dig("data")[0]
+    end
+
+    def follows(**params)
+      raise "from_id or to_id is required" unless !params[:from_id].nil? || !params[:to_id].nil?
+
+      response = get_request("users/follows", params: params)
+      Collection.from_response(response, key: "data", type: FollowedUser)
+    end
+
+    # Required scope: user:read:blocked_users
+    def blocks(broadcaster_id:, **params)
+      response = get_request("users/blocks?broadcaster_id=#{broadcaster_id}", params: params)
+      Collection.from_response(response, key: "data", type: BlockedUser)
     end
 
   end
