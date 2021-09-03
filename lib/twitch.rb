@@ -31,30 +31,14 @@ module Twitch
   autoload :Object, "twitch/object"
 
   autoload :UsersResource, "twitch/resources/users"
+  autoload :ChannelsResource, "twitch/resources/channels"
   autoload :EmotesResource, "twitch/resources/emotes"
   autoload :BadgesResource, "twitch/resources/badges"
 
   autoload :User, "twitch/objects/user"
+  autoload :Channel, "twitch/objects/channel"
+  autoload :ChannelEditor, "twitch/objects/channel_editor"
   autoload :Emote, "twitch/objects/emote"
   autoload :Badge, "twitch/objects/badge"
-
-  # class << self
-  #   attr_reader :client
-
-  #   def access_details(client_id, access_token=nil)
-  #     @client = Client.new(client_id, access_token)
-  #     # @client.access_token = access_token if access_token
-  #   end
-  # end
-
-  # # Error classes to raise
-  # class Error < StandardError; end
-  # module Errors
-  #   class ServiceUnavailable < Error; end
-  #   class AccessDenied < Error; end
-  #   class NotFound < Error; end
-  #   class CommunicationError < Error; end
-  #   class ValidationError < Error; end
-  # end
 
 end

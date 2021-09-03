@@ -40,6 +40,10 @@ module Twitch
       UsersResource.new(self)
     end
 
+    def channels
+      ChannelsResource.new(self)
+    end
+
     def emotes
       EmotesResource.new(self)
     end
