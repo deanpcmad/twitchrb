@@ -9,5 +9,12 @@ module Twitch
       User.new get_request("users/?login=#{username}").body.dig("data")[0]
     end
 
+    # Updates the current users description
+    # Requires scope: user:edit
+    def update(description:)
+      response = put_request("users", body: {description: description})
+      User.new response.body.dig("data")[0]
+    end
+
   end
 end
