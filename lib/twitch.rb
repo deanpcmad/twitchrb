@@ -30,19 +30,24 @@ module Twitch
   autoload :Resource, "twitch/resource"
   autoload :Object, "twitch/object"
 
+
   autoload :UsersResource, "twitch/resources/users"
   autoload :ChannelsResource, "twitch/resources/channels"
   autoload :EmotesResource, "twitch/resources/emotes"
   autoload :BadgesResource, "twitch/resources/badges"
   autoload :GamesResource, "twitch/resources/games"
+  autoload :VideosResource, "twitch/resources/videos"
+
 
   autoload :User, "twitch/objects/user"
+  autoload :FollowedUser, "twitch/objects/followed_user"
+  autoload :BlockedUser, "twitch/objects/blocked_user"
+
   autoload :Channel, "twitch/objects/channel"
   autoload :ChannelEditor, "twitch/objects/channel_editor"
   autoload :Emote, "twitch/objects/emote"
   autoload :Badge, "twitch/objects/badge"
   autoload :Game, "twitch/objects/game"
-  autoload :FollowedUser, "twitch/objects/followed_user"
-  autoload :BlockedUser, "twitch/objects/blocked_user"
+  autoload :Video, "twitch/objects/video"
 
 end
