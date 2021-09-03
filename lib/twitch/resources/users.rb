@@ -39,5 +39,16 @@ module Twitch
       delete_request("users/blocks?target_user_id=#{target_user_id}")
     end
 
+    # A quick method to see if a user is following a channel
+    def following?(from_id:, to_id:)
+      response = get_request("users/follows", params: {from_id: from_id, to_id: to_id})
+
+      if response.body["data"].empty?
+        false
+      else
+        true
+      end
+    end
+
   end
 end
