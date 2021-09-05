@@ -84,6 +84,10 @@ module Twitch
       ModeratorEventsResource.new(self)
     end
 
+    def polls
+      PollsResource.new(self)
+    end
+
     def connection
       @connection ||= Faraday.new(BASE_URL) do |conn|
         conn.request :authorization, :Bearer, access_token
