@@ -59,6 +59,10 @@ module Twitch
     def videos
       VideosResource.new(self)
     end
+    
+    def clips
+      ClipsResource.new(self)
+    end
 
     def connection
       @connection ||= Faraday.new(BASE_URL) do |conn|

@@ -37,6 +37,7 @@ module Twitch
   autoload :BadgesResource, "twitch/resources/badges"
   autoload :GamesResource, "twitch/resources/games"
   autoload :VideosResource, "twitch/resources/videos"
+  autoload :ClipsResource, "twitch/resources/clips"
 
 
   autoload :User, "twitch/objects/user"
@@ -49,5 +50,6 @@ module Twitch
   autoload :Badge, "twitch/objects/badge"
   autoload :Game, "twitch/objects/game"
   autoload :Video, "twitch/objects/video"
+  autoload :Clip, "twitch/objects/clip"
 
 end
