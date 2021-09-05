@@ -43,6 +43,7 @@ module Twitch
   autoload :BannedEventsResource, "twitch/resources/banned_events"
   autoload :BannedUsersResource, "twitch/resources/banned_users"
   autoload :ModeratorsResource, "twitch/resources/moderators"
+  autoload :ModeratorEventsResource, "twitch/resources/moderator_events"
 
 
   autoload :User, "twitch/objects/user"
@@ -60,5 +61,6 @@ module Twitch
   autoload :BannedEvent, "twitch/objects/banned_event"
   autoload :BannedUser, "twitch/objects/banned_user"
   autoload :Moderator, "twitch/objects/moderator"
+  autoload :ModeratorEvent, "twitch/objects/moderator_event"
 
 end

@@ -80,6 +80,10 @@ module Twitch
       ModeratorsResource.new(self)
     end
 
+    def moderator_events
+      ModeratorEventsResource.new(self)
+    end
+
     def connection
       @connection ||= Faraday.new(BASE_URL) do |conn|
         conn.request :authorization, :Bearer, access_token
