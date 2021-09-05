@@ -51,6 +51,7 @@ module Twitch
   autoload :StreamsResource, "twitch/resources/streams"
   autoload :StreamMarkersResource, "twitch/resources/stream_markers"
   autoload :SubscriptionsResource, "twitch/resources/subscriptions"
+  autoload :TagsResource, "twitch/resources/tags"
 
 
   autoload :User, "twitch/objects/user"
@@ -77,5 +78,6 @@ module Twitch
   autoload :StreamMarker, "twitch/objects/stream_marker"
   autoload :Subscription, "twitch/objects/subscription"
   autoload :SubscriptionCount, "twitch/objects/subscription_count"
+  autoload :Tag, "twitch/objects/tag"
 
 end
