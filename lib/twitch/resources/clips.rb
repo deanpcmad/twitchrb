@@ -11,11 +11,8 @@ module Twitch
     # Required scope: clips:edit
     def create(broadcaster_id:, **attributes)
       response = post_request("clips", body: attributes.merge(broadcaster_id: broadcaster_id))
-      if response.success?
-        Clip.new(response.body.dig("data")[0])
-      else
-        false
-      end
+      
+      Clip.new(response.body.dig("data")[0]) if response.success?
     end
 
   end
