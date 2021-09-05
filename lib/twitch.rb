@@ -42,6 +42,7 @@ module Twitch
   autoload :EventSubSubscriptionsResource, "twitch/resources/event_sub_subscriptions"
   autoload :BannedEventsResource, "twitch/resources/banned_events"
   autoload :BannedUsersResource, "twitch/resources/banned_users"
+  autoload :ModeratorsResource, "twitch/resources/moderators"
 
 
   autoload :User, "twitch/objects/user"
@@ -58,5 +59,6 @@ module Twitch
   autoload :EventSubSubscription, "twitch/objects/event_sub_subscription"
   autoload :BannedEvent, "twitch/objects/banned_event"
   autoload :BannedUser, "twitch/objects/banned_user"
+  autoload :Moderator, "twitch/objects/moderator"
 
 end
