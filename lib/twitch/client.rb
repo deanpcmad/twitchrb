@@ -68,6 +68,10 @@ module Twitch
       EventSubSubscriptionsResource.new(self)
     end
 
+    def banned_events
+      BannedEventsResource.new(self)
+    end
+
     def connection
       @connection ||= Faraday.new(BASE_URL) do |conn|
         conn.request :authorization, :Bearer, access_token

@@ -40,6 +40,7 @@ module Twitch
   autoload :VideosResource, "twitch/resources/videos"
   autoload :ClipsResource, "twitch/resources/clips"
   autoload :EventSubSubscriptionsResource, "twitch/resources/event_sub_subscriptions"
+  autoload :BannedEventsResource, "twitch/resources/banned_events"
 
 
   autoload :User, "twitch/objects/user"
@@ -54,5 +55,6 @@ module Twitch
   autoload :Video, "twitch/objects/video"
   autoload :Clip, "twitch/objects/clip"
   autoload :EventSubSubscription, "twitch/objects/event_sub_subscription"
+  autoload :BannedEvent, "twitch/objects/banned_event"
 
 end
