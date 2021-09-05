@@ -100,6 +100,14 @@ module Twitch
       SearchResource.new(self)
     end
 
+    def streams
+      StreamsResource.new(self)
+    end
+
+    def stream_markers
+      StreamMarkersResource.new(self)
+    end
+
     def connection
       @connection ||= Faraday.new(BASE_URL) do |conn|
         conn.request :authorization, :Bearer, access_token

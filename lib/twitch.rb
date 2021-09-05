@@ -48,6 +48,8 @@ module Twitch
   autoload :PredictionsResource, "twitch/resources/predictions"
   autoload :StreamScheduleResource, "twitch/resources/stream_schedule"
   autoload :SearchResource, "twitch/resources/search"
+  autoload :StreamsResource, "twitch/resources/streams"
+  autoload :StreamMarkersResource, "twitch/resources/stream_markers"
 
 
   autoload :User, "twitch/objects/user"
@@ -70,5 +72,7 @@ module Twitch
   autoload :Prediction, "twitch/objects/prediction"
   autoload :StreamSchedule, "twitch/objects/stream_schedule"
   autoload :SearchResult, "twitch/objects/search_result"
+  autoload :Stream, "twitch/objects/stream"
+  autoload :StreamMarker, "twitch/objects/stream_marker"
 
 end
