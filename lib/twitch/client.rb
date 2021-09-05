@@ -116,6 +116,14 @@ module Twitch
       TagsResource.new(self)
     end
 
+    def custom_rewards
+      CustomRewardsResource.new(self)
+    end
+
+    def custom_reward_redemptions
+      CustomRewardRedemptionsResource.new(self)
+    end
+
     def connection
       @connection ||= Faraday.new(BASE_URL) do |conn|
         conn.request :authorization, :Bearer, access_token

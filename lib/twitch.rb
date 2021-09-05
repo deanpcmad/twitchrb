@@ -52,6 +52,8 @@ module Twitch
   autoload :StreamMarkersResource, "twitch/resources/stream_markers"
   autoload :SubscriptionsResource, "twitch/resources/subscriptions"
   autoload :TagsResource, "twitch/resources/tags"
+  autoload :CustomRewardsResource, "twitch/resources/custom_rewards"
+  autoload :CustomRewardRedemptionsResource, "twitch/resources/custom_reward_redemptions"
 
 
   autoload :User, "twitch/objects/user"
@@ -79,5 +81,7 @@ module Twitch
   autoload :Subscription, "twitch/objects/subscription"
   autoload :SubscriptionCount, "twitch/objects/subscription_count"
   autoload :Tag, "twitch/objects/tag"
+  autoload :CustomReward, "twitch/objects/custom_reward"
+  autoload :CustomRewardRedemption, "twitch/objects/custom_reward_redemption"
 
 end
