@@ -47,6 +47,7 @@ module Twitch
   autoload :PollsResource, "twitch/resources/polls"
   autoload :PredictionsResource, "twitch/resources/predictions"
   autoload :StreamScheduleResource, "twitch/resources/stream_schedule"
+  autoload :SearchResource, "twitch/resources/search"
 
 
   autoload :User, "twitch/objects/user"
@@ -68,5 +69,6 @@ module Twitch
   autoload :Poll, "twitch/objects/poll"
   autoload :Prediction, "twitch/objects/prediction"
   autoload :StreamSchedule, "twitch/objects/stream_schedule"
+  autoload :SearchResult, "twitch/objects/search_result"
 
 end
