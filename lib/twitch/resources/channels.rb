@@ -7,12 +7,12 @@ module Twitch
 
     # Requires scope: channel:manage:broadcast
     def update(broadcaster_id:, **attributes)
-      patch_request("channels?broadcaster_id=#{broadcaster_id}", body: attributes)
+      patch_request("channels", body: attributes.merge(broadcaster_id: broadcaster_id))
     end
 
     # Requires scope: channel:read:editors
     def editors(broadcaster_id:)
-      response = get_request("channels/editors/?broadcaster_id=#{broadcaster_id}")
+      response = get_request("channels/editors?broadcaster_id=#{broadcaster_id}")
       Collection.from_response(response, key: "data", type: ChannelEditor)
     end
 
