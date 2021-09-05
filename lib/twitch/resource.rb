@@ -47,7 +47,7 @@ module Twitch
       when 503
         raise Error, "You have been rate limited for sending more than 20 requests per second. '#{response.body["error"]}'"
       when 204
-        # 204 is a response for "Channel/Stream updated successfully"
+        # 204 is a response for success on Twitch's API
         return true
       end
 
