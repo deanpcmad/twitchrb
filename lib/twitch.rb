@@ -45,6 +45,7 @@ module Twitch
   autoload :ModeratorsResource, "twitch/resources/moderators"
   autoload :ModeratorEventsResource, "twitch/resources/moderator_events"
   autoload :PollsResource, "twitch/resources/polls"
+  autoload :PredictionsResource, "twitch/resources/predictions"
 
 
   autoload :User, "twitch/objects/user"
@@ -64,5 +65,6 @@ module Twitch
   autoload :Moderator, "twitch/objects/moderator"
   autoload :ModeratorEvent, "twitch/objects/moderator_event"
   autoload :Poll, "twitch/objects/poll"
+  autoload :Prediction, "twitch/objects/prediction"
 
 end
