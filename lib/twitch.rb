@@ -50,6 +50,7 @@ module Twitch
   autoload :SearchResource, "twitch/resources/search"
   autoload :StreamsResource, "twitch/resources/streams"
   autoload :StreamMarkersResource, "twitch/resources/stream_markers"
+  autoload :SubscriptionsResource, "twitch/resources/subscriptions"
 
 
   autoload :User, "twitch/objects/user"
@@ -74,5 +75,6 @@ module Twitch
   autoload :SearchResult, "twitch/objects/search_result"
   autoload :Stream, "twitch/objects/stream"
   autoload :StreamMarker, "twitch/objects/stream_marker"
+  autoload :Subscription, "twitch/objects/subscription"
 
 end
