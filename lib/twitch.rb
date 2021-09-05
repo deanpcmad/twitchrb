@@ -76,5 +76,6 @@ module Twitch
   autoload :Stream, "twitch/objects/stream"
   autoload :StreamMarker, "twitch/objects/stream_marker"
   autoload :Subscription, "twitch/objects/subscription"
+  autoload :SubscriptionCount, "twitch/objects/subscription_count"
 
 end
