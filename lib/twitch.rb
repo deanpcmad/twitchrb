@@ -55,6 +55,7 @@ module Twitch
   autoload :CustomRewardsResource, "twitch/resources/custom_rewards"
   autoload :CustomRewardRedemptionsResource, "twitch/resources/custom_reward_redemptions"
   autoload :GoalsResource, "twitch/resources/goals"
+  autoload :HypeTrainEventsResource, "twitch/resources/hype_train_events"
 
 
   autoload :User, "twitch/objects/user"
@@ -85,5 +86,6 @@ module Twitch
   autoload :CustomReward, "twitch/objects/custom_reward"
   autoload :CustomRewardRedemption, "twitch/objects/custom_reward_redemption"
   autoload :Goal, "twitch/objects/goal"
+  autoload :HypeTrainEvent, "twitch/objects/hype_train_event"
 
 end

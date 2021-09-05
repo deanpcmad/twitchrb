@@ -128,6 +128,10 @@ module Twitch
       GoalsResource.new(self)
     end
 
+    def hype_train_events
+      HypeTrainEventsResource.new(self)
+    end
+
     def connection
       @connection ||= Faraday.new(BASE_URL) do |conn|
         conn.request :authorization, :Bearer, access_token
