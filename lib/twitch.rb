@@ -1,5 +1,6 @@
 require "faraday"
 require "faraday_middleware"
+require "json"
 require "twitch/version"
 
 require "twitch/version"
@@ -38,6 +39,7 @@ module Twitch
   autoload :GamesResource, "twitch/resources/games"
   autoload :VideosResource, "twitch/resources/videos"
   autoload :ClipsResource, "twitch/resources/clips"
+  autoload :EventSubSubscriptionsResource, "twitch/resources/event_sub_subscriptions"
 
 
   autoload :User, "twitch/objects/user"
@@ -51,5 +53,6 @@ module Twitch
   autoload :Game, "twitch/objects/game"
   autoload :Video, "twitch/objects/video"
   autoload :Clip, "twitch/objects/clip"
+  autoload :EventSubSubscription, "twitch/objects/event_sub_subscription"
 
 end
