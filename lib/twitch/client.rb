@@ -124,6 +124,10 @@ module Twitch
       CustomRewardRedemptionsResource.new(self)
     end
 
+    def goals
+      GoalsResource.new(self)
+    end
+
     def connection
       @connection ||= Faraday.new(BASE_URL) do |conn|
         conn.request :authorization, :Bearer, access_token

@@ -54,6 +54,7 @@ module Twitch
   autoload :TagsResource, "twitch/resources/tags"
   autoload :CustomRewardsResource, "twitch/resources/custom_rewards"
   autoload :CustomRewardRedemptionsResource, "twitch/resources/custom_reward_redemptions"
+  autoload :GoalsResource, "twitch/resources/goals"
 
 
   autoload :User, "twitch/objects/user"
@@ -83,5 +84,6 @@ module Twitch
   autoload :Tag, "twitch/objects/tag"
   autoload :CustomReward, "twitch/objects/custom_reward"
   autoload :CustomRewardRedemption, "twitch/objects/custom_reward_redemption"
+  autoload :Goal, "twitch/objects/goal"
 
 end
