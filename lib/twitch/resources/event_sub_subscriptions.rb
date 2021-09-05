@@ -3,7 +3,7 @@ module Twitch
     
     def list(**params)
       response = get_request("eventsub/subscriptions", params: params)
-      Collection.from_response(response, key: "data", type: EventSubSubscription)
+      Collection.from_response(response, type: EventSubSubscription)
     end
 
     def create(type:, version:, condition:, transport:)

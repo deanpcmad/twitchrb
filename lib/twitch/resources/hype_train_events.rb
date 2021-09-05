@@ -5,7 +5,7 @@ module Twitch
     # Broadcaster ID must match the user in the OAuth token
     def list(broadcaster_id:)
       response = get_request("hypetrain/events", params: {broadcaster_id: broadcaster_id})
-      Collection.from_response(response, key: "data", type: HypeTrainEvent)
+      Collection.from_response(response, type: HypeTrainEvent)
     end
 
   end

@@ -5,7 +5,7 @@ module Twitch
       raise "id, broadcaster_id or game_id is required" unless !params[:id].nil? || !params[:broadcaster_id].nil? || !params[:game_id].nil?
 
       response = get_request("clips", params: params)
-      Collection.from_response(response, key: "data", type: Clip)
+      Collection.from_response(response, type: Clip)
     end
 
     # Required scope: clips:edit

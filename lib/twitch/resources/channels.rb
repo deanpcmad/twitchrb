@@ -13,7 +13,7 @@ module Twitch
     # Requires scope: channel:read:editors
     def editors(broadcaster_id:)
       response = get_request("channels/editors?broadcaster_id=#{broadcaster_id}")
-      Collection.from_response(response, key: "data", type: ChannelEditor)
+      Collection.from_response(response, type: ChannelEditor)
     end
 
   end

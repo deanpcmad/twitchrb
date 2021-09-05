@@ -20,13 +20,13 @@ module Twitch
       raise "from_id or to_id is required" unless !params[:from_id].nil? || !params[:to_id].nil?
 
       response = get_request("users/follows", params: params)
-      Collection.from_response(response, key: "data", type: FollowedUser)
+      Collection.from_response(response, type: FollowedUser)
     end
 
     # Required scope: user:read:blocked_users
     def blocks(broadcaster_id:, **params)
       response = get_request("users/blocks?broadcaster_id=#{broadcaster_id}", params: params)
-      Collection.from_response(response, key: "data", type: BlockedUser)
+      Collection.from_response(response, type: BlockedUser)
     end
 
     # Required scope: user:manage:blocked_users

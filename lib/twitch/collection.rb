@@ -2,13 +2,13 @@ module Twitch
   class Collection
     attr_reader :data, :total, :cursor
 
-    def self.from_response(response, key:, type:)
+    def self.from_response(response, type:)
       body = response.body
 
       new(
-        data: body[key].map { |attrs| type.new(attrs) },
-        total: body[key].count,
-        cursor: body.dig("pagination", "cursor") 
+        data: body["data"].map { |attrs| type.new(attrs) },
+        total: body["data"].count,
+        cursor: body.dig("pagination", "cursor")
       )
     end
 

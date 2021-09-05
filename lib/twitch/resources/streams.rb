@@ -4,7 +4,7 @@ module Twitch
     def list(**params)
       response = get_request("streams", params: params)
 
-      Collection.from_response(response, key: "data", type: Stream)
+      Collection.from_response(response, type: Stream)
     end
 
     # Required scope: user:read:follows
@@ -12,7 +12,7 @@ module Twitch
     def followed(user_id:, **params)
       response = get_request("streams/followed", params: params.merge(user_id: user_id))
 
-      Collection.from_response(response, key: "data", type: Stream)
+      Collection.from_response(response, type: Stream)
     end
     
   end

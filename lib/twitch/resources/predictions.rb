@@ -6,7 +6,7 @@ module Twitch
       response = get_request("predictions", params: params.merge(broadcaster_id: broadcaster_id))
 
       if response.body["data"]
-        Collection.from_response(response, key: "data", type: Prediction)
+        Collection.from_response(response, type: Prediction)
       else
         nil
       end

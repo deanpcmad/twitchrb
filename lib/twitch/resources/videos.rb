@@ -5,7 +5,7 @@ module Twitch
       raise "id, user_id or game_id is required" unless !params[:id].nil? || !params[:user_id].nil? || !params[:game_id].nil?
 
       response = get_request("videos", params: params)
-      Collection.from_response(response, key: "data", type: Video)
+      Collection.from_response(response, type: Video)
     end
 
     # Required scope: channel:manage:videos
