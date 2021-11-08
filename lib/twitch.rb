@@ -3,26 +3,6 @@ require "faraday_middleware"
 require "json"
 require "twitch/version"
 
-require "twitch/version"
-
-# require "twitch/client"
-# require "twitch/initializable"
-
-# # Models
-# require "twitch/models/channel"
-# require "twitch/models/badge"
-# require "twitch/models/game"
-# require "twitch/models/emote"
-# require "twitch/models/poll"
-# require "twitch/models/poll_choice"
-
-# # Helix API
-# require "twitch/channels"
-# require "twitch/emotes"
-# require "twitch/badges"
-# require "twitch/games"
-# require "twitch/polls"
-
 module Twitch
 
   autoload :Client, "twitch/client"

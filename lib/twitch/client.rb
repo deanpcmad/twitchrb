@@ -1,25 +1,3 @@
-# require "httparty"
-
-
-#     def headers(kind)
-#       if kind == :helix
-#         {
-#           "Client-ID" => @client_id,
-#           "Accept" => "application/json",
-#           "Content-Type" => "application/json",
-#           "Authorization" => "Bearer #{@access_token}"
-#         }
-#       else
-#         {
-#           "Client-ID" => @client_id,
-#           "Accept" => "application/vnd.twitchtv.v5+json",
-#           # "Authorization" => "OAuth #{@access_token}"
-#         }
-#       end
-#     end
-
-
-
 module Twitch
   class Client
     BASE_URL = "https://api.twitch.tv/helix"
@@ -144,5 +122,6 @@ module Twitch
         conn.adapter adapter, @stubs
       end
     end
+
   end
 end
