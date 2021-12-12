@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    twitchrb (0.2.1)
+    twitchrb (0.2.2)
       faraday (~> 1.7)
       faraday_middleware (~> 1.1)
 
@@ -28,7 +28,7 @@ GEM
     faraday-net_http_persistent (1.2.0)
     faraday-patron (1.0.0)
     faraday-rack (1.0.0)
-    faraday_middleware (1.1.0)
+    faraday_middleware (1.2.0)
       faraday (~> 1.0)
     minitest (5.14.1)
     multipart-post (2.1.1)

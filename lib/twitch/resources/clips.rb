@@ -8,6 +8,10 @@ module Twitch
       Collection.from_response(response, type: Clip)
     end
 
+    def retrieve(id:)
+      Clip.new get_request("clips?id=#{id}").body.dig("data")[0]
+    end
+
     # Required scope: clips:edit
     def create(broadcaster_id:, **attributes)
       response = post_request("clips", body: attributes.merge(broadcaster_id: broadcaster_id))
