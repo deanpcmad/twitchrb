@@ -2,7 +2,7 @@ module Twitch
   class ChannelsResource < Resource
     
     def get(broadcaster_id:)
-      User.new get_request("channels?broadcaster_id=#{broadcaster_id}").body.dig("data")[0]
+      Channel.new get_request("channels?broadcaster_id=#{broadcaster_id}").body.dig("data")[0]
     end
 
     # Requires scope: channel:manage:broadcast
