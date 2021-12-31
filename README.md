@@ -11,7 +11,7 @@ It only supports the Helix API as v5 is deprecated.
 Add this line to your application's Gemfile:
 
 ```ruby
-gem "twitchrb", require: "twitch"
+gem "twitchrb"
 ```
 
 ## Usage
