@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    twitchrb (0.2.2)
+    twitchrb (0.2.3)
       faraday (~> 1.7)
       faraday_middleware (~> 1.1)
 
