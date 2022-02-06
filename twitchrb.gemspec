@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["dean@deanpcmad.com"]
 
   spec.summary       = "A Ruby library for interacting with the Twitch Helix API"
-  spec.homepage      = "https://twitchrb.com"
+  spec.homepage      = "https://deanpcmad.com"
   spec.license       = "MIT"
   spec.required_ruby_version = Gem::Requirement.new(">= 2.3.0")
 
