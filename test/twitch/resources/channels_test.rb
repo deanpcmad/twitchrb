@@ -1,12 +1,14 @@
-# require "test_helper"
+require "test_helper"
 
-# class ChannelsResourceTest < Minitest::Test
-#   def test_info
-#     stub = stub_request("channels", response: stub_response(fixture: "channels/get"))
-#     client   = Twitch::Client.new(client_id: "123", client_secret: "abc", access_token: "abc123", adapter: :test, stubs: stub)
-#     channels = client.channels.get(broadcaster_id: 141981764)
+class ChannelsResourceTest < Minitest::Test
+  
+  def test_channels_get
+    stub = stub_request("channels", response: stub_response(fixture: "channels/get"))
+    client  = Twitch::Client.new(client_id: "123", client_secret: "abc", access_token: "abc123", adapter: :test, stubs: stub)
+    channel = client.channels.get(broadcaster_id: 141981764)
 
-#     assert_equal Twitch::Channel, channels.data.first
-#     assert_equal "twitchdev", channels.data.first.broadcaster_login
-#   end
-# end
+    assert_equal Twitch::Channel, channel.class
+    assert_equal "twitchdev", channel.broadcaster_login
+  end
+
+end
