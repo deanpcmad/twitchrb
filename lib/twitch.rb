@@ -66,5 +66,6 @@ module Twitch
   autoload :CustomRewardRedemption, "twitch/objects/custom_reward_redemption"
   autoload :Goal, "twitch/objects/goal"
   autoload :HypeTrainEvent, "twitch/objects/hype_train_event"
+  autoload :FollowCount, "twitch/objects/follow_count"
 
 end
