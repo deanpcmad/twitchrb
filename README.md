@@ -64,8 +64,12 @@ An access token is required because the Helix API requires authentication.
 # Retrieve a channel by their ID
 @client.channels.get(broadcaster_id: 141981764)
 
-# Retrieve the total followers count for a channel
+# Retrieve the number of Followers a broadcaster has
 @client.channels.follows_count(broadcaster_id: 141981764)
+
+# Retrieve the number of Subscribers and Subscriber Points a broadcaster has
+# Required scope: channel:read:subscriptions
+@client.channels.subscribers_count(broadcaster_id: 141981764)
 
 # Update the currently authenticated channel details
 # Required scope: channel:manage:broadcast
