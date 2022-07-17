@@ -37,6 +37,7 @@ module Twitch
   autoload :HypeTrainEventsResource, "twitch/resources/hype_train_events"
   autoload :AnnouncementsResource, "twitch/resources/announcements"
   autoload :RaidsResource, "twitch/resources/raids"
+  autoload :ChatMessagesResource, "twitch/resources/chat_messages"
 
 
   autoload :User, "twitch/objects/user"

@@ -214,6 +214,15 @@ These require an application OAuth access token.
 @client.raids.delete broadcaster_id: 123
 ```
 
+## Delete Chat Messages
+
+```ruby
+# Removes a single chat message from the broadcaster's chat room
+# Requires moderator:manage:chat_messages
+# moderator_id can be either the currently authenticated moderator or the broadcaster
+@client.chat_messages.delete broadcaster_id: 123, moderator_id: 123, message_id: "abc123-abc123"
+```
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/twitchrb/twitchrb.

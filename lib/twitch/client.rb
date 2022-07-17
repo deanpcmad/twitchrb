@@ -117,6 +117,10 @@ module Twitch
       RaidsResource.new(self)
     end
 
+    def chat_messages
+      ChatMessagesResource.new(self)
+    end
+
     def connection
       @connection ||= Faraday.new(BASE_URL) do |conn|
         conn.request :authorization, :Bearer, access_token
