@@ -109,6 +109,10 @@ module Twitch
       HypeTrainEventsResource.new(self)
     end
 
+    def announcements
+      AnnouncementsResource.new(self)
+    end
+
     def connection
       @connection ||= Faraday.new(BASE_URL) do |conn|
         conn.request :authorization, :Bearer, access_token

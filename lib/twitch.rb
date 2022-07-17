@@ -35,6 +35,7 @@ module Twitch
   autoload :CustomRewardRedemptionsResource, "twitch/resources/custom_reward_redemptions"
   autoload :GoalsResource, "twitch/resources/goals"
   autoload :HypeTrainEventsResource, "twitch/resources/hype_train_events"
+  autoload :AnnouncementsResource, "twitch/resources/announcements"
 
 
   autoload :User, "twitch/objects/user"

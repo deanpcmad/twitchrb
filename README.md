@@ -185,6 +185,15 @@ These require an application OAuth access token.
 @client.banned_users.list(broadcaster_id: 123)
 ```
 
+## Send Chat Announcement
+
+```ruby
+# Sends an announcement to the broadcaster's chat room
+# Requires moderator:manage:announcements
+# moderator_id can be either the currently authenticated moderator or the broadcaster
+# color can be either blue, green, orange, purple, primary. If left blank, primary is default
+@client.announcements.create broadcaster_id: 123, moderator_id: 123, message: "test message", color: "purple"
+```
 
 ## Contributing
 
