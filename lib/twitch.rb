@@ -36,6 +36,7 @@ module Twitch
   autoload :GoalsResource, "twitch/resources/goals"
   autoload :HypeTrainEventsResource, "twitch/resources/hype_train_events"
   autoload :AnnouncementsResource, "twitch/resources/announcements"
+  autoload :RaidsResource, "twitch/resources/raids"
 
 
   autoload :User, "twitch/objects/user"
@@ -68,5 +69,6 @@ module Twitch
   autoload :Goal, "twitch/objects/goal"
   autoload :HypeTrainEvent, "twitch/objects/hype_train_event"
   autoload :FollowCount, "twitch/objects/follow_count"
+  autoload :Raid, "twitch/objects/raid"
 
 end

@@ -195,6 +195,25 @@ These require an application OAuth access token.
 @client.announcements.create broadcaster_id: 123, moderator_id: 123, message: "test message", color: "purple"
 ```
 
+## Raids
+
+### Start a Raid
+
+```ruby
+# Starts a raid 
+# Requires channel:manage:raids
+# from_broadcaster_id must be the authenticated user
+@client.raids.create from_broadcaster_id: 123, to_broadcaster_id: 321
+```
+
+### Cancel a Raid
+
+```ruby
+# Requires channel:manage:raids
+# broadcaster_id must be the authenticated user
+@client.raids.delete broadcaster_id: 123
+```
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/twitchrb/twitchrb.
