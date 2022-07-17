@@ -39,6 +39,7 @@ module Twitch
   autoload :RaidsResource, "twitch/resources/raids"
   autoload :ChatMessagesResource, "twitch/resources/chat_messages"
   autoload :VipsResource, "twitch/resources/vips"
+  autoload :WhispersResource, "twitch/resources/whispers"
 
 
   autoload :User, "twitch/objects/user"

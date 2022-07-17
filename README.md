@@ -1,8 +1,6 @@
 # TwitchRB
 
-**This library is a work in progress**
-
-TwitchRB is a Ruby library for intereacting with the Twitch Helix API.
+TwitchRB is a Ruby library for interacting with the Twitch Helix API.
 
 ## Installation
 
@@ -16,7 +14,7 @@ gem "twitchrb"
 
 ### Set Client Details
 
-Firstly you'll need to set a Client ID, Secret Key and an Access Token.
+Firstly you'll need to set a Client ID and an Access Token.
 
 An access token is required because the Helix API requires authentication.
 
@@ -274,6 +272,15 @@ These require an application OAuth access token.
 # Requires moderator:manage:chat_messages
 # moderator_id can be either the currently authenticated moderator or the broadcaster
 @client.chat_messages.delete broadcaster_id: 123, moderator_id: 123, message_id: "abc123-abc123"
+```
+
+## Whispers
+
+```ruby
+# Send a Whisper
+# Required scope: user:manage:whispers
+# from_user_id must be the currently authenticated user's ID and have a verified phone number
+@client.whispers.create from_user_id: 123, to_user_id: 321, message: "this is a test"
 ```
 
 ## Contributing
