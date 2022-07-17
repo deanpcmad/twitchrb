@@ -38,6 +38,7 @@ module Twitch
   autoload :AnnouncementsResource, "twitch/resources/announcements"
   autoload :RaidsResource, "twitch/resources/raids"
   autoload :ChatMessagesResource, "twitch/resources/chat_messages"
+  autoload :VipsResource, "twitch/resources/vips"
 
 
   autoload :User, "twitch/objects/user"
@@ -72,5 +73,6 @@ module Twitch
   autoload :FollowCount, "twitch/objects/follow_count"
   autoload :Raid, "twitch/objects/raid"
   autoload :UserColor, "twitch/objects/user_color"
+  autoload :Vip, "twitch/objects/vip"
 
 end

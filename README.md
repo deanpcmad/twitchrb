@@ -231,6 +231,29 @@ These require an application OAuth access token.
 @client.moderators.delete broadcaster_id: 123, user_id: 321
 ```
 
+## VIPs
+
+```ruby
+# List all VIPs for a broadcaster
+# Required scope: channel:read:vips or channel:manage:vips
+# broadcaster_id must be the currently authenticated user
+@client.vips.list broadcaster_id: 123
+```
+
+```ruby
+# Add a VIP
+# Required scope: channel:manage:vips
+# broadcaster_id must be the currently authenticated user
+@client.vips.create broadcaster_id: 123, user_id: 321
+```
+
+```ruby
+# Remove a VIP
+# Required scope: channel:manage:vips
+# broadcaster_id must be the currently authenticated user
+@client.vips.delete broadcaster_id: 123, user_id: 321
+```
+
 ## Raids
 
 ```ruby
