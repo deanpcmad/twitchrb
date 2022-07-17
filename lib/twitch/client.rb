@@ -2,11 +2,10 @@ module Twitch
   class Client
     BASE_URL = "https://api.twitch.tv/helix"
 
-    attr_reader :client_id, :client_secret, :access_token, :adapter
+    attr_reader :client_id, :access_token, :adapter
 
-    def initialize(client_id:, client_secret:, access_token:, adapter: Faraday.default_adapter, stubs: nil)
+    def initialize(client_id:, access_token:, adapter: Faraday.default_adapter, stubs: nil)
       @client_id = client_id
-      @client_secret = client_secret
       @access_token = access_token
       @adapter = adapter
 

@@ -21,7 +21,7 @@ Firstly you'll need to set a Client ID, Secret Key and an Access Token.
 An access token is required because the Helix API requires authentication.
 
 ```ruby
-@client = Twitch::Client.new(client_id: "", client_secret: "", access_token: "")
+@client = Twitch::Client.new(client_id: "", access_token: "")
 ```
 
 ### Users
