@@ -208,9 +208,30 @@ These require an application OAuth access token.
 @client.announcements.create broadcaster_id: 123, moderator_id: 123, message: "test message", color: "purple"
 ```
 
-## Raids
+## Moderators
 
-### Start a Raid
+```ruby
+# List all moderators for a broadcaster
+# Required scope: moderation:read
+# broadcaster_id must be the currently authenticated user
+@client.moderators.list broadcaster_id: 123
+```
+
+```ruby
+# Add a Moderator
+# Required scope: channel:manage:moderators
+# broadcaster_id must be the currently authenticated user
+@client.moderators.create broadcaster_id: 123, user_id: 321
+```
+
+```ruby
+# Remove a Moderator
+# Required scope: channel:manage:moderators
+# broadcaster_id must be the currently authenticated user
+@client.moderators.delete broadcaster_id: 123, user_id: 321
+```
+
+## Raids
 
 ```ruby
 # Starts a raid 
@@ -219,15 +240,11 @@ These require an application OAuth access token.
 @client.raids.create from_broadcaster_id: 123, to_broadcaster_id: 321
 ```
 
-### Cancel a Raid
-
 ```ruby
 # Requires channel:manage:raids
 # broadcaster_id must be the authenticated user
 @client.raids.delete broadcaster_id: 123
 ```
-
-## Delete Chat Messages
 
 ```ruby
 # Removes a single chat message from the broadcaster's chat room
