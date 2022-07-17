@@ -283,6 +283,25 @@ These require an application OAuth access token.
 @client.whispers.create from_user_id: 123, to_user_id: 321, message: "this is a test"
 ```
 
+## AutoMod
+
+```ruby
+# Check if a message meets the channel's AutoMod requirements
+# Required scope: moderation:read
+# id is a developer-generated identifier for mapping messages to results.
+@client.automod.check_status_multiple broadcaster_id: 123, id: "abc123", text: "Is this message allowed?"
+
+#> #<Twitch::AutomodStatus msg_id="abc123", is_permitted=true>
+```
+
+```ruby
+# Check if multiple messages meet the channel's AutoMod requirements
+# messages must be an array of hashes and must include msg_id and msg_text
+# Returns a collection
+messages = [{msg_id: "abc1", msg_text: "is this allowed?"}, {msg_id: "abc2", msg_text: "What about this?"}]
+@client.automod.check_status_multiple broadcaster_id: 72938118, messages: messages
+```
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/twitchrb/twitchrb.

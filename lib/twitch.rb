@@ -40,6 +40,7 @@ module Twitch
   autoload :ChatMessagesResource, "twitch/resources/chat_messages"
   autoload :VipsResource, "twitch/resources/vips"
   autoload :WhispersResource, "twitch/resources/whispers"
+  autoload :AutomodResource, "twitch/resources/automod"
 
 
   autoload :User, "twitch/objects/user"
@@ -75,5 +76,6 @@ module Twitch
   autoload :Raid, "twitch/objects/raid"
   autoload :UserColor, "twitch/objects/user_color"
   autoload :Vip, "twitch/objects/vip"
+  autoload :AutomodStatus, "twitch/objects/automod_status"
 
 end

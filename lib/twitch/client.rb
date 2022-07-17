@@ -129,6 +129,10 @@ module Twitch
       WhispersResource.new(self)
     end
 
+    def automod
+      AutomodResource.new(self)
+    end
+
     def connection
       @connection ||= Faraday.new(BASE_URL) do |conn|
         conn.request :authorization, :Bearer, access_token
