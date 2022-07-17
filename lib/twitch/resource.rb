@@ -40,6 +40,8 @@ module Twitch
         raise Error, "Error 404: No results were found for your request. '#{response.body["error"]}'"
       when 409
         raise Error, "Error 409: Your request was a conflict. '#{response.body["message"]}'"
+      when 422
+        raise Error, "Error 422: Unprocessable Entity. '#{response.body["message"]}"
       when 429
         raise Error, "Error 429: Your request exceeded the API rate limit. '#{response.body["error"]}'"
       when 500
