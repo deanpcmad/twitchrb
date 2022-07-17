@@ -77,5 +77,6 @@ module Twitch
   autoload :UserColor, "twitch/objects/user_color"
   autoload :Vip, "twitch/objects/vip"
   autoload :AutomodStatus, "twitch/objects/automod_status"
+  autoload :AutomodSetting, "twitch/objects/automod_setting"
 
 end

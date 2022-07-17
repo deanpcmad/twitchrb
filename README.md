@@ -299,7 +299,22 @@ These require an application OAuth access token.
 # messages must be an array of hashes and must include msg_id and msg_text
 # Returns a collection
 messages = [{msg_id: "abc1", msg_text: "is this allowed?"}, {msg_id: "abc2", msg_text: "What about this?"}]
-@client.automod.check_status_multiple broadcaster_id: 72938118, messages: messages
+@client.automod.check_status_multiple broadcaster_id: 123, messages: messages
+```
+
+```ruby
+# Get AutoMod settings
+# Required scope: moderator:read:automod_settings
+# moderator_id can be either the currently authenticated moderator or the broadcaster
+@client.automod.settings broadcaster_id: 123, moderator_id: 321
+```
+
+```ruby
+# Update AutoMod settings
+# Required scope: moderator:manage:automod_settings
+# moderator_id can be either the currently authenticated moderator or the broadcaster
+# As this is a PUT method, it overwrites all options so all fields you want set should be supplied
+@client.automod.update_settings broadcaster_id: 123, moderator_id: 321, swearing: 1
 ```
 
 ## Contributing
