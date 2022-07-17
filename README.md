@@ -56,6 +56,19 @@ An access token is required because the Helix API requires authentication.
 # Required scope: user:manage:blocked_users
 @client.users.unblock_user(target_user_id: 141981764)
 
+# Get a User's Chat Color
+@client.users.get_color(user_id: 123)
+
+# Or get multiple users' chat colors
+# Returns a collection
+@client.users.get_color(user_ids: "123,321")
+
+# Update a User's Chat Color
+# Requires user:manage:chat_color
+# user_id must be the currently authenticated user
+# Current allowed colours: blue, blue_violet, cadet_blue, chocolate, coral, dodger_blue, firebrick, golden_rod, green, hot_pink, orange_red, red, sea_green, spring_green, yellow_green
+# For Turbo and Prime users, a hex colour code is allowed.
+@client.users.update_color(user_id: 123, color: "blue")
 ```
 
 ### Channels

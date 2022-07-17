@@ -16,6 +16,25 @@ module Twitch
       User.new response.body.dig("data")[0]
     end
 
+    def get_color(user_id: nil, user_ids: nil)
+      if user_ids != nil
+        users = user_ids.split(",").map{|i| "user_id=#{i.strip}"}.join("&")
+        puts "chat/color?#{users}"
+        response = get_request("chat/color?#{users}")
+        Collection.from_response(response, type: UserColor)
+      else
+        response = get_request("chat/color?user_id=#{user_id}")
+        UserColor.new response.body.dig("data")[0]
+      end
+    end
+
+    # Update a user's color
+    # Required scope: user:manage:chat_color
+    # user_id must be the currently authenticated user
+    def update_color(user_id:, color:)
+      put_request("chat/color?user_id=#{user_id}&color=#{color}", body: {})
+    end
+
     def follows(**params)
       raise "from_id or to_id is required" unless !params[:from_id].nil? || !params[:to_id].nil?
 

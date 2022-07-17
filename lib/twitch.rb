@@ -71,5 +71,6 @@ module Twitch
   autoload :HypeTrainEvent, "twitch/objects/hype_train_event"
   autoload :FollowCount, "twitch/objects/follow_count"
   autoload :Raid, "twitch/objects/raid"
+  autoload :UserColor, "twitch/objects/user_color"
 
 end
