@@ -4,7 +4,7 @@ class ChannelsResourceTest < Minitest::Test
   
   def test_channels_get
     stub = stub_request("channels", response: stub_response(fixture: "channels/get"))
-    client  = Twitch::Client.new(client_id: "123", client_secret: "abc", access_token: "abc123", adapter: :test, stubs: stub)
+    client  = Twitch::Client.new(client_id: "123", access_token: "abc123", adapter: :test, stubs: stub)
     channel = client.channels.get(broadcaster_id: 141981764)
 
     assert_equal Twitch::Channel, channel.class

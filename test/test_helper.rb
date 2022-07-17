@@ -8,7 +8,7 @@ require "json"
 class Minitest::Test
 
   def set_client(stub)
-    Twitch::Client.new(client_id: "123", client_secret: "abc", access_token: "abc123", adapter: :test, stubs: stub)
+    Twitch::Client.new(client_id: "123", access_token: "abc123", adapter: :test, stubs: stub)
   end
 
   def stub_response(fixture:, status: 200, headers: {"Content-Type" => "application/json"})
