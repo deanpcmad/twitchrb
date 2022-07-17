@@ -196,6 +196,20 @@ These require an application OAuth access token.
 @client.banned_users.list(broadcaster_id: 123)
 ```
 
+```ruby
+# Ban/Timeout a user from a broadcaster's channel
+# Required scope: moderator:manage:banned_users
+# A reason is required
+# To time a user out, a duration is required. If no duration is set, the user will be banned.
+@client.banned_users.create broadcaster_id: 123, moderator_id: 321, user_id: 112233, reason: "testing", duration: 60
+```
+
+```ruby
+# Unban/untimeout a user from a broadcaster's channel
+# Required scope: moderator:manage:banned_users
+@client.banned_users.delete broadcaster_id: 123, moderator_id: 321, user_id: 112233
+```
+
 ## Send Chat Announcement
 
 ```ruby
