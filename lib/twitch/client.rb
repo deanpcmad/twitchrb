@@ -133,6 +133,10 @@ module Twitch
       AutomodResource.new(self)
     end
 
+    def blocked_terms
+      BlockedTermsResource.new(self)
+    end
+
     def connection
       @connection ||= Faraday.new(BASE_URL) do |conn|
         conn.request :authorization, :Bearer, access_token

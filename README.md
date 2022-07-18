@@ -340,6 +340,29 @@ messages = [{msg_id: "abc1", msg_text: "is this allowed?"}, {msg_id: "abc2", msg
 @client.goals.list broadcaster_id: 123
 ```
 
+## Blocked Terms
+
+```ruby
+# List all blocked terms
+# Required scope: moderator:read:blocked_terms
+# moderator_id can be either the currently authenticated moderator or the broadcaster
+@client.blocked_terms.list broadcaster_id: 123, moderator_id: 321
+```
+
+```ruby
+# Create a blocked term
+# Required scope: moderator:manage:blocked_terms
+# moderator_id can be either the currently authenticated moderator or the broadcaster
+@client.blocked_terms.create broadcaster_id: 123, moderator_id: 321, text: "term to block"
+```
+
+```ruby
+# Delete a blocked term
+# Required scope: moderator:manage:blocked_terms
+# moderator_id can be either the currently authenticated moderator or the broadcaster
+@client.blocked_terms.delete broadcaster_id: 123, moderator_id: 321, id: "abc12-12abc"
+```
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/twitchrb/twitchrb.

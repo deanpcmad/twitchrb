@@ -41,6 +41,7 @@ module Twitch
   autoload :VipsResource, "twitch/resources/vips"
   autoload :WhispersResource, "twitch/resources/whispers"
   autoload :AutomodResource, "twitch/resources/automod"
+  autoload :BlockedTermsResource, "twitch/resources/blocked_terms"
 
 
   autoload :User, "twitch/objects/user"
@@ -78,5 +79,6 @@ module Twitch
   autoload :Vip, "twitch/objects/vip"
   autoload :AutomodStatus, "twitch/objects/automod_status"
   autoload :AutomodSetting, "twitch/objects/automod_setting"
+  autoload :BlockedTerm, "twitch/objects/blocked_term"
 
 end
