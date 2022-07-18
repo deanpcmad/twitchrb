@@ -331,6 +331,15 @@ messages = [{msg_id: "abc1", msg_text: "is this allowed?"}, {msg_id: "abc2", msg
 @client.automod.update_settings broadcaster_id: 123, moderator_id: 321, swearing: 1
 ```
 
+## Creator Goals
+
+```ruby
+# List all active creator goals
+# Required scope: channel:read:goals
+# broadcaster_id must match the currently authenticated user
+@client.goals.list broadcaster_id: 123
+```
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/twitchrb/twitchrb.
