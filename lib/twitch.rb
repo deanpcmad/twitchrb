@@ -42,6 +42,7 @@ module Twitch
   autoload :WhispersResource, "twitch/resources/whispers"
   autoload :AutomodResource, "twitch/resources/automod"
   autoload :BlockedTermsResource, "twitch/resources/blocked_terms"
+  autoload :CharityCampaignsResource, "twitch/resources/charity_campaigns"
 
 
   autoload :User, "twitch/objects/user"
@@ -80,5 +81,6 @@ module Twitch
   autoload :AutomodStatus, "twitch/objects/automod_status"
   autoload :AutomodSetting, "twitch/objects/automod_setting"
   autoload :BlockedTerm, "twitch/objects/blocked_term"
+  autoload :CHarityCampaign, "twitch/objects/charity_campaign"
 
 end

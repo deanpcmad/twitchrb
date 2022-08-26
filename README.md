@@ -363,6 +363,15 @@ messages = [{msg_id: "abc1", msg_text: "is this allowed?"}, {msg_id: "abc2", msg
 @client.blocked_terms.delete broadcaster_id: 123, moderator_id: 321, id: "abc12-12abc"
 ```
 
+## Charity Campaigns
+
+```ruby
+# Gets information about the charity campaign that a broadcaster is running
+# Required scope: channel:read:charity
+# broadcaster_id must match the currently authenticated user
+@client.charity_campaigns.list broadcaster_id: 123
+```
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/twitchrb/twitchrb.

@@ -137,6 +137,10 @@ module Twitch
       BlockedTermsResource.new(self)
     end
 
+    def charity_campaigns
+      CharityCampaignsResource.new(self)
+    end
+
     def connection
       @connection ||= Faraday.new(BASE_URL) do |conn|
         conn.request :authorization, :Bearer, access_token
