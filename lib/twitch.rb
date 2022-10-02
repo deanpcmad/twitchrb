@@ -81,6 +81,6 @@ module Twitch
   autoload :AutomodStatus, "twitch/objects/automod_status"
   autoload :AutomodSetting, "twitch/objects/automod_setting"
   autoload :BlockedTerm, "twitch/objects/blocked_term"
-  autoload :CHarityCampaign, "twitch/objects/charity_campaign"
+  autoload :CharityCampaign, "twitch/objects/charity_campaign"
 
 end
