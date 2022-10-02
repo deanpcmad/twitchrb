@@ -372,6 +372,15 @@ messages = [{msg_id: "abc1", msg_text: "is this allowed?"}, {msg_id: "abc2", msg
 @client.charity_campaigns.list broadcaster_id: 123
 ```
 
+## Chatters
+
+```ruby
+# Gets the list of users that are connected to the specified broadcaster’s chat session
+# Required scope: moderator:read:chatters
+# broadcaster_id must match the currently authenticated user
+@client.chatters.list broadcaster_id: 123, moderator_id: 123
+```
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/twitchrb/twitchrb.
