@@ -2,6 +2,7 @@ module Twitch
   class AnnouncementsResource < Resource
     
     # Moderator ID must match the user in the OAuth token
+    # Required scope: moderator:manage:announcements
     def create(broadcaster_id:, moderator_id:, message:, color: nil)
       attrs = {message: message, color: color}
 
