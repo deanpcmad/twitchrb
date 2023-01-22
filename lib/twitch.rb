@@ -44,6 +44,7 @@ module Twitch
   autoload :BlockedTermsResource, "twitch/resources/blocked_terms"
   autoload :CharityCampaignsResource, "twitch/resources/charity_campaigns"
   autoload :ChattersResource, "twitch/resources/chatters"
+  autoload :ShoutoutsResource, "twitch/resources/shoutouts"
 
 
   autoload :User, "twitch/objects/user"

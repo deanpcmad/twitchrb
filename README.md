@@ -220,6 +220,17 @@ These require an application OAuth access token.
 @client.announcements.create broadcaster_id: 123, moderator_id: 123, message: "test message", color: "purple"
 ```
 
+## Create a Shoutout
+
+```ruby
+# Creates a Shoutout for a broadcaster
+# Requires moderator:manage:shoutouts
+# From: the ID of the Broadcaster creating the Shoutout
+# To: the ID of the Broadcaster the Shoutout will be for
+# moderator_id can be either the currently authenticated moderator or the broadcaster
+@client.shoutouts.create from: 123, to: 321, moderator_id: 123
+```
+
 ## Moderators
 
 ```ruby

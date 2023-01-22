@@ -145,6 +145,10 @@ module Twitch
       ChattersResource.new(self)
     end
 
+    def shoutouts
+      ShoutoutsResource.new(self)
+    end
+
     def connection
       @connection ||= Faraday.new(BASE_URL) do |conn|
         conn.request :authorization, :Bearer, access_token
