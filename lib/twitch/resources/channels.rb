@@ -5,9 +5,25 @@ module Twitch
       Channel.new get_request("channels?broadcaster_id=#{broadcaster_id}").body.dig("data")[0]
     end
 
+    # Retrieve a list of broadcasters a specified user follows
+    # Required scope: user:read:follows
+    # user_id must match the authenticated user
+    def followed(user_id:, **params)
+      response = get_request("channels/followed", params: params.merge(user_id: user_id))
+      Collection.from_response(response, type: User)
+    end
+
+    # Retrieve a list of users that follow a specified broadcaster
+    # Required scope: moderator:read:followers
+    # broadcaster_id must match the authenticated user
+    def followers(broadcaster_id:, **params)
+      response = get_request("channels/followers", params: params.merge(broadcaster_id: broadcaster_id))
+      Collection.from_response(response, type: User)
+    end
+
     # Grabs the number of Followers a broadcaster has
     def follows_count(broadcaster_id:)
-      response = get_request("users/follows", params: {to_id: broadcaster_id})
+      response = get_request("channels/followers", params: {broadcaster_id: broadcaster_id})
 
       FollowCount.new(count: response.body["total"])
     end

@@ -35,6 +35,7 @@ An access token is required because the Helix API requires authentication.
 # Required scope: user:edit
 @client.users.update(description: "New Description")
 
+# Deprecated. Please look at using channels.followed or channels.followers
 # Shows users who follow or are following a user ID
 @client.users.follows(from_id: 141981764)
 @client.users.follows(to_id: 141981764)
@@ -74,6 +75,16 @@ An access token is required because the Helix API requires authentication.
 ```ruby
 # Retrieve a channel by their ID
 @client.channels.get(broadcaster_id: 141981764)
+
+# Retrieve a list of broadcasters a specified user follows
+# user_id must match the currently authenticated user
+# Required scope: user:read:follows
+@client.channels.followed user_id: 123123
+
+# Retrieve a list of users that follow a specified broadcaster
+# broadcaster_id must match the currently authenticated user
+# Required scope: moderator:read:followers
+@client.channels.followers broadcaster_id: 123123
 
 # Retrieve the number of Followers a broadcaster has
 @client.channels.follows_count(broadcaster_id: 141981764)

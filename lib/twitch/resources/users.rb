@@ -35,7 +35,10 @@ module Twitch
       put_request("chat/color?user_id=#{user_id}&color=#{color}", body: {})
     end
 
+    # Deprecated.
     def follows(**params)
+      warn "`users.follows` is deprecated. Use `channels.followers` or `channels.following` instead."
+      
       raise "from_id or to_id is required" unless !params[:from_id].nil? || !params[:to_id].nil?
 
       response = get_request("users/follows", params: params)
