@@ -82,7 +82,8 @@ An access token is required because the Helix API requires authentication.
 @client.channels.followed user_id: 123123
 
 # Retrieve a list of users that follow a specified broadcaster
-# broadcaster_id must match the currently authenticated user
+# broadcaster_id must match the currently authenticated user or 
+# a moderator of the specified broadcaster
 # Required scope: moderator:read:followers
 @client.channels.followers broadcaster_id: 123123
 
