@@ -63,6 +63,8 @@ module Twitch
 
     # A quick method to see if a user is following a channel
     def following?(from_id:, to_id:)
+      warn "`users.following?` is deprecated. Use `channels.followers` or `channels.following` instead."
+
       response = get_request("users/follows", params: {from_id: from_id, to_id: to_id})
 
       if response.body["data"].empty?
