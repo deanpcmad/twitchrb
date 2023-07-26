@@ -1,12 +1,44 @@
 module Twitch
   class UsersResource < Resource
-    
-    def get_by_id(user_id:)
-      User.new get_request("users?id=#{user_id}").body.dig("data")[0]
+
+    def get_by_id(user_id: nil, id: nil, ids: nil)
+      raise "Either id or ids is required" unless !id.nil? || !ids.nil? || !user_id.nil?
+
+      if ids
+        user_ids = ids.split(",").map {|i| "id=#{i.strip}"}
+        response = get_request("users?#{user_ids.join("&")}")
+      else
+        response = get_request("users?id=#{id || user_id}")
+      end
+
+      body = response.body.dig("data")
+      if body.count == 1
+        User.new body[0]
+      elsif body.count > 1
+        Collection.from_response(response, type: User)
+      else
+        return nil
+      end
     end
 
-    def get_by_username(username:)
-      User.new get_request("users?login=#{username}").body.dig("data")[0]
+    def get_by_username(username: nil, usernames: nil)
+      raise "Either username or usernames is required" unless !username.nil? || !usernames.nil?
+
+      if usernames
+        user_names = usernames.split(",").map {|u| "login=#{u.strip}"}
+        response = get_request("users?#{user_names.join("&")}")
+      else
+        response = get_request("users?login=#{username}")
+      end
+
+      body = response.body.dig("data")
+      if body.count == 1
+        User.new body[0]
+      elsif body.count > 1
+        Collection.from_response(response, type: User)
+      else
+        return nil
+      end
     end
 
     # Updates the current users description
@@ -38,7 +70,7 @@ module Twitch
     # Deprecated.
     def follows(**params)
       warn "`users.follows` is deprecated. Use `channels.followers` or `channels.following` instead."
-      
+
       raise "from_id or to_id is required" unless !params[:from_id].nil? || !params[:to_id].nil?
 
       response = get_request("users/follows", params: params)

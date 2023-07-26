@@ -26,10 +26,18 @@ An access token is required because the Helix API requires authentication.
 
 ```ruby
 # Retrieves a user by their ID
-@client.users.get_by_id(user_id: 141981764)
+@client.users.get_by_id(id: 141981764)
+
+# Retrieves multiple users by their IDs
+# A comma is required to separate them
+@client.users.get_by_id(ids: "141981764, 72938118")
 
 # Retrieves a user by their username
 @client.users.get_by_username(username: "twitchdev")
+
+# Retrieves multiple users by their usernames
+# A comma is required to separate them
+@client.users.get_by_username(usernames: "twitchdev,deanpcmad")
 
 # Update the currently authenticated user's description
 # Required scope: user:edit
@@ -82,7 +90,7 @@ An access token is required because the Helix API requires authentication.
 @client.channels.followed user_id: 123123
 
 # Retrieve a list of users that follow a specified broadcaster
-# broadcaster_id must match the currently authenticated user or 
+# broadcaster_id must match the currently authenticated user or
 # a moderator of the specified broadcaster
 # Required scope: moderator:read:followers
 @client.channels.followers broadcaster_id: 123123
@@ -170,7 +178,7 @@ attributes = {title: "My new title"}
 
 ## EventSub Subscriptions
 
-These require an application OAuth access token.  
+These require an application OAuth access token.
 
 ```ruby
 # Retrieves a list of EventSub Subscriptions
@@ -292,7 +300,7 @@ These require an application OAuth access token.
 ## Raids
 
 ```ruby
-# Starts a raid 
+# Starts a raid
 # Requires channel:manage:raids
 # from_broadcaster_id must be the authenticated user
 @client.raids.create from_broadcaster_id: 123, to_broadcaster_id: 321
