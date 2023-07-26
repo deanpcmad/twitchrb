@@ -36,7 +36,7 @@ module Twitch
     def videos
       VideosResource.new(self)
     end
-    
+
     def clips
       ClipsResource.new(self)
     end
@@ -152,12 +152,14 @@ module Twitch
     def connection
       @connection ||= Faraday.new(BASE_URL) do |conn|
         conn.request :authorization, :Bearer, access_token
-        
+
+        conn.options.params_encoder = Faraday::FlatParamsEncoder
+
         conn.headers = {
           "User-Agent" => "twitchrb/v#{VERSION} (github.com/deanpcmad/twitchrb)",
           "Client-ID": client_id
         }
-        
+
         conn.request :json
 
         conn.response :json, content_type: "application/json"
