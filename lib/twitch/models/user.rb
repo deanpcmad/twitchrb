@@ -3,6 +3,31 @@ module Twitch
 
     class << self
 
+      def retrieve(id: nil, ids: nil, username: nil, usernames: nil)
+        # raise "Either id or login is required" unless !id.nil? || !login.nil?
+
+        raise "Either id, ids, username or usernames is required" unless !id.nil? || !ids.nil? || !username.nil? || !usernames.nil?
+
+        if id
+          response = Client.get_request("users", params: {id: id})
+        elsif ids
+          response = Client.get_request("users", params: {id: ids})
+        elsif usernames
+          response = Client.get_request("users", params: {login: usernames})
+        else
+          response = Client.get_request("users", params: {login: username})
+        end
+
+        body = response.body.dig("data")
+        if body.count == 1
+          User.new body[0]
+        elsif body.count > 1
+          Collection.from_response(response, type: User)
+        else
+          return nil
+        end
+      end
+
       def get_by_id(user_id: nil, id: nil, ids: nil)
         raise "Either id or ids is required" unless !id.nil? || !ids.nil? || !user_id.nil?
 
