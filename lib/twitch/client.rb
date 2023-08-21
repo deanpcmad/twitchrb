@@ -1,171 +1,73 @@
 module Twitch
   class Client
+
     BASE_URL = "https://api.twitch.tv/helix"
 
-    attr_reader :client_id, :access_token, :adapter
+    class << self
 
-    def initialize(client_id:, access_token:, adapter: Faraday.default_adapter, stubs: nil)
-      @client_id = client_id
-      @access_token = access_token
-      @adapter = adapter
+      def connection
+        @connection ||= Faraday.new(BASE_URL) do |conn|
+          conn.request :authorization, :Bearer, Twitch.config.access_token
 
-      # Test stubs for requests
-      @stubs = stubs
-    end
+          conn.headers = {
+            "User-Agent" => "twitchrb/v#{VERSION} (github.com/deanpcmad/twitchrb)",
+            "Client-ID": Twitch.config.client_id
+          }
 
-    def users
-      UsersResource.new(self)
-    end
+          conn.request :json
 
-    def channels
-      ChannelsResource.new(self)
-    end
-
-    def emotes
-      EmotesResource.new(self)
-    end
-
-    def badges
-      BadgesResource.new(self)
-    end
-
-    def games
-      GamesResource.new(self)
-    end
-
-    def videos
-      VideosResource.new(self)
-    end
-
-    def clips
-      ClipsResource.new(self)
-    end
-
-    def eventsub_subscriptions
-      EventSubSubscriptionsResource.new(self)
-    end
-
-    def banned_events
-      BannedEventsResource.new(self)
-    end
-
-    def banned_users
-      BannedUsersResource.new(self)
-    end
-
-    def moderators
-      ModeratorsResource.new(self)
-    end
-
-    def moderator_events
-      ModeratorEventsResource.new(self)
-    end
-
-    def polls
-      PollsResource.new(self)
-    end
-
-    def predictions
-      PredictionsResource.new(self)
-    end
-
-    def stream_schedule
-      StreamScheduleResource.new(self)
-    end
-
-    def search
-      SearchResource.new(self)
-    end
-
-    def streams
-      StreamsResource.new(self)
-    end
-
-    def stream_markers
-      StreamMarkersResource.new(self)
-    end
-
-    def subscriptions
-      SubscriptionsResource.new(self)
-    end
-
-    def tags
-      TagsResource.new(self)
-    end
-
-    def custom_rewards
-      CustomRewardsResource.new(self)
-    end
-
-    def custom_reward_redemptions
-      CustomRewardRedemptionsResource.new(self)
-    end
-
-    def goals
-      GoalsResource.new(self)
-    end
-
-    def hype_train_events
-      HypeTrainEventsResource.new(self)
-    end
-
-    def announcements
-      AnnouncementsResource.new(self)
-    end
-
-    def raids
-      RaidsResource.new(self)
-    end
-
-    def chat_messages
-      ChatMessagesResource.new(self)
-    end
-
-    def vips
-      VipsResource.new(self)
-    end
-
-    def whispers
-      WhispersResource.new(self)
-    end
-
-    def automod
-      AutomodResource.new(self)
-    end
-
-    def blocked_terms
-      BlockedTermsResource.new(self)
-    end
-
-    def charity_campaigns
-      CharityCampaignsResource.new(self)
-    end
-
-    def chatters
-      ChattersResource.new(self)
-    end
-
-    def shoutouts
-      ShoutoutsResource.new(self)
-    end
-
-    def connection
-      @connection ||= Faraday.new(BASE_URL) do |conn|
-        conn.request :authorization, :Bearer, access_token
-
-        conn.options.params_encoder = Faraday::FlatParamsEncoder
-
-        conn.headers = {
-          "User-Agent" => "twitchrb/v#{VERSION} (github.com/deanpcmad/twitchrb)",
-          "Client-ID": client_id
-        }
-
-        conn.request :json
-
-        conn.response :json, content_type: "application/json"
-
-        conn.adapter adapter, @stubs
+          conn.response :json, content_type: "application/json"
+        end
       end
+
+      def get_request(url, params: {}, headers: {})
+        handle_response connection.get(url, params, headers)
+      end
+
+      def post_request(url, body:, headers: {})
+        handle_response connection.post(url, body, headers)
+      end
+
+      def patch_request(url, body:, headers: {})
+        handle_response connection.patch(url, body, headers)
+      end
+
+      def put_request(url, body:, headers: {})
+        handle_response connection.put(url, body, headers)
+      end
+
+      def delete_request(url, params: {}, headers: {})
+        handle_response connection.delete(url, params, headers)
+      end
+
+      def handle_response(response)
+        case response.status
+        when 400
+          raise Error, "Error 400: Your request was malformed. '#{response.body["message"]}'"
+        when 401
+          raise Error, "Error 401: You did not supply valid authentication credentials. '#{response.body["error"]}'"
+        when 403
+          raise Error, "Error 403: You are not allowed to perform that action. '#{response.body["error"]}'"
+        when 404
+          raise Error, "Error 404: No results were found for your request. '#{response.body["error"]}'"
+        when 409
+          raise Error, "Error 409: Your request was a conflict. '#{response.body["message"]}'"
+        when 422
+          raise Error, "Error 422: Unprocessable Entity. '#{response.body["message"]}"
+        when 429
+          raise Error, "Error 429: Your request exceeded the API rate limit. '#{response.body["error"]}'"
+        when 500
+          raise Error, "Error 500: We were unable to perform the request due to server-side problems. '#{response.body["error"]}'"
+        when 503
+          raise Error, "Error 503: You have been rate limited for sending more than 20 requests per second. '#{response.body["error"]}'"
+        when 204
+          # 204 is a response for success on Twitch's API
+          return true
+        end
+
+        response
+      end
+
     end
 
   end
