@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitch.tv/helix/chat/color?user_id%5B%5D=943007443&user_id%5B%5D=719509646
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.1.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - "<CLIENT_ID>"
+      Authorization:
+      - Bearer <AUTHORIZATION>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      connection:
+      - keep-alive
+      content-length:
+      - '203'
+      content-type:
+      - application/json; charset=utf-8
+      access-control-allow-origin:
+      - "*"
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1692688957'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      date:
+      - Tue, 22 Aug 2023 07:22:36 GMT
+      x-served-by:
+      - cache-bfi-krnt7300028-BFI, cache-lhr7370-LHR
+      x-cache:
+      - MISS, MISS
+      x-cache-hits:
+      - 0, 0
+      x-timer:
+      - S1692688957.520617,VS0,VS0,VE158
+      vary:
+      - Accept-Encoding
+      strict-transport-security:
+      - max-age=300
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"user_id":"943007443","user_login":"deanpcmadtest","user_name":"deanpcmadtest","color":""},{"user_id":"719509646","user_login":"deanpcmad_test","user_name":"deanpcmad_test","color":"#0000FF"}]}'
+  recorded_at: Tue, 22 Aug 2023 07:22:36 GMT
+recorded_with: VCR 6.2.0

@@ -4,8 +4,6 @@ module Twitch
     class << self
 
       def retrieve(id: nil, ids: nil, username: nil, usernames: nil)
-        # raise "Either id or login is required" unless !id.nil? || !login.nil?
-
         raise "Either id, ids, username or usernames is required" unless !id.nil? || !ids.nil? || !username.nil? || !usernames.nil?
 
         if id
@@ -28,62 +26,29 @@ module Twitch
         end
       end
 
-      def get_by_id(user_id: nil, id: nil, ids: nil)
-        raise "Either id or ids is required" unless !id.nil? || !ids.nil? || !user_id.nil?
-
-        if ids
-          user_ids = ids.split(",").map {|i| "id=#{i.strip}"}
-          response = Client.get_request("users?#{user_ids.join("&")}")
-        else
-          response = Client.get_request("users?id=#{id || user_id}")
-        end
-
-        body = response.body.dig("data")
-        if body.count == 1
-          User.new response.body[0]
-        elsif body.count > 1
-          Collection.from_response(response, type: User)
-        else
-          return nil
-        end
-      end
-
-      def get_by_username(username: nil, usernames: nil)
-        raise "Either username or usernames is required" unless !username.nil? || !usernames.nil?
-
-        if usernames
-          user_names = usernames.split(",").map {|u| "login=#{u.strip}"}
-          response = Client.get_request("users?#{user_names.join("&")}")
-        else
-          response = Client.get_request("users?login=#{username}")
-        end
-
-        body = response.body.dig("data")
-        if body.count == 1
-          User.new body[0]
-        elsif body.count > 1
-          Collection.from_response(response, type: User)
-        else
-          return nil
-        end
-      end
-
       # Updates the current users description
       # Required scope: user:edit
       def update(description:)
-        response = put_request("users", body: {description: description})
+        response = Client.put_request("users", body: {description: description})
         User.new response.body.dig("data")[0]
       end
 
-      def get_color(user_id: nil, user_ids: nil)
-        if user_ids != nil
-          users = user_ids.split(",").map{|i| "user_id=#{i.strip}"}.join("&")
-          puts "chat/color?#{users}"
-          response = get_request("chat/color?#{users}")
-          Collection.from_response(response, type: UserColor)
+      def get_colour(id: nil, ids: nil)
+        raise "Either id or ids is required" unless !id.nil? || !ids.nil?
+
+        if id
+          response = Client.get_request("chat/color", params: {user_id: id})
+        elsif ids
+          response = Client.get_request("chat/color", params: {user_id: ids})
+        end
+
+        body = response.body.dig("data")
+        if body.count == 1
+          UserColour.new body[0]
+        elsif body.count > 1
+          Collection.from_response(response, type: UserColour)
         else
-          response = get_request("chat/color?user_id=#{user_id}")
-          UserColor.new response.body.dig("data")[0]
+          return nil
         end
       end
 
@@ -92,16 +57,6 @@ module Twitch
       # user_id must be the currently authenticated user
       def update_color(user_id:, color:)
         put_request("chat/color?user_id=#{user_id}&color=#{color}", body: {})
-      end
-
-      # Deprecated.
-      def follows(**params)
-        warn "`users.follows` is deprecated. Use `channels.followers` or `channels.following` instead."
-
-        raise "from_id or to_id is required" unless !params[:from_id].nil? || !params[:to_id].nil?
-
-        response = get_request("users/follows", params: params)
-        Collection.from_response(response, type: FollowedUser)
       end
 
       # Required scope: user:read:blocked_users
@@ -120,18 +75,18 @@ module Twitch
         delete_request("users/blocks?target_user_id=#{target_user_id}")
       end
 
-      # A quick method to see if a user is following a channel
-      def following?(from_id:, to_id:)
-        warn "`users.following?` is deprecated. Use `channels.followers` or `channels.following` instead."
+      # # A quick method to see if a user is following a channel
+      # def following?(from_id:, to_id:)
+      #   warn "`users.following?` is deprecated. Use `channels.followers` or `channels.following` instead."
 
-        response = get_request("users/follows", params: {from_id: from_id, to_id: to_id})
+      #   response = get_request("users/follows", params: {from_id: from_id, to_id: to_id})
 
-        if response.body["data"].empty?
-          false
-        else
-          true
-        end
-      end
+      #   if response.body["data"].empty?
+      #     false
+      #   else
+      #     true
+      #   end
+      # end
 
     end
 

@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitch.tv/helix/chat/color?user_id=943007443
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.1.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - "<CLIENT_ID>"
+      Authorization:
+      - Bearer <AUTHORIZATION>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      connection:
+      - keep-alive
+      content-length:
+      - '102'
+      content-type:
+      - application/json; charset=utf-8
+      access-control-allow-origin:
+      - "*"
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1692688957'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      date:
+      - Tue, 22 Aug 2023 07:22:36 GMT
+      x-served-by:
+      - cache-bfi-kbfi7400087-BFI, cache-lcy-eglc8600076-LCY
+      x-cache:
+      - MISS, MISS
+      x-cache-hits:
+      - 0, 0
+      x-timer:
+      - S1692688956.251401,VS0,VS0,VE161
+      vary:
+      - Accept-Encoding
+      strict-transport-security:
+      - max-age=300
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"user_id":"943007443","user_login":"deanpcmadtest","user_name":"deanpcmadtest","color":""}]}'
+  recorded_at: Tue, 22 Aug 2023 07:22:36 GMT
+recorded_with: VCR 6.2.0

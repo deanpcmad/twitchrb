@@ -26,30 +26,25 @@ An access token is required because the Helix API requires authentication.
 
 ```ruby
 # Retrieves a user by their ID
-@client.users.get_by_id(id: 141981764)
+Twitch::User.retrieve(id: 141981764)
 
 # Retrieves multiple users by their IDs
-# A comma is required to separate them
-@client.users.get_by_id(ids: "141981764, 72938118")
+# Requires an array of IDs
+Twitch::User.retrieve(ids: [141981764, 72938118])
 
 # Retrieves a user by their username
-@client.users.get_by_username(username: "twitchdev")
+Twitch::User.retrieve(username: "twitchdev")
 
 # Retrieves multiple users by their usernames
-# A comma is required to separate them
-@client.users.get_by_username(usernames: "twitchdev,deanpcmad")
+# Requires an array of IDs
+Twitch::User.retrieve(usernames: ["twitchdev", "deanpcmad"])
 
 # Update the currently authenticated user's description
 # Required scope: user:edit
-@client.users.update(description: "New Description")
-
-# Deprecated. Please look at using channels.followed or channels.followers
-# Shows users who follow or are following a user ID
-@client.users.follows(from_id: 141981764)
-@client.users.follows(to_id: 141981764)
+Twitch::User.update(description: "New Description")
 
 # A quick method for seeing if a user is following a channel
-@client.users.following?(from_id: 141981764, to_id: 141981764)
+# @client.users.following?(from_id: 141981764, to_id: 141981764)
 
 # Returns Blocked users for a broadcaster
 # Required scope: user:read:blocked_users
@@ -64,7 +59,7 @@ An access token is required because the Helix API requires authentication.
 @client.users.unblock_user(target_user_id: 141981764)
 
 # Get a User's Chat Color
-@client.users.get_color(user_id: 123)
+Twitch::User.get_colour(id: 123)
 
 # Or get multiple users' chat colors
 # Returns a collection

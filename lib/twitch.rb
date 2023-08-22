@@ -57,4 +57,6 @@ module Twitch
   autoload :Chatter, "twitch/models/chatter"
   autoload :Shoutout, "twitch/models/shoutout"
 
+  autoload :UserColour, "twitch/models/user_colour"
+
 end

@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitch.tv/helix/users?login%5B%5D=deanpcmadtest&login%5B%5D=deanpcmad_test
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.1.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - "<CLIENT_ID>"
+      Authorization:
+      - Bearer <AUTHORIZATION>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      connection:
+      - keep-alive
+      content-length:
+      - '684'
+      content-type:
+      - application/json; charset=utf-8
+      access-control-allow-origin:
+      - "*"
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1692688044'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      date:
+      - Tue, 22 Aug 2023 07:07:23 GMT
+      x-served-by:
+      - cache-bfi-kbfi7400031-BFI, cache-lhr7327-LHR
+      x-cache:
+      - MISS, MISS
+      x-cache-hits:
+      - 0, 0
+      x-timer:
+      - S1692688044.723181,VS0,VS0,VE161
+      vary:
+      - Accept-Encoding
+      strict-transport-security:
+      - max-age=300
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"719509646","login":"deanpcmad_test","display_name":"deanpcmad_test","type":"","broadcaster_type":"","description":"","profile_image_url":"https://static-cdn.jtvnw.net/user-default-pictures-uv/ebb84563-db81-4b9c-8940-64ed33ccfc7b-profile_image-300x300.png","offline_image_url":"","view_count":0,"created_at":"2021-08-20T14:30:53Z"},{"id":"943007443","login":"deanpcmadtest","display_name":"deanpcmadtest","type":"","broadcaster_type":"","description":"","profile_image_url":"https://static-cdn.jtvnw.net/user-default-pictures-uv/215b7342-def9-11e9-9a66-784f43822e80-profile_image-300x300.png","offline_image_url":"","view_count":0,"created_at":"2023-08-11T13:49:55Z"}]}'
+  recorded_at: Tue, 22 Aug 2023 07:07:23 GMT
+recorded_with: VCR 6.2.0
