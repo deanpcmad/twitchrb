@@ -57,6 +57,10 @@ module Twitch
   autoload :Chatter, "twitch/models/chatter"
   autoload :Shoutout, "twitch/models/shoutout"
 
-  autoload :UserColour, "twitch/models/user_colour"
+  # Extra models, with no API endpoints
+  autoload :UserColour, "twitch/models/extra/user_colour"
+  autoload :FollowCount, "twitch/models/extra/follow_count"
+  autoload :SubscriptionCount, "twitch/models/extra/subscription_count"
+  autoload :ChannelEditor, "twitch/models/extra/channel_editor"
 
 end
