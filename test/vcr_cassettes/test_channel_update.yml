@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: patch
+    uri: https://api.twitch.tv/helix/channels
+    body:
+      encoding: UTF-8
+      string: '{"title":"Test stream","broadcaster_id":943007443}'
+    headers:
+      User-Agent:
+      - twitchrb/v1.1.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - "<CLIENT_ID>"
+      Authorization:
+      - Bearer <AUTHORIZATION>
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      connection:
+      - keep-alive
+      access-control-allow-origin:
+      - "*"
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1692690239'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      date:
+      - Tue, 22 Aug 2023 07:43:58 GMT
+      x-served-by:
+      - cache-bfi-kbfi7400056-BFI, cache-lcy-eglc8600063-LCY
+      x-cache:
+      - MISS, MISS
+      x-cache-hits:
+      - 0, 0
+      x-timer:
+      - S1692690238.045749,VS0,VS0,VE172
+      vary:
+      - Accept-Encoding
+      strict-transport-security:
+      - max-age=300
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Tue, 22 Aug 2023 07:43:58 GMT
+recorded_with: VCR 6.2.0
