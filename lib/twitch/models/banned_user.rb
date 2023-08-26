@@ -1,0 +1,29 @@
+module Twitch
+  class BannedUser < Object
+
+    class << self
+
+      # Broadcaster ID must match the user in the OAuth token
+      def list(broadcaster_id:, **params)
+        response = Client.get_request("moderation/banned", params: params.merge(broadcaster_id: broadcaster_id))
+        Collection.from_response(response, type: BannedUser)
+      end
+
+      # Required scope: moderator:manage:banned_users
+      # moderator_id must match the currently authenticated user. Can be either the broadcaster ID or moderator ID
+      def create(broadcaster_id:, moderator_id:, user_id:, reason:, duration: nil)
+        attrs = {broadcaster_id: broadcaster_id, moderator_id: moderator_id, data: {user_id: user_id, reason: reason, duration: duration}}
+        response = Client.post_request("moderation/bans", body: attrs)
+        BannedUser.new response.body.dig("data")[0]
+      end
+
+      # Required scope: moderator:manage:banned_users
+      # moderator_id must match the currently authenticated user. Can be either the broadcaster ID or moderator ID
+      def delete(broadcaster_id:, moderator_id:, user_id:)
+        Client.delete_request("moderation/bans?broadcaster_id=#{broadcaster_id}&moderator_id=#{moderator_id}&user_id=#{user_id}")
+      end
+
+    end
+
+  end
+end
