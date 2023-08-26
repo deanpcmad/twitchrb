@@ -112,9 +112,13 @@ attributes = {title: "My new title"}
 ```ruby
 # Retrieves a list of videos
 # Available parameters: id, user_id or game_id
-@client.videos.list(id: 12345)
-@client.videos.list(user_id: 12345)
-@client.videos.list(game_id: 12345)
+Twitch::Video.list(id: 12345)
+Twitch::Video.list(user_id: 12345)
+Twitch::Video.list(game_id: 12345)
+
+# Delete a video
+# Required scope: channel:manage:videos
+Twitch::Video.delete(id: 12345)
 ```
 
 ### Clips

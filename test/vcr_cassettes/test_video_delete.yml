@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: delete
+    uri: https://api.twitch.tv/helix/videos?id=1908988719
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.1.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - "<CLIENT_ID>"
+      Authorization:
+      - Bearer <AUTHORIZATION>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      connection:
+      - keep-alive
+      content-length:
+      - '23'
+      content-type:
+      - application/json; charset=utf-8
+      access-control-allow-origin:
+      - "*"
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1693052351'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      date:
+      - Sat, 26 Aug 2023 12:19:10 GMT
+      x-served-by:
+      - cache-bfi-krnt7300033-BFI, cache-lhr7352-LHR
+      x-cache:
+      - MISS, MISS
+      x-cache-hits:
+      - 0, 0
+      x-timer:
+      - S1693052350.386853,VS0,VS0,VE220
+      vary:
+      - Accept-Encoding
+      strict-transport-security:
+      - max-age=300
+    body:
+      encoding: UTF-8
+      string: '{"data":["1908988719"]}'
+  recorded_at: Sat, 26 Aug 2023 12:19:10 GMT
+recorded_with: VCR 6.2.0

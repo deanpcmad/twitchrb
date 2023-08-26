@@ -1,0 +1,77 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitch.tv/helix/videos?game_id=1469308723
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.1.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - "<CLIENT_ID>"
+      Authorization:
+      - Bearer <AUTHORIZATION>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      connection:
+      - keep-alive
+      content-type:
+      - application/json; charset=utf-8
+      access-control-allow-origin:
+      - "*"
+      content-encoding:
+      - gzip
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1693052404'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      date:
+      - Sat, 26 Aug 2023 12:20:04 GMT
+      x-served-by:
+      - cache-bfi-kbfi7400080-BFI, cache-lhr7371-LHR
+      x-cache:
+      - MISS, MISS
+      x-cache-hits:
+      - 0, 0
+      x-timer:
+      - S1693052404.709862,VS0,VS0,VE660
+      vary:
+      - Accept-Encoding
+      strict-transport-security:
+      - max-age=300
+      transfer-encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "{\"data\":[{\"id\":\"1908990233\",\"stream_id\":\"39890254597\",\"user_id\":\"943007443\",\"user_login\":\"deanpcmadtest\",\"user_name\":\"deanpcmadtest\",\"title\":\"Test
+        stream\",\"description\":\"\",\"created_at\":\"2023-08-26T12:19:33Z\",\"published_at\":\"2023-08-26T12:19:33Z\",\"url\":\"https://www.twitch.tv/videos/1908990233\",\"thumbnail_url\":\"https://vod-secure.twitch.tv/_404/404_processing_%{width}x%{height}.png\",\"viewable\":\"public\",\"view_count\":0,\"language\":\"en\",\"type\":\"archive\",\"duration\":\"30s\",\"muted_segments\":null},{\"id\":\"1908986510\",\"stream_id\":\"42657681099\",\"user_id\":\"76556616\",\"user_login\":\"vwerwe\",\"user_name\":\"vwerwe\",\"title\":\"using
+        ai to code my own ai viewer that chats to me because i have 0 viewers\",\"description\":\"\",\"created_at\":\"2023-08-26T12:12:03Z\",\"published_at\":\"2023-08-26T12:12:03Z\",\"url\":\"https://www.twitch.tv/videos/1908986510\",\"thumbnail_url\":\"https://vod-secure.twitch.tv/_404/404_processing_%{width}x%{height}.png\",\"viewable\":\"public\",\"view_count\":0,\"language\":\"en\",\"type\":\"archive\",\"duration\":\"8m0s\",\"muted_segments\":null},{\"id\":\"1908986496\",\"stream_id\":\"39890229333\",\"user_id\":\"482255602\",\"user_login\":\"senatorov1\",\"user_name\":\"senatorov1\",\"title\":\"\U0001F40D
+        \ Уроки Python для начинающих / Программирование на Питон с нуля #PYTHON\",\"description\":\"\",\"created_at\":\"2023-08-26T12:12:01Z\",\"published_at\":\"2023-08-26T12:12:01Z\",\"url\":\"https://www.twitch.tv/videos/1908986496\",\"thumbnail_url\":\"https://vod-secure.twitch.tv/_404/404_processing_%{width}x%{height}.png\",\"viewable\":\"public\",\"view_count\":0,\"language\":\"ru\",\"type\":\"archive\",\"duration\":\"8m2s\",\"muted_segments\":null},{\"id\":\"1908985760\",\"stream_id\":\"41783185433\",\"user_id\":\"74961411\",\"user_login\":\"regibyte\",\"user_name\":\"RegiByte\",\"title\":\"Programando
+        Mini Site Builder - Laravel / Livewire / Tailwind - Parte 2\",\"description\":\"\",\"created_at\":\"2023-08-26T12:10:29Z\",\"published_at\":\"2023-08-26T12:10:29Z\",\"url\":\"https://www.twitch.tv/videos/1908985760\",\"thumbnail_url\":\"https://vod-secure.twitch.tv/_404/404_processing_%{width}x%{height}.png\",\"viewable\":\"public\",\"view_count\":0,\"language\":\"pt\",\"type\":\"archive\",\"duration\":\"9m34s\",\"muted_segments\":null},{\"id\":\"1908984743\",\"stream_id\":\"49170019117\",\"user_id\":\"171021911\",\"user_login\":\"mechamalek\",\"user_name\":\"MECHAMALEK\",\"title\":\"gamer
+        makes game\",\"description\":\"\",\"created_at\":\"2023-08-26T12:08:26Z\",\"published_at\":\"2023-08-26T12:08:26Z\",\"url\":\"https://www.twitch.tv/videos/1908984743\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/cf_vods/d1m7jfoe9zdc1j/6b3fc9dcfa31cbbf29bf_mechamalek_49170019117_1693051702//thumb/thumb0-%{width}x%{height}.jpg\",\"viewable\":\"public\",\"view_count\":0,\"language\":\"en\",\"type\":\"archive\",\"duration\":\"1m29s\",\"muted_segments\":null},{\"id\":\"1908984723\",\"stream_id\":\"39890216693\",\"user_id\":\"722389687\",\"user_login\":\"geohints\",\"user_name\":\"GeoHints\",\"title\":\"GeoHintsV2
+        | Very boring data entry work, you have been warned\",\"description\":\"\",\"created_at\":\"2023-08-26T12:08:24Z\",\"published_at\":\"2023-08-26T12:08:24Z\",\"url\":\"https://www.twitch.tv/videos/1908984723\",\"thumbnail_url\":\"https://vod-secure.twitch.tv/_404/404_processing_%{width}x%{height}.png\",\"viewable\":\"public\",\"view_count\":0,\"language\":\"en\",\"type\":\"archive\",\"duration\":\"11m39s\",\"muted_segments\":null},{\"id\":\"1908984187\",\"stream_id\":\"39890214389\",\"user_id\":\"770377085\",\"user_login\":\"broadd1734soul\",\"user_name\":\"broadd1734soul\",\"title\":\"petridish\",\"description\":\"\",\"created_at\":\"2023-08-26T12:07:21Z\",\"published_at\":\"2023-08-26T12:07:21Z\",\"url\":\"https://www.twitch.tv/videos/1908984187\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/cf_vods/dgeft87wbj63p/f84b5d6162c94ed8f5f0_broadd1734soul_39890214389_1693051634//thumb/thumb0-%{width}x%{height}.jpg\",\"viewable\":\"public\",\"view_count\":0,\"language\":\"en\",\"type\":\"archive\",\"duration\":\"11m29s\",\"muted_segments\":null},{\"id\":\"1908983239\",\"stream_id\":\"39890208725\",\"user_id\":\"160620918\",\"user_login\":\"chokinyan\",\"user_name\":\"chokinyan\",\"title\":\"discutation
+        tranquille\",\"description\":\"\",\"created_at\":\"2023-08-26T12:05:40Z\",\"published_at\":\"2023-08-26T12:05:40Z\",\"url\":\"https://www.twitch.tv/videos/1908983239\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/cf_vods/dgeft87wbj63p/ecd9c97077c579761c92_chokinyan_39890208725_1693051533//thumb/thumb0-%{width}x%{height}.jpg\",\"viewable\":\"public\",\"view_count\":0,\"language\":\"fr\",\"type\":\"archive\",\"duration\":\"12m15s\",\"muted_segments\":null},{\"id\":\"1908981357\",\"stream_id\":\"41783173321\",\"user_id\":\"6136346\",\"user_login\":\"tolstenko\",\"user_name\":\"Tolstenko\",\"title\":\"GameDev
+        Pathfinding Algoritmo - @ 09h00\",\"description\":\"\",\"created_at\":\"2023-08-26T12:02:22Z\",\"published_at\":\"2023-08-26T12:02:22Z\",\"url\":\"https://www.twitch.tv/videos/1908981357\",\"thumbnail_url\":\"https://vod-secure.twitch.tv/_404/404_processing_%{width}x%{height}.png\",\"viewable\":\"public\",\"view_count\":0,\"language\":\"pt\",\"type\":\"archive\",\"duration\":\"17m41s\",\"muted_segments\":null},{\"id\":\"1908979147\",\"stream_id\":\"49170000221\",\"user_id\":\"60822872\",\"user_login\":\"veetorp\",\"user_name\":\"Veetorp\",\"title\":\"Saturday
+        Morning Dev! #programming #php #godot #alttpr #randomizer #hashbrowns\",\"description\":\"\",\"created_at\":\"2023-08-26T11:59:18Z\",\"published_at\":\"2023-08-26T11:59:18Z\",\"url\":\"https://www.twitch.tv/videos/1908979147\",\"thumbnail_url\":\"https://vod-secure.twitch.tv/_404/404_processing_%{width}x%{height}.png\",\"viewable\":\"public\",\"view_count\":0,\"language\":\"en\",\"type\":\"archive\",\"duration\":\"20m45s\",\"muted_segments\":null},{\"id\":\"1908977647\",\"stream_id\":\"41023439400\",\"user_id\":\"828067459\",\"user_login\":\"james_gooose\",\"user_name\":\"James_Gooose\",\"title\":\"Static
+        linking media files for fframes video generate: wasm part. Rust and proc macros!\",\"description\":\"\",\"created_at\":\"2023-08-26T11:56:37Z\",\"published_at\":\"2023-08-26T11:56:37Z\",\"url\":\"https://www.twitch.tv/videos/1908977647\",\"thumbnail_url\":\"https://vod-secure.twitch.tv/_404/404_processing_%{width}x%{height}.png\",\"viewable\":\"public\",\"view_count\":0,\"language\":\"en\",\"type\":\"archive\",\"duration\":\"23m26s\",\"muted_segments\":null},{\"id\":\"1908974725\",\"stream_id\":\"49169985261\",\"user_id\":\"5704376\",\"user_login\":\"b7h30\",\"user_name\":\"B7H30\",\"title\":\"Try
+        Hack Me or Hack The Box | \\\"hacking\\\" with GoPhish in Kali | !discord
+        | !amazon\",\"description\":\"\",\"created_at\":\"2023-08-26T11:50:51Z\",\"published_at\":\"2023-08-26T11:50:51Z\",\"url\":\"https://www.twitch.tv/videos/1908974725\",\"thumbnail_url\":\"https://vod-secure.twitch.tv/_404/404_processing_%{width}x%{height}.png\",\"viewable\":\"public\",\"view_count\":0,\"language\":\"en\",\"type\":\"archive\",\"duration\":\"29m12s\",\"muted_segments\":null},{\"id\":\"1908973432\",\"stream_id\":\"41023418056\",\"user_id\":\"86207934\",\"user_login\":\"madnessbuccaneer\",\"user_name\":\"MadnessBuccaneer\",\"title\":\"немного
+        работы в Unreal Engine --\\u003e дустан\",\"description\":\"\",\"created_at\":\"2023-08-26T11:48:29Z\",\"published_at\":\"2023-08-26T11:48:29Z\",\"url\":\"https://www.twitch.tv/videos/1908973432\",\"thumbnail_url\":\"https://vod-secure.twitch.tv/_404/404_processing_%{width}x%{height}.png\",\"viewable\":\"public\",\"view_count\":0,\"language\":\"ru\",\"type\":\"archive\",\"duration\":\"31m34s\",\"muted_segments\":null},{\"id\":\"1908973326\",\"stream_id\":\"39890113909\",\"user_id\":\"927568981\",\"user_login\":\"arcanemechanista\",\"user_name\":\"ArcaneMechanista\",\"title\":\"Debut
+        stream - Setting up Python, VS Code Studio \\u0026 Git\",\"description\":\"\",\"created_at\":\"2023-08-26T11:48:14Z\",\"published_at\":\"2023-08-26T11:48:14Z\",\"url\":\"https://www.twitch.tv/videos/1908973326\",\"thumbnail_url\":\"https://vod-secure.twitch.tv/_404/404_processing_%{width}x%{height}.png\",\"viewable\":\"public\",\"view_count\":0,\"language\":\"en\",\"type\":\"archive\",\"duration\":\"31m49s\",\"muted_segments\":null},{\"id\":\"1908970717\",\"stream_id\":\"39890085893\",\"user_id\":\"124351105\",\"user_login\":\"niadecode\",\"user_name\":\"NiadeCode\",\"title\":\"Numerica
+        Battle Royale - Programamos unas pequeñas mejoras\",\"description\":\"\",\"created_at\":\"2023-08-26T11:42:19Z\",\"published_at\":\"2023-08-26T11:42:19Z\",\"url\":\"https://www.twitch.tv/videos/1908970717\",\"thumbnail_url\":\"https://vod-secure.twitch.tv/_404/404_processing_%{width}x%{height}.png\",\"viewable\":\"public\",\"view_count\":0,\"language\":\"es\",\"type\":\"archive\",\"duration\":\"37m44s\",\"muted_segments\":null},{\"id\":\"1908970367\",\"stream_id\":\"49169971069\",\"user_id\":\"944997607\",\"user_login\":\"cold_coffee_software\",\"user_name\":\"Cold_Coffee_Software\",\"title\":\"Guardians
+        of Subterrania (Unity) Development\",\"description\":\"\",\"created_at\":\"2023-08-26T11:41:27Z\",\"published_at\":\"2023-08-26T11:41:27Z\",\"url\":\"https://www.twitch.tv/videos/1908970367\",\"thumbnail_url\":\"https://vod-secure.twitch.tv/_404/404_processing_%{width}x%{height}.png\",\"viewable\":\"public\",\"view_count\":0,\"language\":\"en\",\"type\":\"archive\",\"duration\":\"38m36s\",\"muted_segments\":null},{\"id\":\"1908968838\",\"stream_id\":\"39890066709\",\"user_id\":\"26927121\",\"user_login\":\"wradion\",\"user_name\":\"wRadion\",\"title\":\"Dev
+        de Pokémon Rouge/Bleu From Scratch sur Unity - Jour 24\",\"description\":\"\",\"created_at\":\"2023-08-26T11:38:02Z\",\"published_at\":\"2023-08-26T11:38:02Z\",\"url\":\"https://www.twitch.tv/videos/1908968838\",\"thumbnail_url\":\"https://vod-secure.twitch.tv/_404/404_processing_%{width}x%{height}.png\",\"viewable\":\"public\",\"view_count\":0,\"language\":\"fr\",\"type\":\"archive\",\"duration\":\"42m1s\",\"muted_segments\":null},{\"id\":\"1908968575\",\"stream_id\":\"39890063909\",\"user_id\":\"124351105\",\"user_login\":\"niadecode\",\"user_name\":\"NiadeCode\",\"title\":\"Numerica
+        Battle Royale - Programamos unas pequeñas mejoras\",\"description\":\"\",\"created_at\":\"2023-08-26T11:37:28Z\",\"published_at\":\"2023-08-26T11:37:28Z\",\"url\":\"https://www.twitch.tv/videos/1908968575\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/cf_vods/dgeft87wbj63p/41a56f1447c8b5fcf8e4_niadecode_39890063909_1693049841//thumb/thumb0-%{width}x%{height}.jpg\",\"viewable\":\"public\",\"view_count\":0,\"language\":\"es\",\"type\":\"archive\",\"duration\":\"3m5s\",\"muted_segments\":null},{\"id\":\"1908967792\",\"stream_id\":\"39890055909\",\"user_id\":\"137985457\",\"user_login\":\"fluffythethedestroyer\",\"user_name\":\"fluffythethedestroyer\",\"title\":\"Porting
+        my game to react\",\"description\":\"\",\"created_at\":\"2023-08-26T11:35:42Z\",\"published_at\":\"2023-08-26T11:35:42Z\",\"url\":\"https://www.twitch.tv/videos/1908967792\",\"thumbnail_url\":\"https://vod-secure.twitch.tv/_404/404_processing_%{width}x%{height}.png\",\"viewable\":\"public\",\"view_count\":0,\"language\":\"en\",\"type\":\"archive\",\"duration\":\"44m21s\",\"muted_segments\":null},{\"id\":\"1908967137\",\"stream_id\":\"39890048277\",\"user_id\":\"58439021\",\"user_login\":\"f4guss\",\"user_name\":\"F4guss\",\"title\":\"OFP
+        Game Schedule development (testing HDMI grabber)\",\"description\":\"\",\"created_at\":\"2023-08-26T11:34:11Z\",\"published_at\":\"2023-08-26T11:34:11Z\",\"url\":\"https://www.twitch.tv/videos/1908967137\",\"thumbnail_url\":\"https://vod-secure.twitch.tv/_404/404_processing_%{width}x%{height}.png\",\"viewable\":\"public\",\"view_count\":0,\"language\":\"en\",\"type\":\"archive\",\"duration\":\"45m52s\",\"muted_segments\":null}],\"pagination\":{\"cursor\":\"eyJiIjpudWxsLCJhIjp7Ik9mZnNldCI6MjB9fQ\"}}"
+  recorded_at: Sat, 26 Aug 2023 12:20:04 GMT
+recorded_with: VCR 6.2.0
