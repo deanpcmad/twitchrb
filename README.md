@@ -232,7 +232,7 @@ These require an application OAuth access token.
 # Requires moderator:manage:announcements
 # moderator_id can be either the currently authenticated moderator or the broadcaster
 # color can be either blue, green, orange, purple, primary. If left blank, primary is default
-@client.announcements.create broadcaster_id: 123, moderator_id: 123, message: "test message", color: "purple"
+Twitch::Announcement.create broadcaster_id: 123, moderator_id: 123, message: "test message", color: "purple"
 ```
 
 ## Create a Shoutout
