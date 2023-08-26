@@ -1,0 +1,72 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitch.tv/helix/games/top
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.1.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - "<CLIENT_ID>"
+      Authorization:
+      - Bearer <AUTHORIZATION>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      connection:
+      - keep-alive
+      content-length:
+      - '748'
+      content-type:
+      - application/json; charset=utf-8
+      access-control-allow-origin:
+      - "*"
+      content-encoding:
+      - gzip
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1693064475'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      date:
+      - Sat, 26 Aug 2023 15:41:14 GMT
+      x-served-by:
+      - cache-bfi-kbfi7400082-BFI, cache-lhr7343-LHR
+      x-cache:
+      - MISS, MISS
+      x-cache-hits:
+      - 0, 0
+      x-timer:
+      - S1693064474.398828,VS0,VS0,VE207
+      vary:
+      - Accept-Encoding
+      strict-transport-security:
+      - max-age=300
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"509658","name":"Just Chatting","box_art_url":"https://static-cdn.jtvnw.net/ttv-boxart/509658-{width}x{height}.jpg","igdb_id":""},{"id":"32982","name":"Grand
+        Theft Auto V","box_art_url":"https://static-cdn.jtvnw.net/ttv-boxart/32982_IGDB-{width}x{height}.jpg","igdb_id":"1020"},{"id":"21779","name":"League
+        of Legends","box_art_url":"https://static-cdn.jtvnw.net/ttv-boxart/21779-{width}x{height}.jpg","igdb_id":"115"},{"id":"18122","name":"World
+        of Warcraft","box_art_url":"https://static-cdn.jtvnw.net/ttv-boxart/18122-{width}x{height}.jpg","igdb_id":"123"},{"id":"32399","name":"Counter-Strike:
+        Global Offensive","box_art_url":"https://static-cdn.jtvnw.net/ttv-boxart/32399_IGDB-{width}x{height}.jpg","igdb_id":"1372"},{"id":"516575","name":"VALORANT","box_art_url":"https://static-cdn.jtvnw.net/ttv-boxart/516575-{width}x{height}.jpg","igdb_id":"126459"},{"id":"33214","name":"Fortnite","box_art_url":"https://static-cdn.jtvnw.net/ttv-boxart/33214-{width}x{height}.jpg","igdb_id":"1905"},{"id":"491931","name":"Escape
+        from Tarkov","box_art_url":"https://static-cdn.jtvnw.net/ttv-boxart/491931_IGDB-{width}x{height}.jpg","igdb_id":"15536"},{"id":"686119195","name":"Armored
+        Core VI: Fires of Rubicon","box_art_url":"https://static-cdn.jtvnw.net/ttv-boxart/686119195_IGDB-{width}x{height}.jpg","igdb_id":"228542"},{"id":"27471","name":"Minecraft","box_art_url":"https://static-cdn.jtvnw.net/ttv-boxart/27471_IGDB-{width}x{height}.jpg","igdb_id":"121"},{"id":"511224","name":"Apex
+        Legends","box_art_url":"https://static-cdn.jtvnw.net/ttv-boxart/511224-{width}x{height}.jpg","igdb_id":"114795"},{"id":"29307","name":"Path
+        of Exile","box_art_url":"https://static-cdn.jtvnw.net/ttv-boxart/29307_IGDB-{width}x{height}.jpg","igdb_id":"1911"},{"id":"599619814","name":"Casino
+        Jackpot","box_art_url":"https://static-cdn.jtvnw.net/ttv-boxart/599619814-{width}x{height}.jpg","igdb_id":"206893"},{"id":"1447325110","name":"The
+        Texas Chain Saw Massacre","box_art_url":"https://static-cdn.jtvnw.net/ttv-boxart/1447325110_IGDB-{width}x{height}.jpg","igdb_id":"185238"},{"id":"29595","name":"Dota
+        2","box_art_url":"https://static-cdn.jtvnw.net/ttv-boxart/29595-{width}x{height}.jpg","igdb_id":""},{"id":"1745202732","name":"FIFA
+        23","box_art_url":"https://static-cdn.jtvnw.net/ttv-boxart/1745202732_IGDB-{width}x{height}.jpg","igdb_id":"205780"},{"id":"504798","name":"FIFA
+        Online 4","box_art_url":"https://static-cdn.jtvnw.net/ttv-boxart/504798_IGDB-{width}x{height}.jpg","igdb_id":"93902"},{"id":"459931","name":"Old
+        School RuneScape","box_art_url":"https://static-cdn.jtvnw.net/ttv-boxart/459931_IGDB-{width}x{height}.jpg","igdb_id":"79824"},{"id":"138585","name":"Hearthstone","box_art_url":"https://static-cdn.jtvnw.net/ttv-boxart/138585_IGDB-{width}x{height}.jpg","igdb_id":"1279"},{"id":"513143","name":"Teamfight
+        Tactics","box_art_url":"https://static-cdn.jtvnw.net/ttv-boxart/513143-{width}x{height}.jpg","igdb_id":"120176"}],"pagination":{"cursor":"eyJzIjoyMCwiZCI6ZmFsc2UsInQiOnRydWV9"}}'
+  recorded_at: Sat, 26 Aug 2023 15:41:14 GMT
+recorded_with: VCR 6.2.0
