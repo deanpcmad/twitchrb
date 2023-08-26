@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitch.tv/helix/channels/vips?broadcaster_id=72938118
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.1.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - "<CLIENT_ID>"
+      Authorization:
+      - Bearer <AUTHORIZATION>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      connection:
+      - keep-alive
+      content-length:
+      - '323'
+      content-type:
+      - application/json; charset=utf-8
+      access-control-allow-origin:
+      - "*"
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1693055596'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      date:
+      - Sat, 26 Aug 2023 13:13:15 GMT
+      x-served-by:
+      - cache-bfi-krnt7300026-BFI, cache-lhr7327-LHR
+      x-cache:
+      - MISS, MISS
+      x-cache-hits:
+      - 0, 0
+      x-timer:
+      - S1693055595.188881,VS0,VS0,VE163
+      vary:
+      - Accept-Encoding
+      strict-transport-security:
+      - max-age=300
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"user_id":"13363719","user_name":"Fremily","user_login":"fremily"},{"user_id":"587169798","user_name":"mspeachyxo","user_login":"mspeachyxo"},{"user_id":"172614253","user_name":"Tomp98223","user_login":"tomp98223"},{"user_id":"431199284","user_name":"KofiStreamBot","user_login":"kofistreambot"}],"pagination":{}}'
+  recorded_at: Sat, 26 Aug 2023 13:13:15 GMT
+recorded_with: VCR 6.2.0
