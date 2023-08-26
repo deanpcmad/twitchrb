@@ -126,17 +126,17 @@ Twitch::Video.delete(id: 12345)
 ```ruby
 # Retrieves a list of clips
 # Available parameters: id, broadcaster_id or game_id
-@client.clips.list(id: 12345)
-@client.clips.list(user_id: 12345)
-@client.clips.list(game_id: 12345)
+Twitch::Clip.list(id: 12345)
+Twitch::Clip.list(user_id: 12345)
+Twitch::Clip.list(game_id: 12345)
 
 # Retrieves a clip by its ID.
 # Clip IDs are alphanumeric. e.g. AwkwardHelplessSalamanderSwiftRage
-@client.clips.retrieve(id: "AwkwardHelplessSalamanderSwiftRage")
+Twitch::Clip.retrieve(id: "AwkwardHelplessSalamanderSwiftRage")
 
 # Create a clip of a given Channel
 # Required scope: clips:edit
-@client.clips.create(broadcaster_id: 1234)
+Twitch::Clip.create(broadcaster_id: 1234)
 ```
 
 ### Emotes

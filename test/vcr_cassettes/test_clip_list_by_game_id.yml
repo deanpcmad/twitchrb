@@ -1,0 +1,72 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitch.tv/helix/clips?game_id=1469308723
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.1.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - "<CLIENT_ID>"
+      Authorization:
+      - Bearer <AUTHORIZATION>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      connection:
+      - keep-alive
+      content-type:
+      - application/json; charset=utf-8
+      access-control-allow-origin:
+      - "*"
+      content-encoding:
+      - gzip
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1693053428'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      date:
+      - Sat, 26 Aug 2023 12:37:07 GMT
+      x-served-by:
+      - cache-bfi-kbfi7400045-BFI, cache-lcy-eglc8600026-LCY
+      x-cache:
+      - MISS, MISS
+      x-cache-hits:
+      - 0, 0
+      x-timer:
+      - S1693053427.011847,VS0,VS0,VE250
+      vary:
+      - Accept-Encoding
+      strict-transport-security:
+      - max-age=300
+      transfer-encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"DirtyRudePineappleHotPokket-5O0zpDLNgOZKwZpp","url":"https://clips.twitch.tv/DirtyRudePineappleHotPokket-5O0zpDLNgOZKwZpp","embed_url":"https://clips.twitch.tv/embed?clip=DirtyRudePineappleHotPokket-5O0zpDLNgOZKwZpp","broadcaster_id":"151368796","broadcaster_name":"PirateSoftware","creator_id":"778502648","creator_name":"","video_id":"","game_id":"1469308723","language":"en","title":"thors
+        dad is in south park","view_count":192776,"created_at":"2022-06-11T09:52:26Z","thumbnail_url":"https://clips-media-assets2.twitch.tv/AT-cm%7C7-1c1uTtM6QyzYDmSsGaaQ-preview-480x272.jpg","duration":60,"vod_offset":null},{"id":"IronicTubularRamenAsianGlow-UB7Zau9ASn3ZqjRH","url":"https://clips.twitch.tv/IronicTubularRamenAsianGlow-UB7Zau9ASn3ZqjRH","embed_url":"https://clips.twitch.tv/embed?clip=IronicTubularRamenAsianGlow-UB7Zau9ASn3ZqjRH","broadcaster_id":"476845395","broadcaster_name":"bashbunni","creator_id":"37673406","creator_name":"n0xie","video_id":"","game_id":"1469308723","language":"en","title":"When
+        you get namedropped","view_count":31374,"created_at":"2022-10-07T17:28:07Z","thumbnail_url":"https://clips-media-assets2.twitch.tv/5H57B1Ae2WrvQEp92ao0Rw/41362314107-offset-7654-preview-480x272.jpg","duration":28,"vod_offset":null},{"id":"SpeedyTenderSageFloof-Fon5z1Zu-wosmlId","url":"https://clips.twitch.tv/SpeedyTenderSageFloof-Fon5z1Zu-wosmlId","embed_url":"https://clips.twitch.tv/embed?clip=SpeedyTenderSageFloof-Fon5z1Zu-wosmlId","broadcaster_id":"167160215","broadcaster_name":"ThePrimeagen","creator_id":"18670311","creator_name":"QuisL","video_id":"","game_id":"1469308723","language":"en","title":"teej_dv
+        tricks the challenge and builds a url \"shortener\" in 2 lines","view_count":24089,"created_at":"2022-06-04T09:17:40Z","thumbnail_url":"https://clips-media-assets2.twitch.tv/AT-cm%7CrhvIkhaJ-c9WbvsKLJpSHQ-preview-480x272.jpg","duration":56.5,"vod_offset":null},{"id":"TubularInterestingInternTebowing-0EczHkBmw9yOpgbT","url":"https://clips.twitch.tv/TubularInterestingInternTebowing-0EczHkBmw9yOpgbT","embed_url":"https://clips.twitch.tv/embed?clip=TubularInterestingInternTebowing-0EczHkBmw9yOpgbT","broadcaster_id":"176050880","broadcaster_name":"QuantumApprentice","creator_id":"176050880","creator_name":"QuantumApprentice","video_id":"1900925013","game_id":"1469308723","language":"en","title":"ctrl-alt-F3?","view_count":17837,"created_at":"2023-08-19T08:57:02Z","thumbnail_url":"https://clips-media-assets2.twitch.tv/Vc-bG9BHMx5AZsPcjqYG0w/AT-cm%7CVc-bG9BHMx5AZsPcjqYG0w-preview-480x272.jpg","duration":23.4,"vod_offset":440},{"id":"FaithfulBlindingDiamondGivePLZ-E2J2JyQo0U4sG9ss","url":"https://clips.twitch.tv/FaithfulBlindingDiamondGivePLZ-E2J2JyQo0U4sG9ss","embed_url":"https://clips.twitch.tv/embed?clip=FaithfulBlindingDiamondGivePLZ-E2J2JyQo0U4sG9ss","broadcaster_id":"32985385","broadcaster_name":"RoxCodes","creator_id":"51354903","creator_name":"pbertrand_dev","video_id":"","game_id":"1469308723","language":"en","title":"Someone
+        built the same thing and launched within 4 days KEKW","view_count":14940,"created_at":"2022-06-13T14:32:01Z","thumbnail_url":"https://clips-media-assets2.twitch.tv/AT-cm%7Cy_EVERNidickKNFOLBvbLA-preview-480x272.jpg","duration":29.7,"vod_offset":null},{"id":"StupidApatheticChickenKevinTurtle-kjkUl9lPwkMDjH70","url":"https://clips.twitch.tv/StupidApatheticChickenKevinTurtle-kjkUl9lPwkMDjH70","embed_url":"https://clips.twitch.tv/embed?clip=StupidApatheticChickenKevinTurtle-kjkUl9lPwkMDjH70","broadcaster_id":"14021098","broadcaster_name":"SrFurini","creator_id":"14021098","creator_name":"SrFurini","video_id":"","game_id":"1469308723","language":"pt-br","title":"Lancamento
+        App da Tribo","view_count":9577,"created_at":"2021-10-30T23:44:59Z","thumbnail_url":"https://clips-media-assets2.twitch.tv/AT-cm%7C0pICFJI5FJfZT8JDA4x-9A-preview-480x272.jpg","duration":55.5,"vod_offset":null},{"id":"TemperedMistyYogurtHeyGuys-q7TuXgIUjDoqrVWq","url":"https://clips.twitch.tv/TemperedMistyYogurtHeyGuys-q7TuXgIUjDoqrVWq","embed_url":"https://clips.twitch.tv/embed?clip=TemperedMistyYogurtHeyGuys-q7TuXgIUjDoqrVWq","broadcaster_id":"167160215","broadcaster_name":"ThePrimeagen","creator_id":"87461838","creator_name":"ebn____","video_id":"","game_id":"1469308723","language":"en","title":"wait..","view_count":7464,"created_at":"2022-06-16T01:12:43Z","thumbnail_url":"https://clips-media-assets2.twitch.tv/AT-cm%7CaVYClau07l4CFIw6Kq1Vqg-preview-480x272.jpg","duration":10.4,"vod_offset":null},{"id":"ZanySteamyCaribouBudBlast-v5AHEXm0DNmFMIT2","url":"https://clips.twitch.tv/ZanySteamyCaribouBudBlast-v5AHEXm0DNmFMIT2","embed_url":"https://clips.twitch.tv/embed?clip=ZanySteamyCaribouBudBlast-v5AHEXm0DNmFMIT2","broadcaster_id":"167160215","broadcaster_name":"ThePrimeagen","creator_id":"103596114","creator_name":"Piq9117","video_id":"","game_id":"1469308723","language":"en","title":"fastest
+        vimmer for vscode","view_count":5835,"created_at":"2022-09-13T20:16:06Z","thumbnail_url":"https://clips-media-assets2.twitch.tv/cUiX8b-QBxF5tAzZhTCE9g/AT-cm%7CcUiX8b-QBxF5tAzZhTCE9g-preview-480x272.jpg","duration":26.9,"vod_offset":null},{"id":"GracefulThirstySageJKanStyle-UetAfiWvG9ZD55Zn","url":"https://clips.twitch.tv/GracefulThirstySageJKanStyle-UetAfiWvG9ZD55Zn","embed_url":"https://clips.twitch.tv/embed?clip=GracefulThirstySageJKanStyle-UetAfiWvG9ZD55Zn","broadcaster_id":"766322485","broadcaster_name":"KingDogPool","creator_id":"810069394","creator_name":"doomamo","video_id":"","game_id":"1469308723","language":"en","title":"BEHOLD
+        WORK IN PROGRESS","view_count":4987,"created_at":"2022-08-13T17:52:01Z","thumbnail_url":"https://clips-media-assets2.twitch.tv/XEi0D1HrQH4lrxvWQ-eWZw/AT-cm%7CXEi0D1HrQH4lrxvWQ-eWZw-preview-480x272.jpg","duration":59.9,"vod_offset":null},{"id":"RacyMagnificentWrenJonCarnage-mz4H4kYwSKaNkhzO","url":"https://clips.twitch.tv/RacyMagnificentWrenJonCarnage-mz4H4kYwSKaNkhzO","embed_url":"https://clips.twitch.tv/embed?clip=RacyMagnificentWrenJonCarnage-mz4H4kYwSKaNkhzO","broadcaster_id":"112375357","broadcaster_name":"Lana_Lux","creator_id":"149956954","creator_name":"SiDfunK","video_id":"","game_id":"1469308723","language":"en","title":"THIS
+        IS GAME DEV !HelloFresh","view_count":4658,"created_at":"2022-06-17T13:42:54Z","thumbnail_url":"https://clips-media-assets2.twitch.tv/39530392184-offset-560-preview-480x272.jpg","duration":30,"vod_offset":null},{"id":"SnappyPleasantPelicanAsianGlow-p10bc2gpQtIe5gyG","url":"https://clips.twitch.tv/SnappyPleasantPelicanAsianGlow-p10bc2gpQtIe5gyG","embed_url":"https://clips.twitch.tv/embed?clip=SnappyPleasantPelicanAsianGlow-p10bc2gpQtIe5gyG","broadcaster_id":"422915264","broadcaster_name":"midudev","creator_id":"495996243","creator_name":"25McKing","video_id":"","game_id":"1469308723","language":"es","title":"Midu
+        hentai?","view_count":4549,"created_at":"2022-09-13T19:21:55Z","thumbnail_url":"https://clips-media-assets2.twitch.tv/bgc8u6ddG3NoKULSHuYMhg/AT-cm%7Cbgc8u6ddG3NoKULSHuYMhg-preview-480x272.jpg","duration":7.5,"vod_offset":null},{"id":"OptimisticEnjoyableSalamanderPJSugar-p_zH-PDVz9j71EnX","url":"https://clips.twitch.tv/OptimisticEnjoyableSalamanderPJSugar-p_zH-PDVz9j71EnX","embed_url":"https://clips.twitch.tv/embed?clip=OptimisticEnjoyableSalamanderPJSugar-p_zH-PDVz9j71EnX","broadcaster_id":"96909659","broadcaster_name":"csharpfritz","creator_id":"436049125","creator_name":"StatniPodporaVzdelavani","video_id":"","game_id":"1469308723","language":"en","title":"Trending
+        Topics and Synthetic Testing KlipTok with !datadog #ad","view_count":4140,"created_at":"2022-09-20T16:48:16Z","thumbnail_url":"https://clips-media-assets2.twitch.tv/E4Goi6f8x_jw1c_Y-9RJ1w/40236498585-offset-13652-preview-480x272.jpg","duration":26,"vod_offset":null},{"id":"LightAnimatedDolphinTheRinger-hbFCjeiPRNGepeBu","url":"https://clips.twitch.tv/LightAnimatedDolphinTheRinger-hbFCjeiPRNGepeBu","embed_url":"https://clips.twitch.tv/embed?clip=LightAnimatedDolphinTheRinger-hbFCjeiPRNGepeBu","broadcaster_id":"27315679","broadcaster_name":"xNzq","creator_id":"542742950","creator_name":"GuessWhoX2","video_id":"","game_id":"1469308723","language":"pl","title":"GIGAROBO
+        O MAZURACH I RUDEJ KURWIE","view_count":4095,"created_at":"2022-08-01T12:56:03Z","thumbnail_url":"https://clips-media-assets2.twitch.tv/YFG7joWxQo3oj0TRnqXgbg/39681211112-offset-13136-preview-480x272.jpg","duration":26,"vod_offset":null},{"id":"NiceAverageHerbsKAPOW-BPHbNp7kD-GFUfw6","url":"https://clips.twitch.tv/NiceAverageHerbsKAPOW-BPHbNp7kD-GFUfw6","embed_url":"https://clips.twitch.tv/embed?clip=NiceAverageHerbsKAPOW-BPHbNp7kD-GFUfw6","broadcaster_id":"80188115","broadcaster_name":"liz0N","creator_id":"735657750","creator_name":"David_1984_1984_1984_1984","video_id":"","game_id":"1469308723","language":"ru","title":"BOOВА","view_count":3998,"created_at":"2022-07-27T14:36:28Z","thumbnail_url":"https://clips-media-assets2.twitch.tv/kHMWCwTx2zae5A_hhVH8Og/39666419416-offset-2916-preview-480x272.jpg","duration":30,"vod_offset":null},{"id":"ProudIncredulousHawkSoonerLater-gY337xwWDXXK9g5j","url":"https://clips.twitch.tv/ProudIncredulousHawkSoonerLater-gY337xwWDXXK9g5j","embed_url":"https://clips.twitch.tv/embed?clip=ProudIncredulousHawkSoonerLater-gY337xwWDXXK9g5j","broadcaster_id":"51679076","broadcaster_name":"j_blow","creator_id":"27752465","creator_name":"endlw","video_id":"","game_id":"1469308723","language":"en","title":"Paid
+        Beta By October 15 2077 (Not A Promise)","view_count":3334,"created_at":"2021-09-18T01:17:43Z","thumbnail_url":"https://clips-media-assets2.twitch.tv/AT-cm%7CwXjLDoGN9-8cFg11yvYOYw-preview-480x272.jpg","duration":21.4,"vod_offset":null},{"id":"AgreeableArtsyWerewolfResidentSleeper-mlycsoxSui87ES1e","url":"https://clips.twitch.tv/AgreeableArtsyWerewolfResidentSleeper-mlycsoxSui87ES1e","embed_url":"https://clips.twitch.tv/embed?clip=AgreeableArtsyWerewolfResidentSleeper-mlycsoxSui87ES1e","broadcaster_id":"747734304","broadcaster_name":"hawolt","creator_id":"73201628","creator_name":"pedroacnog","video_id":"","game_id":"1469308723","language":"en","title":"riots
+        worst nightmare","view_count":3325,"created_at":"2023-02-15T16:52:02Z","thumbnail_url":"https://clips-media-assets2.twitch.tv/L-IAFppcnLKMUrovOxEtXg/40477233432-offset-1926-preview-480x272.jpg","duration":26,"vod_offset":null},{"id":"ResoluteKawaiiShingleDancingBanana--dErqidMyG6ToNQi","url":"https://clips.twitch.tv/ResoluteKawaiiShingleDancingBanana--dErqidMyG6ToNQi","embed_url":"https://clips.twitch.tv/embed?clip=ResoluteKawaiiShingleDancingBanana--dErqidMyG6ToNQi","broadcaster_id":"51679076","broadcaster_name":"j_blow","creator_id":"114809714","creator_name":"pwrdwnsys","video_id":"","game_id":"1469308723","language":"en","title":"Fine
+        for people that are not professional programmers.","view_count":3207,"created_at":"2021-09-22T17:27:33Z","thumbnail_url":"https://clips-media-assets2.twitch.tv/AT-cm%7CFFf_s_nRK6onTMhuk6DUIg-preview-480x272.jpg","duration":29.5,"vod_offset":null},{"id":"NastyAliveCroquetteKappaPride-M-uY9vkgpjSQd7VK","url":"https://clips.twitch.tv/NastyAliveCroquetteKappaPride-M-uY9vkgpjSQd7VK","embed_url":"https://clips.twitch.tv/embed?clip=NastyAliveCroquetteKappaPride-M-uY9vkgpjSQd7VK","broadcaster_id":"138634354","broadcaster_name":"MelissaBug","creator_id":"43870953","creator_name":"KillDeerStudios","video_id":"","game_id":"1469308723","language":"en","title":"poot","view_count":3186,"created_at":"2022-06-04T18:33:12Z","thumbnail_url":"https://clips-media-assets2.twitch.tv/AT-cm%7CZPNH3TPrmPb5IKY0kHe1Sg-preview-480x272.jpg","duration":5.9,"vod_offset":null},{"id":"TameUglyCarabeefRedCoat-5QZJ9Hk3MLShSi-_","url":"https://clips.twitch.tv/TameUglyCarabeefRedCoat-5QZJ9Hk3MLShSi-_","embed_url":"https://clips.twitch.tv/embed?clip=TameUglyCarabeefRedCoat-5QZJ9Hk3MLShSi-_","broadcaster_id":"22877031","broadcaster_name":"UselessMouth","creator_id":"89845271","creator_name":"VIBA","video_id":"1890679581","game_id":"1469308723","language":"ru","title":"500к","view_count":3149,"created_at":"2023-08-05T16:30:05Z","thumbnail_url":"https://clips-media-assets2.twitch.tv/l26QauUGSfR5NzC0oUovvw/vod-1890679581-offset-23692-preview-480x272.jpg","duration":30,"vod_offset":23670},{"id":"GorgeousRamshackleBadgerTTours-uSouOrYOBqwcvb8Q","url":"https://clips.twitch.tv/GorgeousRamshackleBadgerTTours-uSouOrYOBqwcvb8Q","embed_url":"https://clips.twitch.tv/embed?clip=GorgeousRamshackleBadgerTTours-uSouOrYOBqwcvb8Q","broadcaster_id":"22877031","broadcaster_name":"UselessMouth","creator_id":"117623913","creator_name":"SemyonSilent","video_id":"","game_id":"1469308723","language":"en","title":"Юля
+        бахнулся","view_count":3121,"created_at":"2022-02-12T12:27:53Z","thumbnail_url":"https://clips-media-assets2.twitch.tv/44681938588-offset-1984-preview-480x272.jpg","duration":25.9,"vod_offset":null}],"pagination":{"cursor":"eyJiIjpudWxsLCJhIjp7IkN1cnNvciI6Ik1qQT0ifX0"}}'
+  recorded_at: Sat, 26 Aug 2023 12:37:07 GMT
+recorded_with: VCR 6.2.0

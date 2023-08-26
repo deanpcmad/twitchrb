@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitch.tv/helix/clips?id=SleepySavageLouseTBTacoRight-UvFOOsTTRu2qbdY9
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.1.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - "<CLIENT_ID>"
+      Authorization:
+      - Bearer <AUTHORIZATION>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      connection:
+      - keep-alive
+      content-length:
+      - '617'
+      content-type:
+      - application/json; charset=utf-8
+      access-control-allow-origin:
+      - "*"
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1693053993'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      date:
+      - Sat, 26 Aug 2023 12:46:32 GMT
+      x-served-by:
+      - cache-bfi-kbfi7400060-BFI, cache-lhr7339-LHR
+      x-cache:
+      - MISS, MISS
+      x-cache-hits:
+      - 0, 0
+      x-timer:
+      - S1693053992.920848,VS0,VS0,VE177
+      vary:
+      - Accept-Encoding
+      strict-transport-security:
+      - max-age=300
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"SleepySavageLouseTBTacoRight-UvFOOsTTRu2qbdY9","url":"https://clips.twitch.tv/SleepySavageLouseTBTacoRight-UvFOOsTTRu2qbdY9","embed_url":"https://clips.twitch.tv/embed?clip=SleepySavageLouseTBTacoRight-UvFOOsTTRu2qbdY9","broadcaster_id":"72938118","broadcaster_name":"deanpcmad","creator_id":"61317928","creator_name":"whom1313","video_id":"","game_id":"22393","language":"en-gb","title":"JUMP!!!!","view_count":15,"created_at":"2022-06-23T19:43:14Z","thumbnail_url":"https://clips-media-assets2.twitch.tv/45641803628-offset-1886-preview-480x272.jpg","duration":26,"vod_offset":null}],"pagination":{}}'
+  recorded_at: Sat, 26 Aug 2023 12:46:32 GMT
+recorded_with: VCR 6.2.0

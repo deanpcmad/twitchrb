@@ -1,0 +1,57 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.twitch.tv/helix/clips
+    body:
+      encoding: UTF-8
+      string: '{"broadcaster_id":943007443}'
+    headers:
+      User-Agent:
+      - twitchrb/v1.1.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - "<CLIENT_ID>"
+      Authorization:
+      - Bearer <AUTHORIZATION>
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 202
+      message: Accepted
+    headers:
+      connection:
+      - keep-alive
+      content-length:
+      - '129'
+      content-type:
+      - application/json; charset=utf-8
+      access-control-allow-origin:
+      - "*"
+      ratelimit-limit:
+      - '600'
+      ratelimit-remaining:
+      - '599'
+      ratelimit-reset:
+      - '1693054052'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      date:
+      - Sat, 26 Aug 2023 12:47:32 GMT
+      x-served-by:
+      - cache-bfi-krnt7300106-BFI, cache-lcy-eglc8600031-LCY
+      x-cache:
+      - MISS, MISS
+      x-cache-hits:
+      - 0, 0
+      x-timer:
+      - S1693054051.449278,VS0,VS0,VE788
+      vary:
+      - Accept-Encoding
+      strict-transport-security:
+      - max-age=300
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"FunGoldenSageYee-0_mtBLVQ8EYqOwG0","edit_url":"https://clips.twitch.tv/FunGoldenSageYee-0_mtBLVQ8EYqOwG0/edit"}]}'
+  recorded_at: Sat, 26 Aug 2023 12:47:32 GMT
+recorded_with: VCR 6.2.0

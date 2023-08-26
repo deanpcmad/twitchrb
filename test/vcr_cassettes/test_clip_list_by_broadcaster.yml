@@ -1,0 +1,59 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitch.tv/helix/clips?broadcaster_id=72938118
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.1.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - "<CLIENT_ID>"
+      Authorization:
+      - Bearer <AUTHORIZATION>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      connection:
+      - keep-alive
+      content-length:
+      - '770'
+      content-type:
+      - application/json; charset=utf-8
+      access-control-allow-origin:
+      - "*"
+      content-encoding:
+      - gzip
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1693052795'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      date:
+      - Sat, 26 Aug 2023 12:26:34 GMT
+      x-served-by:
+      - cache-bfi-krnt7300098-BFI, cache-lcy-eglc8600051-LCY
+      x-cache:
+      - MISS, MISS
+      x-cache-hits:
+      - 0, 0
+      x-timer:
+      - S1693052795.723319,VS0,VS0,VE231
+      vary:
+      - Accept-Encoding
+      strict-transport-security:
+      - max-age=300
+    body:
+      encoding: UTF-8
+      string: "{\"data\":[{\"id\":\"SleepySavageLouseTBTacoRight-UvFOOsTTRu2qbdY9\",\"url\":\"https://clips.twitch.tv/SleepySavageLouseTBTacoRight-UvFOOsTTRu2qbdY9\",\"embed_url\":\"https://clips.twitch.tv/embed?clip=SleepySavageLouseTBTacoRight-UvFOOsTTRu2qbdY9\",\"broadcaster_id\":\"72938118\",\"broadcaster_name\":\"deanpcmad\",\"creator_id\":\"61317928\",\"creator_name\":\"whom1313\",\"video_id\":\"\",\"game_id\":\"22393\",\"language\":\"en-gb\",\"title\":\"JUMP!!!!\",\"view_count\":15,\"created_at\":\"2022-06-23T19:43:14Z\",\"thumbnail_url\":\"https://clips-media-assets2.twitch.tv/45641803628-offset-1886-preview-480x272.jpg\",\"duration\":26,\"vod_offset\":null},{\"id\":\"HappyFriendlyAlmondTBTacoRight-HGWvzf4kS6kkprij\",\"url\":\"https://clips.twitch.tv/HappyFriendlyAlmondTBTacoRight-HGWvzf4kS6kkprij\",\"embed_url\":\"https://clips.twitch.tv/embed?clip=HappyFriendlyAlmondTBTacoRight-HGWvzf4kS6kkprij\",\"broadcaster_id\":\"72938118\",\"broadcaster_name\":\"deanpcmad\",\"creator_id\":\"72938118\",\"creator_name\":\"deanpcmad\",\"video_id\":\"\",\"game_id\":\"66402\",\"language\":\"en-gb\",\"title\":\"Pog\",\"view_count\":15,\"created_at\":\"2021-11-07T21:58:06Z\",\"thumbnail_url\":\"https://clips-media-assets2.twitch.tv/AT-cm%7CrCD8CBxlr83-JEupJKa4ow-preview-480x272.jpg\",\"duration\":31.7,\"vod_offset\":null},{\"id\":\"VivaciousElegantKittenWOOP-8HpmW7J04MKGqZaB\",\"url\":\"https://clips.twitch.tv/VivaciousElegantKittenWOOP-8HpmW7J04MKGqZaB\",\"embed_url\":\"https://clips.twitch.tv/embed?clip=VivaciousElegantKittenWOOP-8HpmW7J04MKGqZaB\",\"broadcaster_id\":\"72938118\",\"broadcaster_name\":\"deanpcmad\",\"creator_id\":\"72938118\",\"creator_name\":\"deanpcmad\",\"video_id\":\"\",\"game_id\":\"489201\",\"language\":\"en-gb\",\"title\":\"\U0001F440
+        First time playing the Titanfall 2 Campaign\",\"view_count\":9,\"created_at\":\"2022-11-20T22:57:39Z\",\"thumbnail_url\":\"https://clips-media-assets2.twitch.tv/TSbAV_B6ZluydODChqmWgQ/vod-1658342181-offset-0-preview-480x272.jpg\",\"duration\":9.9,\"vod_offset\":null},{\"id\":\"LovelyRoundGarageTF2John-NduCO0MPtb4-6Jqy\",\"url\":\"https://clips.twitch.tv/LovelyRoundGarageTF2John-NduCO0MPtb4-6Jqy\",\"embed_url\":\"https://clips.twitch.tv/embed?clip=LovelyRoundGarageTF2John-NduCO0MPtb4-6Jqy\",\"broadcaster_id\":\"72938118\",\"broadcaster_name\":\"deanpcmad\",\"creator_id\":\"24841994\",\"creator_name\":\"TheJackalMan\",\"video_id\":\"\",\"game_id\":\"493959\",\"language\":\"en-gb\",\"title\":\"RIP
+        Horse\",\"view_count\":7,\"created_at\":\"2022-09-20T21:41:53Z\",\"thumbnail_url\":\"https://clips-media-assets2.twitch.tv/PSWfzzXbgjtDD7W-Puiasg/AT-cm%7CPSWfzzXbgjtDD7W-Puiasg-preview-480x272.jpg\",\"duration\":28,\"vod_offset\":null}],\"pagination\":{}}"
+  recorded_at: Sat, 26 Aug 2023 12:26:34 GMT
+recorded_with: VCR 6.2.0
