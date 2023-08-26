@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitch.tv/helix/streams?user_id=943007443
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.1.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - "<CLIENT_ID>"
+      Authorization:
+      - Bearer <AUTHORIZATION>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      connection:
+      - keep-alive
+      content-length:
+      - '407'
+      content-type:
+      - application/json; charset=utf-8
+      access-control-allow-origin:
+      - "*"
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1693051757'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      date:
+      - Sat, 26 Aug 2023 12:09:16 GMT
+      x-served-by:
+      - cache-bfi-kbfi7400072-BFI, cache-lcy-eglc8600029-LCY
+      x-cache:
+      - MISS, MISS
+      x-cache-hits:
+      - 0, 0
+      x-timer:
+      - S1693051757.830260,VS0,VS0,VE159
+      vary:
+      - Accept-Encoding
+      strict-transport-security:
+      - max-age=300
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"39890202597","user_id":"943007443","user_login":"deanpcmadtest","user_name":"deanpcmadtest","game_id":"","game_name":"","type":"live","title":"Test
+        stream","viewer_count":1,"started_at":"2023-08-26T12:04:07Z","language":"en","thumbnail_url":"https://static-cdn.jtvnw.net/previews-ttv/live_user_deanpcmadtest-{width}x{height}.jpg","tag_ids":[],"tags":null,"is_mature":false}],"pagination":{}}'
+  recorded_at: Sat, 26 Aug 2023 12:09:16 GMT
+recorded_with: VCR 6.2.0

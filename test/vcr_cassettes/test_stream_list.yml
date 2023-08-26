@@ -1,0 +1,89 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitch.tv/helix/streams
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.1.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - "<CLIENT_ID>"
+      Authorization:
+      - Bearer <AUTHORIZATION>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      connection:
+      - keep-alive
+      content-type:
+      - application/json; charset=utf-8
+      access-control-allow-origin:
+      - "*"
+      content-encoding:
+      - gzip
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1693051757'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      date:
+      - Sat, 26 Aug 2023 12:09:16 GMT
+      x-served-by:
+      - cache-bfi-kbfi7400068-BFI, cache-lcy-eglc8600051-LCY
+      x-cache:
+      - MISS, MISS
+      x-cache-hits:
+      - 0, 0
+      x-timer:
+      - S1693051757.562880,VS0,VS0,VE157
+      vary:
+      - Accept-Encoding
+      strict-transport-security:
+      - max-age=300
+      transfer-encoding:
+      - chunked
+    body:
+      encoding: UTF-8
+      string: "{\"data\":[{\"id\":\"40562361015\",\"user_id\":\"545050196\",\"user_login\":\"kato_junichi0817\",\"user_name\":\"加藤純一です\",\"game_id\":\"511224\",\"game_name\":\"Apex
+        Legends\",\"type\":\"live\",\"title\":\"エペ祭り本番優勝会場\",\"viewer_count\":57578,\"started_at\":\"2023-08-26T07:18:19Z\",\"language\":\"ja\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_kato_junichi0817-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"加藤純一\",\"雑談\",\"雑談歓迎\",\"雑談〇\",\"雑談大好き\",\"日本語\"],\"is_mature\":false},{\"id\":\"41022898648\",\"user_id\":\"129339704\",\"user_login\":\"betboom_ru\",\"user_name\":\"betboom_ru\",\"game_id\":\"29595\",\"game_name\":\"Dota
+        2\",\"type\":\"live\",\"title\":\"(RU) Virtus.pro vs One Move | BO5 | The
+        International 2023 - EEU Qualifier | by Sheyl \\u0026 Mantis\",\"viewer_count\":32433,\"started_at\":\"2023-08-26T05:40:39Z\",\"language\":\"ru\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_betboom_ru-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"Киберспорт\",\"Русский\"],\"is_mature\":false},{\"id\":\"40562566615\",\"user_id\":\"49207184\",\"user_login\":\"fps_shaka\",\"user_name\":\"fps_shaka\",\"game_id\":\"511224\",\"game_name\":\"Apex
+        Legends\",\"type\":\"live\",\"title\":\"えぺまつり本番\",\"viewer_count\":28262,\"started_at\":\"2023-08-26T08:54:17Z\",\"language\":\"ja\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_fps_shaka-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"日本語\",\"ネタバレ禁止\",\"ネタバレ注意\",\"大会のネタバレ禁止\",\"匂わせしないで\",\"ストグラに関する鳩BAN\"],\"is_mature\":false},{\"id\":\"40562848183\",\"user_id\":\"115590970\",\"user_login\":\"daigothebeastv\",\"user_name\":\"DaigoTheBeasTV\",\"game_id\":\"55453844\",\"game_name\":\"Street
+        Fighter 6\",\"type\":\"live\",\"title\":\"俺を獲れトーナメント1回戦\",\"viewer_count\":22471,\"started_at\":\"2023-08-26T10:55:05Z\",\"language\":\"ja\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_daigothebeastv-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"日本語\",\"StreetFighter6\",\"ストリートファイター6\",\"スト6\",\"SF6\"],\"is_mature\":false},{\"id\":\"39889790645\",\"user_id\":\"67708794\",\"user_login\":\"nix\",\"user_name\":\"Nix\",\"game_id\":\"32399\",\"game_name\":\"Counter-Strike:
+        Global Offensive\",\"type\":\"live\",\"title\":\"@nafany_ + @nix vs @Recrent
+        + @des0ut BetBoom All-Stars 2x2 !tg !сетка\",\"viewer_count\":21438,\"started_at\":\"2023-08-26T10:37:45Z\",\"language\":\"ru\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_nix-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"Русский\"],\"is_mature\":true},{\"id\":\"41023116104\",\"user_id\":\"145611500\",\"user_login\":\"skylinetvlive\",\"user_name\":\"SkylineTVlive\",\"game_id\":\"509658\",\"game_name\":\"Just
+        Chatting\",\"type\":\"live\",\"title\":\"Gamescom 2023\",\"viewer_count\":19787,\"started_at\":\"2023-08-26T09:02:21Z\",\"language\":\"de\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_skylinetvlive-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"Deutsch\",\"IRL\",\"Messe\",\"Gamescom\"],\"is_mature\":false},{\"id\":\"41022908376\",\"user_id\":\"42316376\",\"user_login\":\"just_ns\",\"user_name\":\"just_ns\",\"game_id\":\"29595\",\"game_name\":\"Dota
+        2\",\"type\":\"live\",\"title\":\"Virtus.Pro vs Onemove GRANDFINAL TI Quals
+        /w @followJotM !gorilla !прием !betboom LETS GO\",\"viewer_count\":18105,\"started_at\":\"2023-08-26T05:52:31Z\",\"language\":\"ru\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_just_ns-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"Русский\"],\"is_mature\":true},{\"id\":\"40562649447\",\"user_id\":\"49045679\",\"user_login\":\"woowakgood\",\"user_name\":\"우왁굳\",\"game_id\":\"509658\",\"game_name\":\"Just
+        Chatting\",\"type\":\"live\",\"title\":\"마인크래프트 눕프로해커 시작\",\"viewer_count\":17910,\"started_at\":\"2023-08-26T09:32:09Z\",\"language\":\"ko\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_woowakgood-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"한국어\"],\"is_mature\":false},{\"id\":\"40562991991\",\"user_id\":\"203654142\",\"user_login\":\"fantasista_jp\",\"user_name\":\"ファン太\",\"game_id\":\"32982\",\"game_name\":\"Grand
+        Theft Auto V\",\"type\":\"live\",\"title\":\"ストグラ23日成長したい～鳩禁止\",\"viewer_count\":17778,\"started_at\":\"2023-08-26T11:40:42Z\",\"language\":\"ja\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_fantasista_jp-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"日本語\",\"雑談\"],\"is_mature\":false},{\"id\":\"40562451175\",\"user_id\":\"485855940\",\"user_login\":\"lolpacifictw\",\"user_name\":\"lolpacifictw\",\"game_id\":\"21779\",\"game_name\":\"League
+        of Legends\",\"type\":\"live\",\"title\":\"[中文] Playoffs Round 3 | FAK vs
+        CFO | PCS 夏季聯賽 (2023)\",\"viewer_count\":16028,\"started_at\":\"2023-08-26T08:00:02Z\",\"language\":\"zh\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_lolpacifictw-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"英雄聯盟\",\"中文\",\"leagueoflegends\",\"Esports\"],\"is_mature\":false},{\"id\":\"39889672565\",\"user_id\":\"238813810\",\"user_login\":\"eliasn97\",\"user_name\":\"eliasn97\",\"game_id\":\"509658\",\"game_name\":\"Just
+        Chatting\",\"type\":\"live\",\"title\":\"Reactions \U0001F525 | Submarathon
+        Tag 14 | !eligella !subathon\",\"viewer_count\":15768,\"started_at\":\"2023-08-26T10:06:59Z\",\"language\":\"de\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_eliasn97-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"Deutsch\"],\"is_mature\":false},{\"id\":\"39889015317\",\"user_id\":\"194701696\",\"user_login\":\"pgl_dota2en2\",\"user_name\":\"PGL_DOTA2EN2\",\"game_id\":\"29595\",\"game_name\":\"Dota
+        2\",\"type\":\"live\",\"title\":\"Regional Qualifiers - EEU - Day 5 - Virtus.pro
+        vs One Move\",\"viewer_count\":15201,\"started_at\":\"2023-08-26T05:45:24Z\",\"language\":\"en\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_pgl_dota2en2-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"Esports\",\"dota2\",\"English\"],\"is_mature\":false},{\"id\":\"40562935687\",\"user_id\":\"139470326\",\"user_login\":\"handongsuk\",\"user_name\":\"한동숙\",\"game_id\":\"504798\",\"game_name\":\"FIFA
+        Online 4\",\"type\":\"live\",\"title\":\"조축회\",\"viewer_count\":14401,\"started_at\":\"2023-08-26T11:22:43Z\",\"language\":\"ko\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_handongsuk-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"한국어\"],\"is_mature\":false},{\"id\":\"40562647175\",\"user_id\":\"237570548\",\"user_login\":\"jingburger\",\"user_name\":\"징버거\",\"game_id\":\"509658\",\"game_name\":\"Just
+        Chatting\",\"type\":\"live\",\"title\":\"이세돌볶음밥 한잔 빠르게\",\"viewer_count\":10727,\"started_at\":\"2023-08-26T09:31:14Z\",\"language\":\"ko\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_jingburger-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"이세계아이돌\",\"Vtuber\",\"왁타버스\",\"모시깽이\",\"똥강아지\",\"한국어\",\"멜론명전가수\",\"징부가\",\"너무달콤해서이상함\",\"멜론6위가수야\"],\"is_mature\":false},{\"id\":\"39889783365\",\"user_id\":\"465131731\",\"user_login\":\"shadowkekw\",\"user_name\":\"shadowkekw\",\"game_id\":\"32399\",\"game_name\":\"Counter-Strike:
+        Global Offensive\",\"type\":\"live\",\"title\":\"⭕️ BETBOOM ALLSTAR 2x2 \U0001F631\U0001F449
+        !тг !bb\",\"viewer_count\":10446,\"started_at\":\"2023-08-26T10:35:49Z\",\"language\":\"ru\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_shadowkekw-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"МУЖСОДЕРЖАНКА\",\"Русский\",\"csgo\"],\"is_mature\":false},{\"id\":\"40562585495\",\"user_id\":\"671502034\",\"user_login\":\"sanninshow_3ns\",\"user_name\":\"三人称_ドンピシャ\",\"game_id\":\"511224\",\"game_name\":\"Apex
+        Legends\",\"type\":\"live\",\"title\":\"【おじすぽっぽ！WIN】えぺまつり夏の陣 再来【APEXLEGENDS】
+        w/乾殿,神成きゅぴ殿,きなこ殿\",\"viewer_count\":10393,\"started_at\":\"2023-08-26T09:01:45Z\",\"language\":\"ja\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_sanninshow_3ns-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"ネタバレなし\",\"日本語\",\"伝言鳩禁止\"],\"is_mature\":false},{\"id\":\"39889623061\",\"user_id\":\"605221125\",\"user_login\":\"gerardromero\",\"user_name\":\"gerardromero\",\"game_id\":\"518203\",\"game_name\":\"Sports\",\"type\":\"live\",\"title\":\"JIJANTES
+        FC | ACTUALIDAD BARÇA. MERCATO FCB. MARCOS ALONSO INSCRITO. JAQUE MÁRQUEZ.
+        LA RUEDA DE PRENSA DE XAVI 14.30H\",\"viewer_count\":10143,\"started_at\":\"2023-08-26T09:54:55Z\",\"language\":\"es\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_gerardromero-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"Español\"],\"is_mature\":false},{\"id\":\"39889842741\",\"user_id\":\"552015849\",\"user_login\":\"rmcsport\",\"user_name\":\"RMCsport\",\"game_id\":\"518203\",\"game_name\":\"Sports\",\"type\":\"live\",\"title\":\"\U0001F4A5INCROYABLE!
+        \U0001F94ADIFFUSION UFC GRATUIT | LeBouseuh | Henry Tran | Charles Villa |
+        Taylor Lapilus | Antoine Simon \\u0026 Sacha !offre\",\"viewer_count\":9707,\"started_at\":\"2023-08-26T10:50:28Z\",\"language\":\"fr\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_rmcsport-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"Français\",\"combat\",\"fight\",\"MMALIVE\"],\"is_mature\":false},{\"id\":\"41023279496\",\"user_id\":\"85397463\",\"user_login\":\"noway4u_sir\",\"user_name\":\"NoWay4u_Sir\",\"game_id\":\"21779\",\"game_name\":\"League
+        of Legends\",\"type\":\"live\",\"title\":\"ICH HABE EIN STREAMINGSETUP (LIVE
+        AUS DEM XPERION)\",\"viewer_count\":8983,\"started_at\":\"2023-08-26T10:39:43Z\",\"language\":\"de\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_noway4u_sir-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"Deutsch\"],\"is_mature\":false},{\"id\":\"39889421765\",\"user_id\":\"27115917\",\"user_login\":\"kamet0\",\"user_name\":\"Kamet0\",\"game_id\":\"21779\",\"game_name\":\"League
+        of Legends\",\"type\":\"live\",\"title\":\"ziqrjoqzjr,qoizjroqizsroiqzjroiqzrizqor
+        voila y'a un titre la (!kcx) (!extension)\",\"viewer_count\":8510,\"started_at\":\"2023-08-26T08:59:45Z\",\"language\":\"fr\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_kamet0-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"Français\"],\"is_mature\":false}],\"pagination\":{\"cursor\":\"eyJiIjp7IkN1cnNvciI6ImV5SnpJam8xTnpVM09DNDNNekU0T1RnME5qY3lNalFzSW1RaU9tWmhiSE5sTENKMElqcDBjblZsZlE9PSJ9LCJhIjp7IkN1cnNvciI6ImV5SnpJam80TnpNMUxqZzBNRGd4TWpjMU1qVXhOaXdpWkNJNlptRnNjMlVzSW5RaU9uUnlkV1Y5In19\"}}"
+  recorded_at: Sat, 26 Aug 2023 12:09:16 GMT
+recorded_with: VCR 6.2.0

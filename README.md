@@ -243,7 +243,7 @@ Twitch::Announcement.create broadcaster_id: 123, moderator_id: 123, message: "te
 # From: the ID of the Broadcaster creating the Shoutout
 # To: the ID of the Broadcaster the Shoutout will be for
 # moderator_id can be either the currently authenticated moderator or the broadcaster
-@client.shoutouts.create from: 123, to: 321, moderator_id: 123
+Twitch::Shoutout.create from: 123, to: 321, moderator_id: 123
 ```
 
 ## Moderators
