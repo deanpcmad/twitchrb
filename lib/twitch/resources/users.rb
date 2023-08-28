@@ -1,34 +1,17 @@
 module Twitch
   class UsersResource < Resource
 
-    def get_by_id(user_id: nil, id: nil, ids: nil)
-      raise "Either id or ids is required" unless !id.nil? || !ids.nil? || !user_id.nil?
+    def retrieve(id: nil, ids: nil, username: nil, usernames: nil)
+      raise "Either id, ids, username or usernames is required" unless !id.nil? || !ids.nil? || !username.nil? || !usernames.nil?
 
-      if ids
-        user_ids = ids.split(",").map {|i| "id=#{i.strip}"}
-        response = get_request("users?#{user_ids.join("&")}")
+      if id
+        response = get_request("users", params: {id: id})
+      elsif ids
+        response = get_request("users", params: {id: ids})
+      elsif usernames
+        response = get_request("users", params: {login: usernames})
       else
-        response = get_request("users?id=#{id || user_id}")
-      end
-
-      body = response.body.dig("data")
-      if body.count == 1
-        User.new body[0]
-      elsif body.count > 1
-        Collection.from_response(response, type: User)
-      else
-        return nil
-      end
-    end
-
-    def get_by_username(username: nil, usernames: nil)
-      raise "Either username or usernames is required" unless !username.nil? || !usernames.nil?
-
-      if usernames
-        user_names = usernames.split(",").map {|u| "login=#{u.strip}"}
-        response = get_request("users?#{user_names.join("&")}")
-      else
-        response = get_request("users?login=#{username}")
+        response = get_request("users", params: {login: username})
       end
 
       body = response.body.dig("data")
