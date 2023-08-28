@@ -4,10 +4,17 @@ module Twitch
     class << self
 
       def list(**params)
-        raise "id, user_id or game_id is required" unless !params[:id].nil? || !params[:user_id].nil? || !params[:game_id].nil?
+        raise "user_id or game_id is required" unless !params[:user_id].nil? || !params[:game_id].nil?
 
         response = Client.get_request("videos", params: params)
         Collection.from_response(response, type: Video)
+      end
+
+      def retrieve(id:)
+        response = Client.get_request("videos", params: {id: id})
+        if response.body
+          Game.new response.body["data"].first
+        end
       end
 
       # Required scope: channel:manage:videos

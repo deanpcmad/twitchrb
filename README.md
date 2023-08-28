@@ -116,6 +116,9 @@ Twitch::Video.list(id: 12345)
 Twitch::Video.list(user_id: 12345)
 Twitch::Video.list(game_id: 12345)
 
+# Retrieve a video by its ID
+Twitch::Video.retrieve(id: 12345)
+
 # Delete a video
 # Required scope: channel:manage:videos
 Twitch::Video.delete(id: 12345)
