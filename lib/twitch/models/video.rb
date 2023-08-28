@@ -13,7 +13,7 @@ module Twitch
       def retrieve(id:)
         response = Client.get_request("videos", params: {id: id})
         if response.body
-          Game.new response.body["data"].first
+          Video.new response.body["data"].first
         end
       end
 

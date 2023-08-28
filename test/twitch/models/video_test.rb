@@ -10,14 +10,6 @@ class VideoTest < Minitest::Test
     assert_equal "archive", videos.data.first.type
   end
 
-  def test_video_list_by_id
-    videos = Twitch::Video.list(id: 1908988719)
-
-    assert_equal Twitch::Collection, videos.class
-    assert_equal Twitch::Video, videos.data.first.class
-    assert_equal "archive", videos.data.first.type
-  end
-
   def test_video_list_by_game_id
     videos = Twitch::Video.list(game_id: 1469308723)
 
@@ -25,6 +17,13 @@ class VideoTest < Minitest::Test
     assert_equal Twitch::Video, videos.data.first.class
     assert_equal "archive", videos.data.first.type
     assert_equal "deanpcmadtest", videos.data.first.user_login
+  end
+
+  def test_video_retrieve
+    videos = Twitch::Video.retrieve(id: 1886679889)
+
+    assert_equal Twitch::Video, videos.class
+    assert_equal "archive", videos.type
   end
 
   def test_video_delete
