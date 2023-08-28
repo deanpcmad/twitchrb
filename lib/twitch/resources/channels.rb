@@ -1,8 +1,8 @@
 module Twitch
   class ChannelsResource < Resource
-    
-    def get(broadcaster_id:)
-      Channel.new get_request("channels?broadcaster_id=#{broadcaster_id}").body.dig("data")[0]
+
+    def retrieve(id:)
+      Channel.new get_request("channels?broadcaster_id=#{id}").body.dig("data")[0]
     end
 
     # Retrieve a list of broadcasters a specified user follows
