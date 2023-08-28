@@ -26,30 +26,22 @@ An access token is required because the Helix API requires authentication.
 
 ```ruby
 # Retrieves a user by their ID
-@client.users.get_by_id(id: 141981764)
+@client.users.retrieve(id: 141981764)
 
 # Retrieves multiple users by their IDs
-# A comma is required to separate them
-@client.users.get_by_id(ids: "141981764, 72938118")
+# Requires an array of IDs
+@client.users.retrieve(ids: [141981764, 72938118])
 
 # Retrieves a user by their username
-@client.users.get_by_username(username: "twitchdev")
+@client.users.retrieve(username: "twitchdev")
 
 # Retrieves multiple users by their usernames
-# A comma is required to separate them
-@client.users.get_by_username(usernames: "twitchdev,deanpcmad")
+# Requires an array of IDs
+@client.users.retrieve(usernames: ["twitchdev", "deanpcmad"])
 
 # Update the currently authenticated user's description
 # Required scope: user:edit
 @client.users.update(description: "New Description")
-
-# Deprecated. Please look at using channels.followed or channels.followers
-# Shows users who follow or are following a user ID
-@client.users.follows(from_id: 141981764)
-@client.users.follows(to_id: 141981764)
-
-# A quick method for seeing if a user is following a channel
-@client.users.following?(from_id: 141981764, to_id: 141981764)
 
 # Returns Blocked users for a broadcaster
 # Required scope: user:read:blocked_users
@@ -82,7 +74,7 @@ An access token is required because the Helix API requires authentication.
 
 ```ruby
 # Retrieve a channel by their ID
-@client.channels.get(broadcaster_id: 141981764)
+@client.channels.retrieve(id: 141981764)
 
 # Retrieve a list of broadcasters a specified user follows
 # user_id must match the currently authenticated user
@@ -116,18 +108,19 @@ attributes = {title: "My new title"}
 
 ```ruby
 # Retrieves a list of videos
-# Available parameters: id, user_id or game_id
-@client.videos.list(id: 12345)
+# Available parameters: user_id or game_id
 @client.videos.list(user_id: 12345)
 @client.videos.list(game_id: 12345)
+
+# Retrieves a video by its ID
+@client.videos.retrieve(id: 12345)
 ```
 
 ### Clips
 
 ```ruby
 # Retrieves a list of clips
-# Available parameters: id, broadcaster_id or game_id
-@client.clips.list(id: 12345)
+# Available parameters: broadcaster_id or game_id
 @client.clips.list(user_id: 12345)
 @client.clips.list(game_id: 12345)
 
@@ -166,14 +159,19 @@ attributes = {title: "My new title"}
 ### Games
 
 ```ruby
-# Retrieves a game by its ID
-@client.games.get_by_id(game_id: 123)
+# Retrieves a game by ID
+@client.games.retrieve(id: 514974)
 
-# Retrieves a game by its Name
-@client.games.get_by_id(name: "Battlefield 4")
+# Retrieves multiple games by IDs
+# Requires an array of IDs
+@client.games.retrieve(ids: [66402, 514974])
 
-# Retrieves a list of top games
-@client.games.top
+# Retrieves a game by name
+@client.games.retrieve(name: "Battlefield 4")
+
+# Retrieves multiple games by names
+# Requires an array of IDs
+@client.games.retrieve(names: ["Battlefield 4", "Battlefield 2042"])
 ```
 
 ## EventSub Subscriptions
