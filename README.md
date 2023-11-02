@@ -412,7 +412,7 @@ messages = [{msg_id: "abc1", msg_text: "is this allowed?"}, {msg_id: "abc2", msg
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/twitchrb/twitchrb.
+Bug reports and pull requests are welcome on GitHub at https://github.com/deanpcmad/twitchrb.
 
 ## License
 
