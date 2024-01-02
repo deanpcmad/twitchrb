@@ -410,6 +410,46 @@ messages = [{msg_id: "abc1", msg_text: "is this allowed?"}, {msg_id: "abc2", msg
 @client.chatters.list broadcaster_id: 123, moderator_id: 123
 ```
 
+### Channel Points Custom Rewards
+
+```ruby
+# Gets a list of custom rewards for a specific channel
+# Required scope: channel:read:redemptions
+# broadcaster_id must match the currently authenticated user
+@client.custom_rewards.list broadcaster_id: 123
+
+# Create a custom reward
+# Required scope: channel:manage:redemptions
+# broadcaster_id must match the currently authenticated user
+@client.custom_rewards.create broadcaster_id: 123, title: "New Reward", cost: 1000
+
+# Update a custom reward
+# Required scope: channel:manage:redemptions
+# broadcaster_id must match the currently authenticated user
+@client.custom_rewards.update broadcaster_id: 123, reward_id: 321, title: "Updated Reward"
+
+# Delete a custom reward
+# Required scope: channel:manage:redemptions
+# broadcaster_id must match the currently authenticated user
+@client.custom_rewards.delete broadcaster_id: 123, reward_id: 321
+```
+
+### Channel Points Custom Reward Redemptions
+
+```ruby
+# Gets a list of custom reward redemptions for a specific channel
+# Required scope: channel:read:redemptions
+# broadcaster_id must match the currently authenticated user
+@client.custom_reward_redemptions.list broadcaster_id: 123, reward_id: 321, status: "UNFULFILLED"
+
+# Update a custom reward redemption status
+# Required scope: channel:manage:redemptions
+# broadcaster_id must match the currently authenticated user
+# Status can be FULFILLED or CANCELED
+@client.custom_reward_redemptions.update broadcaster_id: 123, reward_id: 321, redemption_id: 123, status: "FULFILLED"
+```
+
+
 ## Contributing
 
 Bug reports and pull requests are welcome on GitHub at https://github.com/deanpcmad/twitchrb.
