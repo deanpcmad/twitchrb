@@ -174,7 +174,7 @@ attributes = {title: "My new title"}
 @client.games.retrieve(names: ["Battlefield 4", "Battlefield 2042"])
 ```
 
-## EventSub Subscriptions
+### EventSub Subscriptions
 
 These require an application OAuth access token.
 
@@ -198,7 +198,7 @@ These require an application OAuth access token.
 @client.eventsub_subscriptions.delete(id: "abc12-abc12-abc12")
 ```
 
-## Banned Events
+### Banned Events
 
 ```ruby
 # Retrieves all ban and un-ban events for a channel
@@ -206,7 +206,7 @@ These require an application OAuth access token.
 @client.banned_events.list(broadcaster_id: 123)
 ```
 
-## Banned Users
+### Banned Users
 
 ```ruby
 # Retrieves all banned and timed-out users for a channel
@@ -228,7 +228,7 @@ These require an application OAuth access token.
 @client.banned_users.delete broadcaster_id: 123, moderator_id: 321, user_id: 112233
 ```
 
-## Send Chat Announcement
+### Send Chat Announcement
 
 ```ruby
 # Sends an announcement to the broadcaster's chat room
@@ -238,7 +238,7 @@ These require an application OAuth access token.
 @client.announcements.create broadcaster_id: 123, moderator_id: 123, message: "test message", color: "purple"
 ```
 
-## Create a Shoutout
+### Create a Shoutout
 
 ```ruby
 # Creates a Shoutout for a broadcaster
@@ -249,7 +249,7 @@ These require an application OAuth access token.
 @client.shoutouts.create from: 123, to: 321, moderator_id: 123
 ```
 
-## Moderators
+### Moderators
 
 ```ruby
 # List all moderators for a broadcaster
@@ -272,7 +272,7 @@ These require an application OAuth access token.
 @client.moderators.delete broadcaster_id: 123, user_id: 321
 ```
 
-## VIPs
+### VIPs
 
 ```ruby
 # List all VIPs for a broadcaster
@@ -295,7 +295,7 @@ These require an application OAuth access token.
 @client.vips.delete broadcaster_id: 123, user_id: 321
 ```
 
-## Raids
+### Raids
 
 ```ruby
 # Starts a raid
@@ -317,7 +317,7 @@ These require an application OAuth access token.
 @client.chat_messages.delete broadcaster_id: 123, moderator_id: 123, message_id: "abc123-abc123"
 ```
 
-## Whispers
+### Whispers
 
 ```ruby
 # Send a Whisper
@@ -326,7 +326,7 @@ These require an application OAuth access token.
 @client.whispers.create from_user_id: 123, to_user_id: 321, message: "this is a test"
 ```
 
-## AutoMod
+### AutoMod
 
 ```ruby
 # Check if a message meets the channel's AutoMod requirements
@@ -360,7 +360,7 @@ messages = [{msg_id: "abc1", msg_text: "is this allowed?"}, {msg_id: "abc2", msg
 @client.automod.update_settings broadcaster_id: 123, moderator_id: 321, swearing: 1
 ```
 
-## Creator Goals
+### Creator Goals
 
 ```ruby
 # List all active creator goals
@@ -369,7 +369,7 @@ messages = [{msg_id: "abc1", msg_text: "is this allowed?"}, {msg_id: "abc2", msg
 @client.goals.list broadcaster_id: 123
 ```
 
-## Blocked Terms
+### Blocked Terms
 
 ```ruby
 # List all blocked terms
@@ -392,7 +392,7 @@ messages = [{msg_id: "abc1", msg_text: "is this allowed?"}, {msg_id: "abc2", msg
 @client.blocked_terms.delete broadcaster_id: 123, moderator_id: 321, id: "abc12-12abc"
 ```
 
-## Charity Campaigns
+### Charity Campaigns
 
 ```ruby
 # Gets information about the charity campaign that a broadcaster is running
@@ -401,7 +401,7 @@ messages = [{msg_id: "abc1", msg_text: "is this allowed?"}, {msg_id: "abc2", msg
 @client.charity_campaigns.list broadcaster_id: 123
 ```
 
-## Chatters
+### Chatters
 
 ```ruby
 # Gets the list of users that are connected to the specified broadcaster’s chat session
