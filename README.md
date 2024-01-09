@@ -252,6 +252,13 @@ These require an application OAuth access token.
 ### Moderators
 
 ```ruby
+# List all channels a user has moderator privileges on
+# Required scope: user:read:moderated_channels
+# user_id must be the currently authenticated user
+@client.moderators.channels user_id: 123
+```
+
+```ruby
 # List all moderators for a broadcaster
 # Required scope: moderation:read
 # broadcaster_id must be the currently authenticated user
