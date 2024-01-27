@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    twitchrb (1.2.2)
+    twitchrb (1.2.3)
       faraday (~> 2.0)
 
 GEM
