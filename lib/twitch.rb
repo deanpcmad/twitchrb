@@ -85,5 +85,6 @@ module Twitch
   autoload :BlockedTerm, "twitch/objects/blocked_term"
   autoload :CharityCampaign, "twitch/objects/charity_campaign"
   autoload :Chatter, "twitch/objects/chatter"
+  autoload :ChatMessage, "twitch/objects/chat_message"
 
 end

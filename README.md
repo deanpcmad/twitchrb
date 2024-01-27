@@ -317,7 +317,15 @@ These require an application OAuth access token.
 @client.raids.delete broadcaster_id: 123
 ```
 
+### Chat Messages
+
 ```ruby
+# Send a chat message to a broadcaster's chat room
+# Requires an app or user access token that includes user:write:chat then either user:bot or channel:bot
+# sender_id must be the currently authenticated user
+# reply_to is optional and is the UUID of the message to reply to
+@client.chat_messages.create broadcaster_id: 123, sender_id: 321, message: "A test message", reply_to: "aabbcc"
+
 # Removes a single chat message from the broadcaster's chat room
 # Requires moderator:manage:chat_messages
 # moderator_id can be either the currently authenticated moderator or the broadcaster
