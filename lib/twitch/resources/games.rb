@@ -15,9 +15,9 @@ module Twitch
       end
 
       body = response.body.dig("data")
-      if body.count == 1
+      if id || name && body.count == 1
         Game.new body[0]
-      elsif body.count > 1
+      elsif ids || names && body.count > 1
         Collection.from_response(response, type: Game)
       else
         return nil
