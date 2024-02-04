@@ -13,7 +13,11 @@ require 'dotenv/load'
 # require "pry"
 # Pry.start
 
+@oauth = Twitch::OAuth.new(client_id: ENV["TWITCH_CLIENT_ID"], client_secret: ENV["TWITCH_CLIENT_SECRET"])
+
 @client = Twitch::Client.new(client_id: ENV["TWITCH_CLIENT_ID"], access_token: ENV["TWITCH_ACCESS_TOKEN"])
+
+@clientapp = Twitch::Client.new(client_id: ENV["TWITCH_CLIENT_ID"], access_token: ENV["TWITCH_APP_ACCESS_TOKEN"])
 
 require "irb"
 IRB.start(__FILE__)

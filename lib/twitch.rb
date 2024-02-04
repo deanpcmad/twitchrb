@@ -10,6 +10,8 @@ module Twitch
   autoload :Resource, "twitch/resource"
   autoload :Object, "twitch/object"
 
+  autoload :OAuth, "twitch/oauth"
+
 
   autoload :UsersResource, "twitch/resources/users"
   autoload :ChannelsResource, "twitch/resources/channels"

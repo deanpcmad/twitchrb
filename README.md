@@ -22,6 +22,34 @@ An access token is required because the Helix API requires authentication.
 @client = Twitch::Client.new(client_id: "", access_token: "")
 ```
 
+### OAuth
+
+This library includes the ability to create, refresh and revoke OAuth tokens.
+
+```ruby
+# Firstly, set the client details
+@oauth = Twitch::OAuth.new(client_id: "", client_secret: "")
+
+# Create a Token
+# grant_type can be either "authorization_code" or "client_credentials"
+# scope is a space-delimited list of scopes. This is optional depending on the grant_type
+@oauth.create(grant_type: "", scope: "")
+
+# Refresh a Token
+@oauth.refresh(refresh_token: "")
+
+# Device Code Grant Flow
+# scopes is required and is a space-delimited list of scopes
+# https://dev.twitch.tv/docs/authentication/getting-tokens-oauth/#device-code-grant-flow
+@oauth.device(scopes: "bits:read channel:read:subscriptions")
+
+# Validate an Access Token
+@oauth.validate(access_token: "")
+
+# Revoke a Token
+@oauth.revoke(token: "")
+```
+
 ### Users
 
 ```ruby
