@@ -45,6 +45,10 @@ module Twitch
       EventsubSubscriptionsResource.new(self)
     end
 
+    def eventsub_conduits
+      EventsubConduitsResource.new(self)
+    end
+
     def banned_events
       BannedEventsResource.new(self)
     end
