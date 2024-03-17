@@ -498,6 +498,20 @@ messages = [{msg_id: "abc1", msg_text: "is this allowed?"}, {msg_id: "abc2", msg
 @client.custom_reward_redemptions.update broadcaster_id: 123, reward_id: 321, redemption_id: 123, status: "FULFILLED"
 ```
 
+### Unban Requests
+
+```ruby
+# Retrieves a list of Unban Requests for a broadcaster
+# Required scope: moderator:read:unban_requests or moderator:manage:unban_requests
+# moderator_id must match the currently authenticated user
+@client.unban_requests.list broadcaster_id: 123, moderator_id: 123, status: "pending"
+
+# Resolve an Unban Request
+# Required scope: moderator:manage:unban_requests
+# moderator_id must match the currently authenticated user
+@client.unban_requests.resolve broadcaster_id: 123, moderator_id: 123, id: "abc123", status: "approved"
+```
+
 
 ## Contributing
 

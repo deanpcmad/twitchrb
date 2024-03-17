@@ -48,6 +48,7 @@ module Twitch
   autoload :CharityCampaignsResource, "twitch/resources/charity_campaigns"
   autoload :ChattersResource, "twitch/resources/chatters"
   autoload :ShoutoutsResource, "twitch/resources/shoutouts"
+  autoload :UnbanRequestsResource, "twitch/resources/unban_requests"
 
 
   autoload :User, "twitch/objects/user"
@@ -91,5 +92,6 @@ module Twitch
   autoload :CharityCampaign, "twitch/objects/charity_campaign"
   autoload :Chatter, "twitch/objects/chatter"
   autoload :ChatMessage, "twitch/objects/chat_message"
+  autoload :UnbanRequest, "twitch/objects/unban_request"
 
 end
