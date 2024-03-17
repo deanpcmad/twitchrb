@@ -96,6 +96,12 @@ This library includes the ability to create, refresh and revoke OAuth tokens.
 # Current allowed colours: blue, blue_violet, cadet_blue, chocolate, coral, dodger_blue, firebrick, golden_rod, green, hot_pink, orange_red, red, sea_green, spring_green, yellow_green
 # For Turbo and Prime users, a hex colour code is allowed.
 @client.users.update_color(user_id: 123, color: "blue")
+
+# Get Emotes a User has
+# Required scope: user:read:emotes
+@client.users.emotes(user_id: 123)
+@client.users.emotes(user_id: 123, broadcaster_id: 321)
+@client.users.emotes(user_id: 123, after: "abc123")
 ```
 
 ### Channels

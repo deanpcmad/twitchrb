@@ -89,5 +89,11 @@ module Twitch
       end
     end
 
+    def emotes(user_id:, **params)
+      attrs = {user_id: user_id}
+      response = get_request("chat/emotes/user", params: attrs.merge(params))
+      Collection.from_response(response, type: Emote)
+    end
+
   end
 end
