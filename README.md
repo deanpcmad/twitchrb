@@ -44,6 +44,7 @@ This library includes the ability to create, refresh and revoke OAuth tokens.
 @oauth.device(scopes: "bits:read channel:read:subscriptions")
 
 # Validate an Access Token
+# Returns false if the token is invalid
 @oauth.validate(token: "")
 
 # Revoke a Token

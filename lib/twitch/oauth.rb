@@ -33,6 +33,8 @@ module Twitch
     def validate(token:)
       response = Faraday.get("https://id.twitch.tv/oauth2/validate", nil, {"Authorization" => "OAuth #{token}"})
 
+      return false if response.status != 200
+
       JSON.parse(response.body, object_class: OpenStruct)
     end
 
