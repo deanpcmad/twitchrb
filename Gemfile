@@ -6,3 +6,4 @@ gemspec
 gem "rake", "~> 12.0"
 gem "minitest", "~> 5.0"
 gem "dotenv"
+gem "rubocop-rails-omakase", require: false
