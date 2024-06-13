@@ -1,6 +1,5 @@
 module Twitch
   class OAuth
-
     attr_reader :client_id, :client_secret
 
     def initialize(client_id:, client_secret:)
@@ -27,11 +26,11 @@ module Twitch
     end
 
     def device(scopes:)
-      send_request(url: "https://id.twitch.tv/oauth2/device", body: {client_id: client_id, scope: scopes})
+      send_request(url: "https://id.twitch.tv/oauth2/device", body: { client_id: client_id, scope: scopes })
     end
 
     def validate(token:)
-      response = Faraday.get("https://id.twitch.tv/oauth2/validate", nil, {"Authorization" => "OAuth #{token}"})
+      response = Faraday.get("https://id.twitch.tv/oauth2/validate", nil, { "Authorization" => "OAuth #{token}" })
 
       return false if response.status != 200
 
@@ -46,7 +45,7 @@ module Twitch
 
       JSON.parse(response.body, object_class: OpenStruct) if response.status != 200
 
-      return true
+      true
     end
 
     private
@@ -58,6 +57,5 @@ module Twitch
 
       JSON.parse(response.body, object_class: OpenStruct)
     end
-
   end
 end

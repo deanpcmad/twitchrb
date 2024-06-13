@@ -3,7 +3,6 @@ require "json"
 require "twitch/version"
 
 module Twitch
-
   autoload :Client, "twitch/client"
   autoload :Collection, "twitch/collection"
   autoload :Error, "twitch/error"
@@ -93,5 +92,4 @@ module Twitch
   autoload :Chatter, "twitch/objects/chatter"
   autoload :ChatMessage, "twitch/objects/chat_message"
   autoload :UnbanRequest, "twitch/objects/unban_request"
-
 end

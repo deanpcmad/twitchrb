@@ -1,9 +1,8 @@
 module Twitch
   class ModeratorsResource < Resource
-
     # User ID must match the user in the OAuth token
     def channels(user_id:)
-      response = get_request("moderation/channels", params: {user_id: user_id})
+      response = get_request("moderation/channels", params: { user_id: user_id })
       Collection.from_response(response, type: Channel)
     end
 
@@ -14,12 +13,11 @@ module Twitch
     end
 
     def create(broadcaster_id:, user_id:)
-      post_request("moderation/moderators", body: {broadcaster_id: broadcaster_id, user_id: user_id})
+      post_request("moderation/moderators", body: { broadcaster_id: broadcaster_id, user_id: user_id })
     end
 
     def delete(broadcaster_id:, user_id:)
       delete_request("moderation/moderators?broadcaster_id=#{broadcaster_id}&user_id=#{user_id}")
     end
-
   end
 end

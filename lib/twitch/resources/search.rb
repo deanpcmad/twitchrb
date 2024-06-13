@@ -1,6 +1,5 @@
 module Twitch
   class SearchResource < Resource
-
     def categories(query:, **params)
       response = get_request("search/categories", params: params.merge(query: query))
 
@@ -12,6 +11,5 @@ module Twitch
 
       Collection.from_response(response, type: SearchResult)
     end
-    
   end
 end

@@ -1,6 +1,5 @@
 module Twitch
   class SubscriptionsResource < Resource
-
     # Get all subscriptions for a broadcaster
     # Broadcaster ID must match the user in the OAuth token
     # Required scope: channel:read:subscriptions
@@ -14,7 +13,7 @@ module Twitch
     # User ID must match the user in the OAuth token
     # Required scope: user:read:subscriptions
     def is_subscribed(broadcaster_id:, user_id:, **params)
-      attrs = {broadcaster_id: broadcaster_id, user_id: user_id}
+      attrs = { broadcaster_id: broadcaster_id, user_id: user_id }
       response = get_request("subscriptions/user", params: attrs.merge(params))
       Collection.from_response(response, type: Subscription)
     end
@@ -23,10 +22,9 @@ module Twitch
     # Broadcaster ID must match the user in the OAuth token
     # Required scope: channel:read:subscriptions
     def counts(broadcaster_id:)
-      response = get_request("subscriptions", params: {broadcaster_id: broadcaster_id})
+      response = get_request("subscriptions", params: { broadcaster_id: broadcaster_id })
 
       SubscriptionCount.new(count: response.body["total"], points: response.body["points"])
     end
-
   end
 end

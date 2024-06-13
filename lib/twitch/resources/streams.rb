@@ -1,6 +1,5 @@
 module Twitch
   class StreamsResource < Resource
-
     def list(**params)
       response = get_request("streams", params: params)
 
@@ -14,6 +13,5 @@ module Twitch
 
       Collection.from_response(response, type: Stream)
     end
-    
   end
 end

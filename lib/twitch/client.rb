@@ -173,6 +173,5 @@ module Twitch
         conn.adapter adapter, @stubs
       end
     end
-
   end
 end

@@ -1,7 +1,6 @@
 require "test_helper"
 
 class UsersResourceTest < Minitest::Test
-
   def test_users_retrieve_by_id
     client = set_client(stub_request("users", response: stub_response(fixture: "users/get")))
     user   = client.users.retrieve(id: 141981764)
@@ -17,5 +16,4 @@ class UsersResourceTest < Minitest::Test
     assert_equal Twitch::User, user.class
     assert_equal "partner", user.broadcaster_type
   end
-
 end

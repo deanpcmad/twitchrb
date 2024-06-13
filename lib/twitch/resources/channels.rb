@@ -1,6 +1,5 @@
 module Twitch
   class ChannelsResource < Resource
-
     def retrieve(id:)
       Channel.new get_request("channels?broadcaster_id=#{id}").body.dig("data")[0]
     end
@@ -23,7 +22,7 @@ module Twitch
 
     # Grabs the number of Followers a broadcaster has
     def follows_count(broadcaster_id:)
-      response = get_request("channels/followers", params: {broadcaster_id: broadcaster_id})
+      response = get_request("channels/followers", params: { broadcaster_id: broadcaster_id })
 
       FollowCount.new(count: response.body["total"])
     end
@@ -31,7 +30,7 @@ module Twitch
     # Grabs the number of Subscribers and Subscriber Points a broadcaster has
     # Required scope: channel:read:subscriptions
     def subscribers_count(broadcaster_id:)
-      response = get_request("subscriptions", params: {broadcaster_id: broadcaster_id})
+      response = get_request("subscriptions", params: { broadcaster_id: broadcaster_id })
 
       SubscriptionCount.new(count: response.body["total"], points: response.body["points"])
     end
@@ -46,6 +45,5 @@ module Twitch
       response = get_request("channels/editors?broadcaster_id=#{broadcaster_id}")
       Collection.from_response(response, type: ChannelEditor)
     end
-
   end
 end

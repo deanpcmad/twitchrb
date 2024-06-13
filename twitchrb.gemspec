@@ -3,8 +3,8 @@ require_relative 'lib/twitch/version'
 Gem::Specification.new do |spec|
   spec.name          = "twitchrb"
   spec.version       = Twitch::VERSION
-  spec.authors       = ["Dean Perry"]
-  spec.email         = ["dean@deanpcmad.com"]
+  spec.authors       = [ "Dean Perry" ]
+  spec.email         = [ "dean@deanpcmad.com" ]
 
   spec.summary       = "A Ruby library for interacting with the Twitch Helix API"
   spec.homepage      = "https://deanpcmad.com"
@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
   end
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  spec.require_paths = ["lib"]
+  spec.require_paths = [ "lib" ]
 
   spec.add_dependency "faraday", "~> 2.0"
 end

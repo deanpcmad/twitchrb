@@ -1,6 +1,5 @@
 module Twitch
   class TagsResource < Resource
-    
     def list(**params)
       response = get_request("tags/streams", params: params)
       Collection.from_response(response, type: Tag)
@@ -15,6 +14,5 @@ module Twitch
     def replace(broadcaster_id:, **params)
       put_request("streams/tags", body: params.merge(broadcaster_id: broadcaster_id))
     end
-
   end
 end

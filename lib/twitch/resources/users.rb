@@ -1,17 +1,16 @@
 module Twitch
   class UsersResource < Resource
-
     def retrieve(id: nil, ids: nil, username: nil, usernames: nil)
       raise "Either id, ids, username or usernames is required" unless !id.nil? || !ids.nil? || !username.nil? || !usernames.nil?
 
       if id
-        response = get_request("users", params: {id: id})
+        response = get_request("users", params: { id: id })
       elsif ids
-        response = get_request("users", params: {id: ids})
+        response = get_request("users", params: { id: ids })
       elsif usernames
-        response = get_request("users", params: {login: usernames})
+        response = get_request("users", params: { login: usernames })
       else
-        response = get_request("users", params: {login: username})
+        response = get_request("users", params: { login: username })
       end
 
       body = response.body.dig("data")
@@ -20,20 +19,20 @@ module Twitch
       elsif ids || usernames && body.count > 1
         Collection.from_response(response, type: User)
       else
-        return nil
+        nil
       end
     end
 
     # Updates the current users description
     # Required scope: user:edit
     def update(description:)
-      response = put_request("users", body: {description: description})
+      response = put_request("users", body: { description: description })
       User.new response.body.dig("data")[0]
     end
 
     def get_color(user_id: nil, user_ids: nil)
       if user_ids != nil
-        users = user_ids.split(",").map{|i| "user_id=#{i.strip}"}.join("&")
+        users = user_ids.split(",").map { |i| "user_id=#{i.strip}" }.join("&")
         puts "chat/color?#{users}"
         response = get_request("chat/color?#{users}")
         Collection.from_response(response, type: UserColor)
@@ -80,7 +79,7 @@ module Twitch
     def following?(from_id:, to_id:)
       warn "`users.following?` is deprecated. Use `channels.followers` or `channels.following` instead."
 
-      response = get_request("users/follows", params: {from_id: from_id, to_id: to_id})
+      response = get_request("users/follows", params: { from_id: from_id, to_id: to_id })
 
       if response.body["data"].empty?
         false
@@ -90,10 +89,9 @@ module Twitch
     end
 
     def emotes(user_id:, **params)
-      attrs = {user_id: user_id}
+      attrs = { user_id: user_id }
       response = get_request("chat/emotes/user", params: attrs.merge(params))
       Collection.from_response(response, type: Emote)
     end
-
   end
 end

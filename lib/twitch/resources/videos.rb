@@ -1,6 +1,5 @@
 module Twitch
   class VideosResource < Resource
-
     def list(**params)
       raise "user_id or game_id is required" unless !params[:user_id].nil? || !params[:game_id].nil?
 
@@ -9,7 +8,7 @@ module Twitch
     end
 
     def retrieve(id:)
-      response = get_request("videos", params: {id: id})
+      response = get_request("videos", params: { id: id })
       if response.body
         Video.new response.body["data"].first
       end
@@ -19,6 +18,5 @@ module Twitch
     def delete(video_id:)
       delete_request("videos?id=#{video_id}")
     end
-
   end
 end

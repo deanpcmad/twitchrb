@@ -1,6 +1,5 @@
 module Twitch
   class ClipsResource < Resource
-
     def list(**params)
       raise "broadcaster_id or game_id is required" unless !params[:broadcaster_id].nil? || !params[:game_id].nil?
 
@@ -9,7 +8,7 @@ module Twitch
     end
 
     def retrieve(id:)
-      Clip.new get_request("clips", params: {id: id}).body.dig("data")[0]
+      Clip.new get_request("clips", params: { id: id }).body.dig("data")[0]
     end
 
     # Required scope: clips:edit
@@ -18,6 +17,5 @@ module Twitch
 
       Clip.new(response.body.dig("data")[0]) if response.success?
     end
-
   end
 end

@@ -1,17 +1,16 @@
 module Twitch
   class GamesResource < Resource
-
     def retrieve(id: nil, ids: nil, name: nil, names: nil)
       raise "Either id, ids, name or names is required" unless !id.nil? || !ids.nil? || !name.nil? || !names.nil?
 
       if id
-        response = get_request("games", params: {id: id})
+        response = get_request("games", params: { id: id })
       elsif ids
-        response = get_request("games", params: {id: ids})
+        response = get_request("games", params: { id: ids })
       elsif names
-        response = get_request("games", params: {name: names})
+        response = get_request("games", params: { name: names })
       else
-        response = get_request("games", params: {name: name})
+        response = get_request("games", params: { name: name })
       end
 
       body = response.body.dig("data")
@@ -20,7 +19,7 @@ module Twitch
       elsif ids || names && body.count > 1
         Collection.from_response(response, type: Game)
       else
-        return nil
+        nil
       end
     end
 
@@ -28,6 +27,5 @@ module Twitch
       response = get_request("games/top", params: params)
       Collection.from_response(response, type: Game)
     end
-
   end
 end
