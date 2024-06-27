@@ -48,6 +48,7 @@ module Twitch
   autoload :ChattersResource, "twitch/resources/chatters"
   autoload :ShoutoutsResource, "twitch/resources/shoutouts"
   autoload :UnbanRequestsResource, "twitch/resources/unban_requests"
+  autoload :WarningsResource, "twitch/resources/warnings"
 
 
   autoload :User, "twitch/objects/user"
@@ -92,4 +93,5 @@ module Twitch
   autoload :Chatter, "twitch/objects/chatter"
   autoload :ChatMessage, "twitch/objects/chat_message"
   autoload :UnbanRequest, "twitch/objects/unban_request"
+  autoload :Warning, "twitch/objects/warning"
 end

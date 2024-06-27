@@ -513,6 +513,15 @@ messages = [{msg_id: "abc1", msg_text: "is this allowed?"}, {msg_id: "abc2", msg
 @client.unban_requests.resolve broadcaster_id: 123, moderator_id: 123, id: "abc123", status: "approved"
 ```
 
+### Warnings
+
+```ruby
+# Sends a warning to a user
+# Required scope: moderator:manage:warnings
+# moderator_id must match the currently authenticated user
+@client.warnings.create broadcaster_id: 123, moderator_id: 123, user_id: 321, reason: "dont do that"
+```
+
 
 ## Contributing
 
