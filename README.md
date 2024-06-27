@@ -1,6 +1,6 @@
 # TwitchRB
 
-TwitchRB is a Ruby library for interacting with the Twitch Helix API.
+TwitchRB is the easiest and most complete Ruby library for the [Twitch Helix API](https://dev.twitch.tv/docs/api).
 
 ## Installation
 
