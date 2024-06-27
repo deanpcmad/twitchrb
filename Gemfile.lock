@@ -82,6 +82,7 @@ GEM
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.5.0)
     uri (0.13.0)
+    vcr (6.2.0)
 
 PLATFORMS
   ruby
@@ -92,6 +93,7 @@ DEPENDENCIES
   rake (~> 12.0)
   rubocop-rails-omakase
   twitchrb!
+  vcr
 
 BUNDLED WITH
    2.3.21

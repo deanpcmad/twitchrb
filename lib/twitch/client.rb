@@ -4,13 +4,10 @@ module Twitch
 
     attr_reader :client_id, :access_token, :adapter
 
-    def initialize(client_id:, access_token:, adapter: Faraday.default_adapter, stubs: nil)
+    def initialize(client_id:, access_token:, adapter: Faraday.default_adapter)
       @client_id = client_id
       @access_token = access_token
       @adapter = adapter
-
-      # Test stubs for requests
-      @stubs = stubs
     end
 
     def users

@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitch.tv/helix/users?id=141981764
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.2.6 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - y3bbij629y8rc52cfryksqw9paos1e
+      Authorization:
+      - Bearer <AUTHORIZATION>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      connection:
+      - keep-alive
+      content-length:
+      - '555'
+      content-type:
+      - application/json; charset=utf-8
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1719507454'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      date:
+      - Thu, 27 Jun 2024 16:57:33 GMT
+      x-served-by:
+      - cache-bfi-krnt7300020-BFI, cache-lcy-eglc8600052-LCY
+      x-cache:
+      - MISS, MISS
+      x-cache-hits:
+      - 0, 0
+      x-timer:
+      - S1719507454.744025,VS0,VS0,VE152
+      vary:
+      - Accept-Encoding, Origin
+      strict-transport-security:
+      - max-age=300
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"141981764","login":"twitchdev","display_name":"TwitchDev","type":"","broadcaster_type":"partner","description":"Supporting
+        third-party developers building Twitch integrations from chatbots to game
+        integrations.","profile_image_url":"https://static-cdn.jtvnw.net/jtv_user_pictures/8a6381c7-d0c0-4576-b179-38bd5ce1d6af-profile_image-300x300.png","offline_image_url":"https://static-cdn.jtvnw.net/jtv_user_pictures/3f13ab61-ec78-4fe6-8481-8682cb3b0ac2-channel_offline_image-1920x1080.png","view_count":0,"created_at":"2016-12-14T20:32:28Z"}]}'
+  recorded_at: Thu, 27 Jun 2024 16:57:37 GMT
+recorded_with: VCR 6.2.0

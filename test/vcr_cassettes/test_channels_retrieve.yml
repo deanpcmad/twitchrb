@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitch.tv/helix/channels?broadcaster_id=141981764
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.2.6 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - y3bbij629y8rc52cfryksqw9paos1e
+      Authorization:
+      - Bearer <AUTHORIZATION>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      connection:
+      - keep-alive
+      content-length:
+      - '404'
+      content-type:
+      - application/json; charset=utf-8
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1719507352'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      date:
+      - Thu, 27 Jun 2024 16:55:51 GMT
+      x-served-by:
+      - cache-bfi-krnt7300100-BFI, cache-lcy-eglc8600082-LCY
+      x-cache:
+      - MISS, MISS
+      x-cache-hits:
+      - 0, 0
+      x-timer:
+      - S1719507351.230418,VS0,VS0,VE165
+      vary:
+      - Accept-Encoding, Origin
+      strict-transport-security:
+      - max-age=300
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"broadcaster_id":"141981764","broadcaster_login":"twitchdev","broadcaster_name":"TwitchDev","broadcaster_language":"en","game_id":"1469308723","game_name":"Software
+        and Game Development","title":"Standard Output // April 4, 2024 at 3:15pm
+        EDT","delay":0,"tags":["WebDevelopment","GameDevelopment","SoftwareDevelopment","English"],"content_classification_labels":[],"is_branded_content":false}]}'
+  recorded_at: Thu, 27 Jun 2024 16:55:51 GMT
+recorded_with: VCR 6.2.0
