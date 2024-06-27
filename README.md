@@ -19,7 +19,49 @@ Firstly you'll need to set a Client ID and an Access Token.
 An access token is required because the Helix API requires authentication.
 
 ```ruby
-@client = Twitch::Client.new(client_id: "", access_token: "")
+@client = Twitch::Client.new(client_id: "abc123", access_token: "xyz123")
+```
+
+### Resources
+
+The gem maps as closely as we can to the Twitch API so you can easily convert API examples to gem code.
+
+Responses are created as objects like `Twitch::Channel`. Having types like `Twitch::User` is handy for understanding what
+type of object you're working with. They're built using OpenStruct so you can easily access data in a Ruby-ish way.
+
+### Pagination
+
+Some of the endpoints return pages of results. The result object will have a `data` key to access the results, as well as metadata like `cursor`
+for retrieving the next and previous pages. This can be used by using `before` and `after` parameters, on API endpoints that support it.
+
+An example of using collections, including pagination:
+
+```ruby
+results = @client.clips.list(broadcaster_id: 123)
+#=> Twitch::Collection
+
+results.total
+#=> 30
+
+results.data
+#=> [#<Twitch::Clip>, #<Twitch::Clip>]
+
+results.each do |result|
+  puts result.id
+end
+
+results.first
+#=> #<Twitch::Clip>
+
+results.last
+#=> #<Twitch::Clip>
+
+results.cursor
+#=> "abc123"
+
+# Retrieve the next page
+@client.clips.list(broadcaster_id: 123, after: results.cursor)
+#=> Twitch::Collection
 ```
 
 ### OAuth
