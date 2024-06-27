@@ -17,5 +17,17 @@ module Twitch
       @total = total
       @cursor = cursor.nil? ? nil : cursor
     end
+
+    def each(&block)
+      data.each(&block)
+    end
+
+    def first
+      data.first
+    end
+
+    def last
+      data.last
+    end
   end
 end
