@@ -1,5 +1,6 @@
 require "faraday"
 require "json"
+require "ostruct"
 require "twitch/version"
 
 module Twitch
