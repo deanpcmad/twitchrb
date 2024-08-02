@@ -1,11 +1,11 @@
 class ErrorTest < Minitest::Test
   def test_bad_request_error
     error = Twitch::ErrorFactory.create(
-      { "error" => 123, "message" => "Paddle error message" },
+      { "error" => 123, "message" => "Twitch error message" },
       400
     )
 
-    assert_equal "Error 400: Your request was malformed. 'Paddle error message'", error.message
+    assert_equal "Error 400: Your request was malformed. 'Twitch error message'", error.message
   end
 
   def test_authentication_missing_error
