@@ -3,9 +3,13 @@ require "json"
 require "twitch/version"
 
 module Twitch
+  autoload :Error, "twitch/error"
+  autoload :Errors, "twitch/error_generator"
+  autoload :ErrorGenerator, "twitch/error_generator"
+  autoload :ErrorFactory, "twitch/error_generator"
+
   autoload :Client, "twitch/client"
   autoload :Collection, "twitch/collection"
-  autoload :Error, "twitch/error"
   autoload :Resource, "twitch/resource"
   autoload :Object, "twitch/object"
 
