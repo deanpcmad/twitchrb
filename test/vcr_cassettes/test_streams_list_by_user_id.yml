@@ -2,7 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: https://api.twitch.tv/helix/channels?broadcaster_id=141981764
+    uri: https://api.twitch.tv/helix/streams?user_id%5B%5D=141981764
     body:
       encoding: US-ASCII
       string: ''
@@ -21,35 +21,33 @@ http_interactions:
       content-type:
       - application/json; charset=utf-8
       content-length:
-      - '407'
+      - '27'
       connection:
       - keep-alive
       date:
-      - Wed, 10 Sep 2025 12:19:36 GMT
-      vary:
-      - Accept-Encoding, Origin
+      - Wed, 10 Sep 2025 12:19:31 GMT
       ratelimit-limit:
       - '800'
       ratelimit-remaining:
       - '799'
       ratelimit-reset:
-      - '1757506777'
+      - '1757506772'
       timing-allow-origin:
       - https://www.twitch.tv
+      vary:
+      - Accept-Encoding, Origin
       x-cache:
       - Miss from cloudfront
       via:
-      - 1.1 82ad7681472568da108f216e5143b582.cloudfront.net (CloudFront)
+      - 1.1 76e455ec21adfd09b988d90db677fd24.cloudfront.net (CloudFront)
       x-amz-cf-pop:
       - LHR5-P5
       x-amz-cf-id:
-      - IEovL3WtnXyK3vmps4S95pVd-HR9CmR-BwnyTPA8Th4hUpJbQMUgcQ==
+      - 0RQlAkl1-ISo7fBOSz-eQ564Pzv1MndJz8qLUdosv1cWvTKnCk2t5Q==
       strict-transport-security:
       - max-age=300; includeSubDomains
     body:
       encoding: UTF-8
-      string: '{"data":[{"broadcaster_id":"141981764","broadcaster_login":"twitchdev","broadcaster_name":"TwitchDev","broadcaster_language":"en","game_id":"1469308723","game_name":"Software
-        and Game Development","title":"Standard Output // October 16, 2024 at 2:30pm
-        EDT","delay":0,"tags":["WebDevelopment","GameDevelopment","SoftwareDevelopment","English"],"content_classification_labels":[],"is_branded_content":false}]}'
-  recorded_at: Wed, 10 Sep 2025 12:19:36 GMT
+      string: '{"data":[],"pagination":{}}'
+  recorded_at: Wed, 10 Sep 2025 12:19:31 GMT
 recorded_with: VCR 6.3.1

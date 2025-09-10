@@ -1,0 +1,62 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitch.tv/helix/streams?first=5&game_id%5B%5D=33214
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.4.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - j73btpx0da5n9gp6ijrpbgfu147n40
+      Authorization:
+      - Bearer <AUTHORIZATION>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '1277'
+      connection:
+      - keep-alive
+      date:
+      - Wed, 10 Sep 2025 12:19:30 GMT
+      vary:
+      - Accept-Encoding, Origin
+      content-encoding:
+      - gzip
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1757506771'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      x-cache:
+      - Miss from cloudfront
+      via:
+      - 1.1 1c2c16534f44f4d44b003578fd571f36.cloudfront.net (CloudFront)
+      x-amz-cf-pop:
+      - LHR5-P5
+      x-amz-cf-id:
+      - Tr1r0VGyg135ydJQaQLg7D1NWsfjhm8IT9tQ87iCFPgCHICKF6MxBg==
+      strict-transport-security:
+      - max-age=300; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: "{\"data\":[{\"id\":\"314329627218\",\"user_id\":\"159292184\",\"user_login\":\"venofn\",\"user_name\":\"venofn\",\"game_id\":\"33214\",\"game_name\":\"Fortnite\",\"type\":\"live\",\"title\":\"\U0001F3C6
+        DISCUSSING GLOBALS AND DUOS WITH PINQ X ACORN \U0001F3C6 | !code !youtube
+        !community - TIER 3 = ADD ON FORTNITE - 1 SUB = 2 PUSH UPS\",\"viewer_count\":1976,\"started_at\":\"2025-09-10T11:32:43Z\",\"language\":\"en\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_venofn-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"English\",\"Fortnite\",\"Competitive\",\"CompetitiveFPS\",\"gaming\",\"talkingtochat\",\"pro\",\"drops\",\"chattingwithviewers\"],\"is_mature\":false},{\"id\":\"314919160286\",\"user_id\":\"44424631\",\"user_login\":\"nickeh30\",\"user_name\":\"NickEh30\",\"game_id\":\"33214\",\"game_name\":\"Fortnite\",\"type\":\"live\",\"title\":\"NEW
+        FORTNITE UPDATE | Use code NickEh30 #EpicPartner\",\"viewer_count\":1211,\"started_at\":\"2025-09-10T10:25:30Z\",\"language\":\"en\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_nickeh30-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"Canadian\",\"Positivity\",\"BattleRoyale\",\"PC\",\"FamilyFriendly\",\"Multiplayer\",\"PVP\",\"PlayingWithViewers\",\"English\",\"Drops\"],\"is_mature\":false},{\"id\":\"314814379749\",\"user_id\":\"91647183\",\"user_login\":\"katoo\",\"user_name\":\"katoo\",\"game_id\":\"33214\",\"game_name\":\"Fortnite\",\"type\":\"live\",\"title\":\"2.500€
+        1VS1 TURNIER 16 UHR (INTEL VICTORY SERIES) | !intel !lvm !steelseries !mypc\",\"viewer_count\":1103,\"started_at\":\"2025-09-10T08:01:09Z\",\"language\":\"de\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_katoo-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"Deutsch\",\"German\",\"Fortnite\"],\"is_mature\":false},{\"id\":\"314330586449\",\"user_id\":\"193032346\",\"user_login\":\"ache\",\"user_name\":\"Ache\",\"game_id\":\"33214\",\"game_name\":\"Fortnite\",\"type\":\"live\",\"title\":\"NUEVA
+        ACTUALIZACIÓN v37.20 \U0001F929\",\"viewer_count\":772,\"started_at\":\"2025-09-10T05:00:08Z\",\"language\":\"es\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_ache-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"Español\",\"Shooter\",\"Fortnite\",\"ache\"],\"is_mature\":false},{\"id\":\"314328411858\",\"user_id\":\"185913819\",\"user_login\":\"recuerd0p\",\"user_name\":\"Recuerd0p\",\"game_id\":\"33214\",\"game_name\":\"Fortnite\",\"type\":\"live\",\"title\":\"✅HOY
+        NUEVA ACTUALIZACION V2.240592839482182734958506893833434232323\U0001F631 |
+        ROAD TO 800 SUBS! *CODIGO: RECU* en tienda de FORTNITE! #epicpartner\",\"viewer_count\":701,\"started_at\":\"2025-09-10T06:22:56Z\",\"language\":\"es\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_recuerd0p-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"Fortnite\",\"fortnıte\",\"ＦＯＲＴＮＩＴＥ\",\"fortnitegaminglive\",\"España\",\"Español\",\"directo\",\"FortniteShockNAwesome\",\"FortniteExplosivo\"],\"is_mature\":false}],\"pagination\":{\"cursor\":\"eyJiIjp7IkN1cnNvciI6ImV5SnpJam94T1RjMkxqVTJNVE13TlRJek5UY3pOalFzSW1RaU9tWmhiSE5sTENKMElqcDBjblZsZlE9PSJ9LCJhIjp7IkN1cnNvciI6ImV5SnpJam8yT0RJdU9EYzFNVE16TXpnME9UZzBNeXdpWkNJNlptRnNjMlVzSW5RaU9uUnlkV1Y5In19\"}}"
+  recorded_at: Wed, 10 Sep 2025 12:19:30 GMT
+recorded_with: VCR 6.3.1

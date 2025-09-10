@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitch.tv/helix/streams?first=3&language%5B%5D=en
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.4.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - j73btpx0da5n9gp6ijrpbgfu147n40
+      Authorization:
+      - Bearer <AUTHORIZATION>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '873'
+      connection:
+      - keep-alive
+      date:
+      - Wed, 10 Sep 2025 12:19:30 GMT
+      vary:
+      - Accept-Encoding, Origin
+      content-encoding:
+      - gzip
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1757506771'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      x-cache:
+      - Miss from cloudfront
+      via:
+      - 1.1 3c1b474095f7adc172277ed99be4835e.cloudfront.net (CloudFront)
+      x-amz-cf-pop:
+      - LHR5-P5
+      x-amz-cf-id:
+      - EVuS2AP-a0NKLjIcSdTg3MzTi4aQuBhZxnsyokwFNTvyo_GmJCGjnA==
+      strict-transport-security:
+      - max-age=300; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: "{\"data\":[{\"id\":\"314931842521\",\"user_id\":\"92038375\",\"user_login\":\"caedrel\",\"user_name\":\"Caedrel\",\"game_id\":\"21779\",\"game_name\":\"League
+        of Legends\",\"type\":\"live\",\"title\":\"\U0001F534T1 VS DK LCK PLAYOFFS
+        - SILKSONG AFTER\U0001F534-  !dpmlol !discord !displate\",\"viewer_count\":93924,\"started_at\":\"2025-09-10T07:01:31Z\",\"language\":\"en\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_caedrel-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"English\",\"LPL\",\"LCK\",\"LEC\"],\"is_mature\":false},{\"id\":\"314799758327\",\"user_id\":\"641972806\",\"user_login\":\"kaicenat\",\"user_name\":\"KaiCenat\",\"game_id\":\"509658\",\"game_name\":\"Just
+        Chatting\",\"type\":\"live\",\"title\":\"⬛MAFIATHON 3⬛DAY 9⬛15% OF REVENUE
+        GOING TO SCHOOL IN NIGERIA⬛LEBRON JAMES CUT MY HAIR AT 1 MILLION SUBS⬛!subathon\",\"viewer_count\":57200,\"started_at\":\"2025-09-09T21:57:21Z\",\"language\":\"en\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_kaicenat-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"English\",\"ADHD\",\"LOUD\",\"gaming\",\"AMP\"],\"is_mature\":false},{\"id\":\"314518183407\",\"user_id\":\"124425501\",\"user_login\":\"lck\",\"user_name\":\"LCK\",\"game_id\":\"21779\",\"game_name\":\"League
+        of Legends\",\"type\":\"live\",\"title\":\"T1 vs DK | Woori Bank 2025 LCK
+        Playoffs\",\"viewer_count\":44644,\"started_at\":\"2025-09-10T07:20:14Z\",\"language\":\"en\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_lck-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"Esports\",\"English\",\"DropsEnabled\"],\"is_mature\":false}],\"pagination\":{\"cursor\":\"eyJiIjp7IkN1cnNvciI6ImV5SnpJam81TXpreU5DNDFPREEyTmpRMU5UazROaXdpWkNJNlptRnNjMlVzSW5RaU9uUnlkV1Y5In0sImEiOnsiQ3Vyc29yIjoiZXlKeklqbzBNekEwTmk0eE56QTJORE01TXpNeU1pd2laQ0k2Wm1Gc2MyVXNJblFpT25SeWRXVjkifX0\"}}"
+  recorded_at: Wed, 10 Sep 2025 12:19:30 GMT
+recorded_with: VCR 6.3.1

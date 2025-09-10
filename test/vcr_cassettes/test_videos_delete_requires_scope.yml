@@ -1,0 +1,48 @@
+---
+http_interactions:
+- request:
+    method: delete
+    uri: https://api.twitch.tv/helix/videos?id=1234567890
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.4.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - j73btpx0da5n9gp6ijrpbgfu147n40
+      Authorization:
+      - Bearer <AUTHORIZATION>
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '104'
+      connection:
+      - keep-alive
+      date:
+      - Wed, 10 Sep 2025 12:19:38 GMT
+      vary:
+      - Accept-Encoding, Origin
+      timing-allow-origin:
+      - https://www.twitch.tv
+      x-cache:
+      - Error from cloudfront
+      via:
+      - 1.1 1c2c16534f44f4d44b003578fd571f36.cloudfront.net (CloudFront)
+      x-amz-cf-pop:
+      - LHR5-P5
+      x-amz-cf-id:
+      - TpDe5NKjsb0Ay6vBKaOv7MfizY1VUxO7udc2Qjewz6e_G4VI6cG4uQ==
+      strict-transport-security:
+      - max-age=300; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"error":"Unauthorized","status":401,"message":"Missing scope: channel:manage:videos
+        or channel_editor"}'
+  recorded_at: Wed, 10 Sep 2025 12:19:38 GMT
+recorded_with: VCR 6.3.1

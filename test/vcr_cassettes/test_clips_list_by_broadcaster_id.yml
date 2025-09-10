@@ -1,0 +1,57 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitch.tv/helix/clips?broadcaster_id=141981764&first=5
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.4.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - j73btpx0da5n9gp6ijrpbgfu147n40
+      Authorization:
+      - Bearer <AUTHORIZATION>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '848'
+      connection:
+      - keep-alive
+      date:
+      - Wed, 10 Sep 2025 12:19:33 GMT
+      vary:
+      - Accept-Encoding, Origin
+      content-encoding:
+      - gzip
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1757506774'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      x-cache:
+      - Miss from cloudfront
+      via:
+      - 1.1 75fc777220cf7fd1033cf4dbc22fb7de.cloudfront.net (CloudFront)
+      x-amz-cf-pop:
+      - LHR5-P5
+      x-amz-cf-id:
+      - BG4X4pE97-4yznJhLdFzeVsQDTKmbt8o0oQmmwrQPJQx73_ZhhN7IQ==
+      strict-transport-security:
+      - max-age=300; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"LivelySaltyAyeayeNerfRedBlaster","url":"https://www.twitch.tv/twitchdev/clip/LivelySaltyAyeayeNerfRedBlaster","embed_url":"https://clips.twitch.tv/embed?clip=LivelySaltyAyeayeNerfRedBlaster","broadcaster_id":"141981764","broadcaster_name":"TwitchDev","creator_id":"39214945","creator_name":"batc_","video_id":"327237000","game_id":"509670","language":"en","title":"YIKES","view_count":205749,"created_at":"2018-10-25T19:40:03Z","thumbnail_url":"https://static-cdn.jtvnw.net/twitch-clips/AT-cm%7C331619892-preview-480x272.jpg","duration":22.4,"vod_offset":11395,"is_featured":false},{"id":"ArborealAlertKleeTheThing","url":"https://www.twitch.tv/twitchdev/clip/ArborealAlertKleeTheThing","embed_url":"https://clips.twitch.tv/embed?clip=ArborealAlertKleeTheThing","broadcaster_id":"141981764","broadcaster_name":"TwitchDev","creator_id":"138187893","creator_name":"ayyyyy_rik","video_id":"183456518","game_id":"","language":"en","title":"Pay
+        2 win","view_count":96267,"created_at":"2017-10-19T18:20:38Z","thumbnail_url":"https://static-cdn.jtvnw.net/twitch-clips/140663156-preview-480x272.jpg","duration":25.8,"vod_offset":1894,"is_featured":false},{"id":"WimpyBumblingClipsmomDancingBanana","url":"https://www.twitch.tv/twitchdev/clip/WimpyBumblingClipsmomDancingBanana","embed_url":"https://clips.twitch.tv/embed?clip=WimpyBumblingClipsmomDancingBanana","broadcaster_id":"141981764","broadcaster_name":"TwitchDev","creator_id":"42146490","creator_name":"Scubaz","video_id":"398950655","game_id":"509658","language":"en","title":"1","view_count":39415,"created_at":"2019-03-21T20:08:07Z","thumbnail_url":"https://static-cdn.jtvnw.net/twitch-clips/AT-cm%7C422800962-preview-480x272.jpg","duration":51.1,"vod_offset":7232,"is_featured":false},{"id":"FairTawdryWatercressCorgiDerp","url":"https://www.twitch.tv/twitchdev/clip/FairTawdryWatercressCorgiDerp","embed_url":"https://clips.twitch.tv/embed?clip=FairTawdryWatercressCorgiDerp","broadcaster_id":"141981764","broadcaster_name":"TwitchDev","creator_id":"42146490","creator_name":"Scubaz","video_id":"398950655","game_id":"509658","language":"en","title":"2","view_count":37582,"created_at":"2019-03-21T20:08:23Z","thumbnail_url":"https://static-cdn.jtvnw.net/twitch-clips/AT-cm%7C422801162-preview-480x272.jpg","duration":17,"vod_offset":7282,"is_featured":false},{"id":"BoredRacySheepPRChase","url":"https://www.twitch.tv/twitchdev/clip/BoredRacySheepPRChase","embed_url":"https://clips.twitch.tv/embed?clip=BoredRacySheepPRChase","broadcaster_id":"141981764","broadcaster_name":"TwitchDev","creator_id":"136707671","creator_name":"porcupinetv","video_id":"171283183","game_id":"417752","language":"en","title":"Porcupine''s
+        Kappa Pet and Live Emote Reactions","view_count":3228,"created_at":"2017-08-31T23:17:28Z","thumbnail_url":"https://static-cdn.jtvnw.net/twitch-clips/26150143088-offset-3096-preview-480x272.jpg","duration":29,"vod_offset":3072,"is_featured":false}],"pagination":{"cursor":"eyJiIjpudWxsLCJhIjp7IkN1cnNvciI6Ik5RPT0ifX0"}}'
+  recorded_at: Wed, 10 Sep 2025 12:19:33 GMT
+recorded_with: VCR 6.3.1

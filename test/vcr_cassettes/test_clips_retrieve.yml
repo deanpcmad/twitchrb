@@ -1,0 +1,103 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitch.tv/helix/clips?broadcaster_id=141981764&first=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.4.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - j73btpx0da5n9gp6ijrpbgfu147n40
+      Authorization:
+      - Bearer <AUTHORIZATION>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '669'
+      connection:
+      - keep-alive
+      date:
+      - Wed, 10 Sep 2025 12:19:34 GMT
+      vary:
+      - Accept-Encoding, Origin
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1757506775'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      x-cache:
+      - Miss from cloudfront
+      via:
+      - 1.1 dd9d266e3b8d8f3acf05baa4f4949342.cloudfront.net (CloudFront)
+      x-amz-cf-pop:
+      - LHR5-P5
+      x-amz-cf-id:
+      - Mdxv3D5XvwF1L3_nLcpAwj6DGltBzQDN8r4VFCxwRwRIwI-ThqqYjA==
+      strict-transport-security:
+      - max-age=300; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"LivelySaltyAyeayeNerfRedBlaster","url":"https://www.twitch.tv/twitchdev/clip/LivelySaltyAyeayeNerfRedBlaster","embed_url":"https://clips.twitch.tv/embed?clip=LivelySaltyAyeayeNerfRedBlaster","broadcaster_id":"141981764","broadcaster_name":"TwitchDev","creator_id":"39214945","creator_name":"batc_","video_id":"327237000","game_id":"509670","language":"en","title":"YIKES","view_count":205749,"created_at":"2018-10-25T19:40:03Z","thumbnail_url":"https://static-cdn.jtvnw.net/twitch-clips/AT-cm%7C331619892-preview-480x272.jpg","duration":22.4,"vod_offset":11395,"is_featured":false}],"pagination":{"cursor":"eyJiIjpudWxsLCJhIjp7IkN1cnNvciI6Ik1RPT0ifX0"}}'
+  recorded_at: Wed, 10 Sep 2025 12:19:34 GMT
+- request:
+    method: get
+    uri: https://api.twitch.tv/helix/clips?id=LivelySaltyAyeayeNerfRedBlaster
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.4.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - j73btpx0da5n9gp6ijrpbgfu147n40
+      Authorization:
+      - Bearer <AUTHORIZATION>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '615'
+      connection:
+      - keep-alive
+      date:
+      - Wed, 10 Sep 2025 12:19:34 GMT
+      vary:
+      - Accept-Encoding, Origin
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1757506775'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      x-cache:
+      - Miss from cloudfront
+      via:
+      - 1.1 4c823760d02ea19cc173866704236948.cloudfront.net (CloudFront)
+      x-amz-cf-pop:
+      - LHR5-P5
+      x-amz-cf-id:
+      - OhXvgZDIJBQ2KG1gGrz9N8TeHdvT0NWA8ng_h6y7iJEnUFRpYS_xKg==
+      strict-transport-security:
+      - max-age=300; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"LivelySaltyAyeayeNerfRedBlaster","url":"https://www.twitch.tv/twitchdev/clip/LivelySaltyAyeayeNerfRedBlaster","embed_url":"https://clips.twitch.tv/embed?clip=LivelySaltyAyeayeNerfRedBlaster","broadcaster_id":"141981764","broadcaster_name":"TwitchDev","creator_id":"39214945","creator_name":"batc_","video_id":"327237000","game_id":"509670","language":"en","title":"YIKES","view_count":205749,"created_at":"2018-10-25T19:40:03Z","thumbnail_url":"https://static-cdn.jtvnw.net/twitch-clips/AT-cm%7C331619892-preview-480x272.jpg","duration":22.4,"vod_offset":11395,"is_featured":false}],"pagination":{}}'
+  recorded_at: Wed, 10 Sep 2025 12:19:34 GMT
+recorded_with: VCR 6.3.1

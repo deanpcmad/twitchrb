@@ -1,0 +1,58 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitch.tv/helix/videos?first=3&game_id=33214
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.4.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - j73btpx0da5n9gp6ijrpbgfu147n40
+      Authorization:
+      - Bearer <AUTHORIZATION>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '588'
+      connection:
+      - keep-alive
+      date:
+      - Wed, 10 Sep 2025 12:19:37 GMT
+      vary:
+      - Accept-Encoding, Origin
+      content-encoding:
+      - gzip
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1757506778'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      x-cache:
+      - Miss from cloudfront
+      via:
+      - 1.1 47bcaf7a0c0d8a024b9de194d1378816.cloudfront.net (CloudFront)
+      x-amz-cf-pop:
+      - LHR5-P5
+      x-amz-cf-id:
+      - ENFf4LLZF-UNXxpK0ORjx8cF3ju3D_yAtF3op1OK8XGR73PWT4S1gg==
+      strict-transport-security:
+      - max-age=300; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: "{\"data\":[{\"id\":\"2562895954\",\"stream_id\":\"315956164084\",\"user_id\":\"648902410\",\"user_login\":\"rayspartanj\",\"user_name\":\"RaySpartanJ\",\"title\":\"Blitz
+        Fortnite  - Ray Spartanj\",\"description\":\"\",\"created_at\":\"2025-09-10T12:18:56Z\",\"published_at\":\"2025-09-10T12:18:56Z\",\"url\":\"https://www.twitch.tv/videos/2562895954\",\"thumbnail_url\":\"https://vod-secure.twitch.tv/_404/404_processing_%{width}x%{height}.png\",\"viewable\":\"public\",\"view_count\":0,\"language\":\"pt\",\"type\":\"archive\",\"duration\":\"1s\",\"muted_segments\":null},{\"id\":\"2562895933\",\"stream_id\":\"314815736165\",\"user_id\":\"1099458990\",\"user_login\":\"haxnada\",\"user_name\":\"haxnada\",\"title\":\"\U0001F3C6GRINDING
+        TO GO PRO\U0001F3C6  | GET IN HERE NOW! | Follow = Add\",\"description\":\"\",\"created_at\":\"2025-09-10T12:18:53Z\",\"published_at\":\"2025-09-10T12:18:53Z\",\"url\":\"https://www.twitch.tv/videos/2562895933\",\"thumbnail_url\":\"https://vod-secure.twitch.tv/_404/404_processing_%{width}x%{height}.png\",\"viewable\":\"public\",\"view_count\":0,\"language\":\"en\",\"type\":\"archive\",\"duration\":\"44s\",\"muted_segments\":null},{\"id\":\"2562895919\",\"stream_id\":\"314672286052\",\"user_id\":\"1177134525\",\"user_login\":\"frites_212\",\"user_name\":\"frites_212\",\"title\":\"Reload
+        chill\",\"description\":\"\",\"created_at\":\"2025-09-10T12:18:52Z\",\"published_at\":\"2025-09-10T12:18:52Z\",\"url\":\"https://www.twitch.tv/videos/2562895919\",\"thumbnail_url\":\"https://vod-secure.twitch.tv/_404/404_processing_%{width}x%{height}.png\",\"viewable\":\"public\",\"view_count\":0,\"language\":\"fr\",\"type\":\"archive\",\"duration\":\"45s\",\"muted_segments\":null}],\"pagination\":{\"cursor\":\"eyJiIjpudWxsLCJhIjp7Ik9mZnNldCI6M319\"}}"
+  recorded_at: Wed, 10 Sep 2025 12:19:37 GMT
+recorded_with: VCR 6.3.1

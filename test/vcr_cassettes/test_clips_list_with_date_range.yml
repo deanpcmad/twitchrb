@@ -1,0 +1,60 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitch.tv/helix/clips?broadcaster_id=141981764&ended_at=2023-12-31T23%3A59%3A59Z&first=5&started_at=2023-01-01T00%3A00%3A00Z
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.4.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - j73btpx0da5n9gp6ijrpbgfu147n40
+      Authorization:
+      - Bearer <AUTHORIZATION>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '1051'
+      connection:
+      - keep-alive
+      date:
+      - Wed, 10 Sep 2025 12:19:34 GMT
+      vary:
+      - Accept-Encoding, Origin
+      content-encoding:
+      - gzip
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1757506775'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      x-cache:
+      - Miss from cloudfront
+      via:
+      - 1.1 6bb8eb5712512d0233fdbd1d8dcf84b6.cloudfront.net (CloudFront)
+      x-amz-cf-pop:
+      - LHR5-P5
+      x-amz-cf-id:
+      - hNANdV7q3C7RS7dw9mLqY0904fjWUEyRXUCXLgNqhQclS045OapJww==
+      strict-transport-security:
+      - max-age=300; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"TawdryNaiveCaterpillarWTRuck-pYjVz0yZtL-9T0tg","url":"https://www.twitch.tv/twitchdev/clip/TawdryNaiveCaterpillarWTRuck-pYjVz0yZtL-9T0tg","embed_url":"https://clips.twitch.tv/embed?clip=TawdryNaiveCaterpillarWTRuck-pYjVz0yZtL-9T0tg","broadcaster_id":"141981764","broadcaster_name":"TwitchDev","creator_id":"117482317","creator_name":"ZachBussey","video_id":"1792712649","game_id":"1469308723","language":"en","title":"Guest
+        Star","view_count":69,"created_at":"2023-04-13T18:21:05Z","thumbnail_url":"https://static-cdn.jtvnw.net/twitch-clips/U0lzpKWI1c9MmbS_vU9LYA/AT-cm%7CU0lzpKWI1c9MmbS_vU9LYA-preview-480x272.jpg","duration":59.9,"vod_offset":1198,"is_featured":false},{"id":"SavageStrongAppleOhMyDog-6Lhl9YUAzEGrYGxj","url":"https://www.twitch.tv/twitchdev/clip/SavageStrongAppleOhMyDog-6Lhl9YUAzEGrYGxj","embed_url":"https://clips.twitch.tv/embed?clip=SavageStrongAppleOhMyDog-6Lhl9YUAzEGrYGxj","broadcaster_id":"141981764","broadcaster_name":"TwitchDev","creator_id":"131642287","creator_name":"AmigaLive","video_id":"1760253013","game_id":"1469308723","language":"en","title":"IRC
+        commands removed","view_count":34,"created_at":"2023-03-13T15:37:04Z","thumbnail_url":"https://static-cdn.jtvnw.net/twitch-clips/wmf0dui4ZfWFAMxBq2BsYw/AT-cm%7Cwmf0dui4ZfWFAMxBq2BsYw-preview-480x272.jpg","duration":59.9,"vod_offset":2330,"is_featured":false},{"id":"SpicyAstuteKathyTebowing-rOgIJVrhDMwNT4UR","url":"https://www.twitch.tv/twitchdev/clip/SpicyAstuteKathyTebowing-rOgIJVrhDMwNT4UR","embed_url":"https://clips.twitch.tv/embed?clip=SpicyAstuteKathyTebowing-rOgIJVrhDMwNT4UR","broadcaster_id":"141981764","broadcaster_name":"TwitchDev","creator_id":"245569541","creator_name":"pattrriick","video_id":"1895240623","game_id":"1469308723","language":"en","title":"Don''t
+        give up on your dreams, APIs do come true!","view_count":29,"created_at":"2023-08-10T19:00:06Z","thumbnail_url":"https://static-cdn.jtvnw.net/twitch-clips/W3K4hqzoCCVa4QzMDU-FEQ/AT-cm%7CW3K4hqzoCCVa4QzMDU-FEQ-preview-480x272.jpg","duration":6.2,"vod_offset":3246,"is_featured":false},{"id":"ExcitedSillyJamArsonNoSexy-S86Jg9DcSoiY0XPn","url":"https://www.twitch.tv/twitchdev/clip/ExcitedSillyJamArsonNoSexy-S86Jg9DcSoiY0XPn","embed_url":"https://clips.twitch.tv/embed?clip=ExcitedSillyJamArsonNoSexy-S86Jg9DcSoiY0XPn","broadcaster_id":"141981764","broadcaster_name":"TwitchDev","creator_id":"48712659","creator_name":"Marenthyu","video_id":"1727201214","game_id":"1469308723","language":"en","title":"Twitch
+        API Paywall?","view_count":25,"created_at":"2023-02-03T20:39:05Z","thumbnail_url":"https://static-cdn.jtvnw.net/twitch-clips/OFdQnkvOiYPQ3EqImNFz5w/AT-cm%7COFdQnkvOiYPQ3EqImNFz5w-preview-480x272.jpg","duration":17.8,"vod_offset":2188,"is_featured":false},{"id":"GlutenFreeVibrantRingSeemsGood-fRPk3SoTuggNIY59","url":"https://www.twitch.tv/twitchdev/clip/GlutenFreeVibrantRingSeemsGood-fRPk3SoTuggNIY59","embed_url":"https://clips.twitch.tv/embed?clip=GlutenFreeVibrantRingSeemsGood-fRPk3SoTuggNIY59","broadcaster_id":"141981764","broadcaster_name":"TwitchDev","creator_id":"434450127","creator_name":"AboutSelphy","video_id":"1841978547","game_id":"1469308723","language":"en","title":"Av1
+        ;-;","view_count":23,"created_at":"2023-06-09T19:09:42Z","thumbnail_url":"https://static-cdn.jtvnw.net/twitch-clips/eE4uqH0T5N0qE7oIDSGOfQ/48643336845-offset-3224-preview-480x272.jpg","duration":26,"vod_offset":3200,"is_featured":false}],"pagination":{"cursor":"eyJiIjpudWxsLCJhIjp7IkN1cnNvciI6Ik5RPT0ifX0"}}'
+  recorded_at: Wed, 10 Sep 2025 12:19:34 GMT
+recorded_with: VCR 6.3.1

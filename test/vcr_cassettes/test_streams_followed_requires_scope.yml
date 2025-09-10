@@ -1,0 +1,47 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitch.tv/helix/streams/followed?first=5&user_id=141981764
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.4.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - j73btpx0da5n9gp6ijrpbgfu147n40
+      Authorization:
+      - Bearer <AUTHORIZATION>
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '82'
+      connection:
+      - keep-alive
+      date:
+      - Wed, 10 Sep 2025 12:19:30 GMT
+      vary:
+      - Accept-Encoding, Origin
+      timing-allow-origin:
+      - https://www.twitch.tv
+      x-cache:
+      - Error from cloudfront
+      via:
+      - 1.1 31ef019c1ddee9b68951720b335aec36.cloudfront.net (CloudFront)
+      x-amz-cf-pop:
+      - LHR5-P5
+      x-amz-cf-id:
+      - UHIV4vuPUuRF61eaVyZQTS6fHCFro0INbrVXObnuFdVbUl8OZWP6rQ==
+      strict-transport-security:
+      - max-age=300; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"error":"Unauthorized","status":401,"message":"Missing scope: user:read:follows"}'
+  recorded_at: Wed, 10 Sep 2025 12:19:30 GMT
+recorded_with: VCR 6.3.1

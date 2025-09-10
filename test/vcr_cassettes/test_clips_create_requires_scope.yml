@@ -1,0 +1,49 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.twitch.tv/helix/clips
+    body:
+      encoding: UTF-8
+      string: '{"has_delay":false,"broadcaster_id":"141981764"}'
+    headers:
+      User-Agent:
+      - twitchrb/v1.4.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - j73btpx0da5n9gp6ijrpbgfu147n40
+      Authorization:
+      - Bearer <AUTHORIZATION>
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '75'
+      connection:
+      - keep-alive
+      date:
+      - Wed, 10 Sep 2025 12:19:33 GMT
+      vary:
+      - Accept-Encoding, Origin
+      timing-allow-origin:
+      - https://www.twitch.tv
+      x-cache:
+      - Error from cloudfront
+      via:
+      - 1.1 26856bbf37907bfd2cbcd1e9ea93d96e.cloudfront.net (CloudFront)
+      x-amz-cf-pop:
+      - LHR5-P5
+      x-amz-cf-id:
+      - zelEvREATXvNT8KOvzwh245fU3P0l6x8K2tiUeD-YyEVsDK-6LQPHg==
+      strict-transport-security:
+      - max-age=300; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"error":"Unauthorized","status":401,"message":"Missing scope: clips:edit"}'
+  recorded_at: Wed, 10 Sep 2025 12:19:33 GMT
+recorded_with: VCR 6.3.1

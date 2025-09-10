@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitch.tv/helix/chat/emotes?broadcaster_id=141981764
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.4.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - j73btpx0da5n9gp6ijrpbgfu147n40
+      Authorization:
+      - Bearer <AUTHORIZATION>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '467'
+      connection:
+      - keep-alive
+      date:
+      - Wed, 10 Sep 2025 12:19:32 GMT
+      vary:
+      - Accept-Encoding, Origin
+      content-encoding:
+      - gzip
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1757506773'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      x-cache:
+      - Miss from cloudfront
+      via:
+      - 1.1 1c2c16534f44f4d44b003578fd571f36.cloudfront.net (CloudFront)
+      x-amz-cf-pop:
+      - LHR5-P5
+      x-amz-cf-id:
+      - SHWYFx-EFlrXN8cnPzbfuBT3lODmnFeAUTWu-eDWywtPJO96DrPcuw==
+      strict-transport-security:
+      - max-age=300; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"304456814","name":"twitchdevTravis","images":{"url_1x":"https://static-cdn.jtvnw.net/emoticons/v2/304456814/static/light/1.0","url_2x":"https://static-cdn.jtvnw.net/emoticons/v2/304456814/static/light/2.0","url_4x":"https://static-cdn.jtvnw.net/emoticons/v2/304456814/static/light/3.0"},"tier":"1000","emote_type":"subscriptions","emote_set_id":"301590448","format":["static"],"scale":["1.0","2.0","3.0"],"theme_mode":["light","dark"]},{"id":"304456803","name":"twitchdevSoon","images":{"url_1x":"https://static-cdn.jtvnw.net/emoticons/v2/304456803/static/light/1.0","url_2x":"https://static-cdn.jtvnw.net/emoticons/v2/304456803/static/light/2.0","url_4x":"https://static-cdn.jtvnw.net/emoticons/v2/304456803/static/light/3.0"},"tier":"1000","emote_type":"subscriptions","emote_set_id":"301590448","format":["static"],"scale":["1.0","2.0","3.0"],"theme_mode":["light","dark"]},{"id":"emotesv2_4c3b4ed516de493bbcd2df2f5d450f49","name":"twitchdevHyperPitchfork","images":{"url_1x":"https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_4c3b4ed516de493bbcd2df2f5d450f49/static/light/1.0","url_2x":"https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_4c3b4ed516de493bbcd2df2f5d450f49/static/light/2.0","url_4x":"https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_4c3b4ed516de493bbcd2df2f5d450f49/static/light/3.0"},"tier":"1000","emote_type":"subscriptions","emote_set_id":"318939165","format":["static","animated"],"scale":["1.0","2.0","3.0"],"theme_mode":["light","dark"]},{"id":"304456807","name":"twitchdevJon","images":{"url_1x":"https://static-cdn.jtvnw.net/emoticons/v2/304456807/static/light/1.0","url_2x":"https://static-cdn.jtvnw.net/emoticons/v2/304456807/static/light/2.0","url_4x":"https://static-cdn.jtvnw.net/emoticons/v2/304456807/static/light/3.0"},"tier":"1000","emote_type":"subscriptions","emote_set_id":"301590448","format":["static"],"scale":["1.0","2.0","3.0"],"theme_mode":["light","dark"]},{"id":"304456816","name":"twitchdevLeek","images":{"url_1x":"https://static-cdn.jtvnw.net/emoticons/v2/304456816/static/light/1.0","url_2x":"https://static-cdn.jtvnw.net/emoticons/v2/304456816/static/light/2.0","url_4x":"https://static-cdn.jtvnw.net/emoticons/v2/304456816/static/light/3.0"},"tier":"1000","emote_type":"subscriptions","emote_set_id":"301590448","format":["static"],"scale":["1.0","2.0","3.0"],"theme_mode":["light","dark"]},{"id":"304456827","name":"twitchdevHype","images":{"url_1x":"https://static-cdn.jtvnw.net/emoticons/v2/304456827/static/light/1.0","url_2x":"https://static-cdn.jtvnw.net/emoticons/v2/304456827/static/light/2.0","url_4x":"https://static-cdn.jtvnw.net/emoticons/v2/304456827/static/light/3.0"},"tier":"1000","emote_type":"subscriptions","emote_set_id":"301590448","format":["static"],"scale":["1.0","2.0","3.0"],"theme_mode":["light","dark"]},{"id":"304456832","name":"twitchdevPitchfork","images":{"url_1x":"https://static-cdn.jtvnw.net/emoticons/v2/304456832/static/light/1.0","url_2x":"https://static-cdn.jtvnw.net/emoticons/v2/304456832/static/light/2.0","url_4x":"https://static-cdn.jtvnw.net/emoticons/v2/304456832/static/light/3.0"},"tier":"1000","emote_type":"subscriptions","emote_set_id":"301590448","format":["static"],"scale":["1.0","2.0","3.0"],"theme_mode":["light","dark"]}],"template":"https://static-cdn.jtvnw.net/emoticons/v2/{{id}}/{{format}}/{{theme_mode}}/{{scale}}"}'
+  recorded_at: Wed, 10 Sep 2025 12:19:32 GMT
+recorded_with: VCR 6.3.1

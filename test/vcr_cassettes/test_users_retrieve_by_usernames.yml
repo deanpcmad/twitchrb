@@ -8,9 +8,9 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - twitchrb/v1.2.6 (github.com/deanpcmad/twitchrb)
+      - twitchrb/v1.4.0 (github.com/deanpcmad/twitchrb)
       Client-id:
-      - y3bbij629y8rc52cfryksqw9paos1e
+      - j73btpx0da5n9gp6ijrpbgfu147n40
       Authorization:
       - Bearer <AUTHORIZATION>
   response:
@@ -18,40 +18,40 @@ http_interactions:
       code: 200
       message: OK
     headers:
-      connection:
-      - keep-alive
-      content-length:
-      - '1028'
       content-type:
       - application/json; charset=utf-8
+      content-length:
+      - '999'
+      connection:
+      - keep-alive
+      date:
+      - Wed, 10 Sep 2025 12:19:32 GMT
+      vary:
+      - Accept-Encoding, Origin
       ratelimit-limit:
       - '800'
       ratelimit-remaining:
       - '799'
       ratelimit-reset:
-      - '1719507539'
+      - '1757506773'
       timing-allow-origin:
       - https://www.twitch.tv
-      date:
-      - Thu, 27 Jun 2024 16:58:58 GMT
-      x-served-by:
-      - cache-bfi-kbfi7400040-BFI, cache-lcy-eglc8600020-LCY
       x-cache:
-      - MISS, MISS
-      x-cache-hits:
-      - 0, 0
-      x-timer:
-      - S1719507539.765680,VS0,VS0,VE164
-      vary:
-      - Accept-Encoding, Origin
+      - Miss from cloudfront
+      via:
+      - 1.1 914db504d7232e43bf7a2d5ab3f82c28.cloudfront.net (CloudFront)
+      x-amz-cf-pop:
+      - LHR5-P5
+      x-amz-cf-id:
+      - FwJlpbV8m1Cx_5CXEtb0tcBDCM6ff0JoVXxcISejUMveaVBpPIdJrQ==
       strict-transport-security:
-      - max-age=300
+      - max-age=300; includeSubDomains
     body:
       encoding: UTF-8
       string: '{"data":[{"id":"141981764","login":"twitchdev","display_name":"TwitchDev","type":"","broadcaster_type":"partner","description":"Supporting
         third-party developers building Twitch integrations from chatbots to game
         integrations.","profile_image_url":"https://static-cdn.jtvnw.net/jtv_user_pictures/8a6381c7-d0c0-4576-b179-38bd5ce1d6af-profile_image-300x300.png","offline_image_url":"https://static-cdn.jtvnw.net/jtv_user_pictures/3f13ab61-ec78-4fe6-8481-8682cb3b0ac2-channel_offline_image-1920x1080.png","view_count":0,"created_at":"2016-12-14T20:32:28Z"},{"id":"72938118","login":"deanpcmad","display_name":"deanpcmad","type":"","broadcaster_type":"affiliate","description":"Hey,
         I''m Dean! I''m a maker of various apps and tools for Twitch streamers with
-        the current one being streamvods.com","profile_image_url":"https://static-cdn.jtvnw.net/jtv_user_pictures/3d8046a6-6bbc-4113-b984-6b581a3c255c-profile_image-300x300.png","offline_image_url":"","view_count":0,"email":"dean@deanpcmad.com","created_at":"2014-10-12T19:05:58Z"}]}'
-  recorded_at: Thu, 27 Jun 2024 16:59:00 GMT
-recorded_with: VCR 6.2.0
+        the current one being streamvods.com","profile_image_url":"https://static-cdn.jtvnw.net/jtv_user_pictures/3d8046a6-6bbc-4113-b984-6b581a3c255c-profile_image-300x300.png","offline_image_url":"","view_count":0,"created_at":"2014-10-12T19:05:58Z"}]}'
+  recorded_at: Wed, 10 Sep 2025 12:19:32 GMT
+recorded_with: VCR 6.3.1

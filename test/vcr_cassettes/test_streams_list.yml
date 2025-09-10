@@ -1,0 +1,72 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitch.tv/helix/streams?first=10
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.4.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - j73btpx0da5n9gp6ijrpbgfu147n40
+      Authorization:
+      - Bearer <AUTHORIZATION>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '1738'
+      connection:
+      - keep-alive
+      date:
+      - Wed, 10 Sep 2025 12:19:30 GMT
+      content-encoding:
+      - gzip
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1757506771'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      vary:
+      - Accept-Encoding, Origin
+      x-cache:
+      - Miss from cloudfront
+      via:
+      - 1.1 dd9d266e3b8d8f3acf05baa4f4949342.cloudfront.net (CloudFront)
+      x-amz-cf-pop:
+      - LHR5-P5
+      x-amz-cf-id:
+      - yDkb8mw7v7FxIslxjIk8Qpr3Lwu7iN_hglyDo87SwxBvuspp13z0_g==
+      strict-transport-security:
+      - max-age=300; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: "{\"data\":[{\"id\":\"314931842521\",\"user_id\":\"92038375\",\"user_login\":\"caedrel\",\"user_name\":\"Caedrel\",\"game_id\":\"21779\",\"game_name\":\"League
+        of Legends\",\"type\":\"live\",\"title\":\"\U0001F534T1 VS DK LCK PLAYOFFS
+        - SILKSONG AFTER\U0001F534-  !dpmlol !discord !displate\",\"viewer_count\":93924,\"started_at\":\"2025-09-10T07:01:31Z\",\"language\":\"en\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_caedrel-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"English\",\"LPL\",\"LCK\",\"LEC\"],\"is_mature\":false},{\"id\":\"314930263136\",\"user_id\":\"496105401\",\"user_login\":\"byilhann\",\"user_name\":\"byilhann\",\"game_id\":\"509672\",\"game_name\":\"IRL\",\"type\":\"live\",\"title\":\"MONTPELLIER
+        - PARIS À PIEDS AVEC NICO JOUR 3 | DÉBUT DE JOURNÉE | Collaboration Commerciale
+        !revolut\",\"viewer_count\":64760,\"started_at\":\"2025-09-10T07:32:59Z\",\"language\":\"fr\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_byilhann-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"Français\"],\"is_mature\":false},{\"id\":\"314799758327\",\"user_id\":\"641972806\",\"user_login\":\"kaicenat\",\"user_name\":\"KaiCenat\",\"game_id\":\"509658\",\"game_name\":\"Just
+        Chatting\",\"type\":\"live\",\"title\":\"⬛MAFIATHON 3⬛DAY 9⬛15% OF REVENUE
+        GOING TO SCHOOL IN NIGERIA⬛LEBRON JAMES CUT MY HAIR AT 1 MILLION SUBS⬛!subathon\",\"viewer_count\":57200,\"started_at\":\"2025-09-09T21:57:21Z\",\"language\":\"en\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_kaicenat-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"English\",\"ADHD\",\"LOUD\",\"gaming\",\"AMP\"],\"is_mature\":false},{\"id\":\"314518183407\",\"user_id\":\"124425501\",\"user_login\":\"lck\",\"user_name\":\"LCK\",\"game_id\":\"21779\",\"game_name\":\"League
+        of Legends\",\"type\":\"live\",\"title\":\"T1 vs DK | Woori Bank 2025 LCK
+        Playoffs\",\"viewer_count\":44644,\"started_at\":\"2025-09-10T07:20:14Z\",\"language\":\"en\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_lck-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"Esports\",\"English\",\"DropsEnabled\"],\"is_mature\":false},{\"id\":\"314818469361\",\"user_id\":\"44525650\",\"user_login\":\"k4sen\",\"user_name\":\"k4sen\",\"game_id\":\"21779\",\"game_name\":\"League
+        of Legends\",\"type\":\"live\",\"title\":\"LTK Season:黄昏の試練 KICKOFF\",\"viewer_count\":24436,\"started_at\":\"2025-09-10T09:59:56Z\",\"language\":\"ja\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_k4sen-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"日本語\",\"ネタバレNG\",\"ネタバレ注意\",\"聞いてないアドバイス禁止\"],\"is_mature\":false},{\"id\":\"314818445809\",\"user_id\":\"49207184\",\"user_login\":\"fps_shaka\",\"user_name\":\"fps_shaka\",\"game_id\":\"21779\",\"game_name\":\"League
+        of Legends\",\"type\":\"live\",\"title\":\"LTKやんけ\",\"viewer_count\":21342,\"started_at\":\"2025-09-10T09:52:52Z\",\"language\":\"ja\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_fps_shaka-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"日本語\",\"ネタバレ禁止\"],\"is_mature\":false},{\"id\":\"314741395433\",\"user_id\":\"29722828\",\"user_login\":\"never_loses\",\"user_name\":\"NeVeR_LosEs\",\"game_id\":\"21779\",\"game_name\":\"League
+        of Legends\",\"type\":\"live\",\"title\":\"9/10  T1 vs DK 許秀還能牛逼嗎 #LCKWatchParty
+        晚點和麻吉一起《RIFTSTORM》  !VPN\",\"viewer_count\":21177,\"started_at\":\"2025-09-10T07:35:35Z\",\"language\":\"zh\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_never_loses-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"中文\",\"叉滴娛樂\",\"LCK\",\"LCP\",\"SLG\"],\"is_mature\":false},{\"id\":\"314304867797\",\"user_id\":\"153670212\",\"user_login\":\"topson\",\"user_name\":\"Topson\",\"game_id\":\"29595\",\"game_name\":\"Dota
+        2\",\"type\":\"live\",\"title\":\"Hi\",\"viewer_count\":15242,\"started_at\":\"2025-09-10T08:47:33Z\",\"language\":\"en\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_topson-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"English\",\"dota\",\"dota2\"],\"is_mature\":true},{\"id\":\"314685748963\",\"user_id\":\"622498423\",\"user_login\":\"otplol_\",\"user_name\":\"otplol_\",\"game_id\":\"21779\",\"game_name\":\"League
+        of Legends\",\"type\":\"live\",\"title\":\"LCK PLAYOFFS - T1 vs DK - ROUND
+        1 - BO5\",\"viewer_count\":15138,\"started_at\":\"2025-09-10T07:43:59Z\",\"language\":\"fr\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_otplol_-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"Esport\",\"Français\"],\"is_mature\":false},{\"id\":\"314671494244\",\"user_id\":\"132501030\",\"user_login\":\"clemovitch\",\"user_name\":\"Clemovitch\",\"game_id\":\"509658\",\"game_name\":\"Just
+        Chatting\",\"type\":\"live\",\"title\":\"SEBASTIEN LECORNU + BLOQUONS TOUT
+        + DEBRIEF ZEVENT ! | Le Café Rhétorique édition spéciale 10.09\",\"viewer_count\":14022,\"started_at\":\"2025-09-10T08:49:34Z\",\"language\":\"fr\",\"thumbnail_url\":\"https://static-cdn.jtvnw.net/previews-ttv/live_user_clemovitch-{width}x{height}.jpg\",\"tag_ids\":[],\"tags\":[\"Français\"],\"is_mature\":false}],\"pagination\":{\"cursor\":\"eyJiIjp7IkN1cnNvciI6ImV5SnpJam81TXpreU5DNDFPREEyTmpRMU5UazROaXdpWkNJNlptRnNjMlVzSW5RaU9uUnlkV1Y5In0sImEiOnsiQ3Vyc29yIjoiZXlKeklqb3hOREF5TWk0NU56QTJPREkzTVRZMU1pd2laQ0k2Wm1Gc2MyVXNJblFpT25SeWRXVjkifX0\"}}"
+  recorded_at: Wed, 10 Sep 2025 12:19:30 GMT
+recorded_with: VCR 6.3.1

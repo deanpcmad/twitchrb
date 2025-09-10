@@ -1,0 +1,58 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitch.tv/helix/clips?first=3&game_id=33214
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.4.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - j73btpx0da5n9gp6ijrpbgfu147n40
+      Authorization:
+      - Bearer <AUTHORIZATION>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '711'
+      connection:
+      - keep-alive
+      date:
+      - Wed, 10 Sep 2025 12:19:33 GMT
+      vary:
+      - Accept-Encoding, Origin
+      content-encoding:
+      - gzip
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1757506774'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      x-cache:
+      - Miss from cloudfront
+      via:
+      - 1.1 85a9aae281a3b2be048faf2c627f9c06.cloudfront.net (CloudFront)
+      x-amz-cf-pop:
+      - LHR5-P5
+      x-amz-cf-id:
+      - L-E3SxeELfu6OoNi2ae9rsits3BoHVz_yIkxq1GIv6G2iSHOM9ksaA==
+      strict-transport-security:
+      - max-age=300; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"TrustworthyBreakableJuiceCorgiDerp","url":"https://www.twitch.tv/myth/clip/TrustworthyBreakableJuiceCorgiDerp","embed_url":"https://clips.twitch.tv/embed?clip=TrustworthyBreakableJuiceCorgiDerp","broadcaster_id":"110690086","broadcaster_name":"Myth","creator_id":"99256167","creator_name":"M0oosik","video_id":"","game_id":"33214","language":"en","title":"Solving
+        food problems","view_count":1966230,"created_at":"2018-03-26T17:20:15Z","thumbnail_url":"https://static-cdn.jtvnw.net/twitch-clips/214578507-preview-480x272.jpg","duration":60,"vod_offset":null,"is_featured":false},{"id":"GentleDeliciousCiderBIRB","url":"https://www.twitch.tv/moosemeat/clip/GentleDeliciousCiderBIRB","embed_url":"https://clips.twitch.tv/embed?clip=GentleDeliciousCiderBIRB","broadcaster_id":"180498328","broadcaster_name":"moosemeat","creator_id":"180498328","creator_name":"moosemeat","video_id":"","game_id":"33214","language":"en","title":"Follow
+        @mooseandyy on twitter for banger content.","view_count":992558,"created_at":"2018-12-02T00:26:38Z","thumbnail_url":"https://static-cdn.jtvnw.net/twitch-clips/AT-cm%7C352690681-preview-480x272.jpg","duration":22.9,"vod_offset":null,"is_featured":false},{"id":"WrongHomelyPeanutJebaited","url":"https://www.twitch.tv/fortnite/clip/WrongHomelyPeanutJebaited","embed_url":"https://clips.twitch.tv/embed?clip=WrongHomelyPeanutJebaited","broadcaster_id":"55125740","broadcaster_name":"Fortnite","creator_id":"160786382","creator_name":"markburler","video_id":"459174371","game_id":"33214","language":"en","title":"Kid
+        jerks off in Fortnite arena","view_count":905509,"created_at":"2019-07-28T20:28:51Z","thumbnail_url":"https://static-cdn.jtvnw.net/twitch-clips/AT-cm%7C503695746-preview-480x272.jpg","duration":13.3,"vod_offset":15142,"is_featured":false}],"pagination":{"cursor":"eyJiIjpudWxsLCJhIjp7IkN1cnNvciI6Ik13PT0ifX0"}}'
+  recorded_at: Wed, 10 Sep 2025 12:19:33 GMT
+recorded_with: VCR 6.3.1
