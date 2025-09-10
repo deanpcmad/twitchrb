@@ -21,7 +21,7 @@ class ObjectTest < Minitest::Test
 
   def test_empty_hash
     object = Twitch::Object.new({})
-    assert_not_nil object
+    refute_nil object
   end
 
   def test_nil_values

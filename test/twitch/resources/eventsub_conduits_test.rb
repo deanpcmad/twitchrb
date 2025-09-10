@@ -35,7 +35,7 @@ class EventsubConduitsResourceTest < Minitest::Test
 
     if conduit
       assert_equal Twitch::EventsubConduit, conduit.class
-      assert_not_nil conduit.id
+      refute_nil conduit.id
       assert_equal 1, conduit.shard_count
 
       # Clean up - delete the conduit

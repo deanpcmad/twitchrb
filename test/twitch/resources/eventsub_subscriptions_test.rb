@@ -99,7 +99,7 @@ class EventsubSubscriptionsResourceTest < Minitest::Test
 
     if subscription
       assert_equal Twitch::EventsubSubscription, subscription.class
-      assert_not_nil subscription.id
+      refute_nil subscription.id
       assert_equal "channel.update", subscription.type
       assert_equal "1", subscription.version
     end

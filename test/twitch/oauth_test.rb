@@ -24,7 +24,7 @@ class OAuthTest < Minitest::Test
       assert_respond_to token, :access_token
       assert_respond_to token, :token_type
       assert_equal "bearer", token.token_type
-      assert_not_nil token.access_token
+      refute_nil token.access_token
     end
   end
 
@@ -40,7 +40,7 @@ class OAuthTest < Minitest::Test
       assert_respond_to token, :access_token
       assert_respond_to token, :scope
       assert_equal "bearer", token.token_type
-      assert_not_nil token.access_token
+      refute_nil token.access_token
     end
   end
 
@@ -93,9 +93,9 @@ class OAuthTest < Minitest::Test
       assert_respond_to device_response, :verification_uri
       assert_respond_to device_response, :expires_in
       assert_respond_to device_response, :interval
-      assert_not_nil device_response.device_code
-      assert_not_nil device_response.user_code
-      assert_not_nil device_response.verification_uri
+      refute_nil device_response.device_code
+      refute_nil device_response.user_code
+      refute_nil device_response.verification_uri
     end
   end
 
@@ -140,8 +140,8 @@ class OAuthTest < Minitest::Test
     if result
       assert_respond_to result, :device_code
       assert_respond_to result, :user_code
-      assert_not_nil result.device_code
-      assert_not_nil result.user_code
+      refute_nil result.device_code
+      refute_nil result.user_code
     else
       assert_equal false, result
     end
