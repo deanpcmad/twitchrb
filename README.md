@@ -275,6 +275,44 @@ These require an application OAuth access token.
 @client.eventsub_subscriptions.delete(id: "abc12-abc12-abc12")
 ```
 
+### EventSub Conduits
+
+Conduits provide a way to receive events over multiple transports. These require an application OAuth access token.
+
+```ruby
+# List all conduits for your application
+@client.eventsub_conduits.list
+
+# Create a conduit with a specified number of shards
+# shard_count must be between 1 and 100
+@client.eventsub_conduits.create(shard_count: 10)
+
+# Update a conduit's shard count
+@client.eventsub_conduits.update(id: "abc123-def456", shard_count: 20)
+
+# Delete a conduit
+@client.eventsub_conduits.delete(id: "abc123-def456")
+
+# List shards for a conduit
+# Optional parameters: status, after
+@client.eventsub_conduits.shards(id: "abc123-def456")
+@client.eventsub_conduits.shards(id: "abc123-def456", status: "enabled")
+
+# Update shards for a conduit
+# shards is an array of shard objects with id and transport properties
+shards = [
+  {
+    id: "0",
+    transport: {
+      method: "webhook",
+      callback: "https://example.com/webhooks/callback",
+      secret: "your-secret"
+    }
+  }
+]
+@client.eventsub_conduits.update_shards(id: "abc123-def456", shards: shards)
+```
+
 ### Banned Events
 
 ```ruby
@@ -562,6 +600,180 @@ messages = [{msg_id: "abc1", msg_text: "is this allowed?"}, {msg_id: "abc2", msg
 # Required scope: moderator:manage:warnings
 # moderator_id must match the currently authenticated user
 @client.warnings.create broadcaster_id: 123, moderator_id: 123, user_id: 321, reason: "dont do that"
+```
+
+### Streams
+
+```ruby
+# List live streams
+# Available parameters: user_id, user_login, game_id, type, language, first, before, after
+@client.streams.list
+@client.streams.list(game_id: "509658")
+@client.streams.list(user_login: "twitchdev")
+
+# Get followed streams for a user
+# Required scope: user:read:follows
+# user_id must match the currently authenticated user
+@client.streams.followed(user_id: 123)
+```
+
+### Polls
+
+```ruby
+# List polls for a broadcaster
+# broadcaster_id must match the currently authenticated user
+@client.polls.list(broadcaster_id: 123)
+
+# Create a poll
+# broadcaster_id must match the currently authenticated user
+# duration is in seconds (15-1800)
+choices = [
+  { title: "Choice 1" },
+  { title: "Choice 2" }
+]
+@client.polls.create(broadcaster_id: 123, title: "What should I play?", choices: choices, duration: 300)
+
+# End a poll
+# broadcaster_id must match the currently authenticated user
+# status can be "TERMINATED" or "ARCHIVED"
+@client.polls.end(broadcaster_id: 123, id: "poll-id", status: "terminated")
+```
+
+### Predictions
+
+```ruby
+# List predictions for a broadcaster
+# broadcaster_id must match the currently authenticated user
+@client.predictions.list(broadcaster_id: 123)
+
+# Create a prediction
+# broadcaster_id must match the currently authenticated user
+# duration is in seconds (30-1800)
+outcomes = [
+  { title: "Outcome 1" },
+  { title: "Outcome 2" }
+]
+@client.predictions.create(broadcaster_id: 123, title: "Will I win?", outcomes: outcomes, duration: 600)
+
+# End a prediction
+# broadcaster_id must match the currently authenticated user
+# status can be "RESOLVED", "CANCELED", or "LOCKED"
+# winning_outcome_id is required when status is "RESOLVED"
+@client.predictions.end(broadcaster_id: 123, id: "prediction-id", status: "resolved", winning_outcome_id: "outcome-id")
+```
+
+### Subscriptions
+
+```ruby
+# Get all subscriptions for a broadcaster
+# Required scope: channel:read:subscriptions
+# broadcaster_id must match the currently authenticated user
+@client.subscriptions.list(broadcaster_id: 123)
+
+# Check if a user is subscribed to a broadcaster
+# Required scope: user:read:subscriptions
+# user_id must match the currently authenticated user
+@client.subscriptions.is_subscribed(broadcaster_id: 123, user_id: 456)
+
+# Get subscription counts and points for a broadcaster
+# Required scope: channel:read:subscriptions
+# broadcaster_id must match the currently authenticated user
+@client.subscriptions.counts(broadcaster_id: 123)
+```
+
+### Search
+
+```ruby
+# Search for categories/games
+@client.search.categories(query: "Just Chatting")
+
+# Search for channels
+@client.search.channels(query: "twitchdev")
+```
+
+### Stream Schedule
+
+```ruby
+# Get stream schedule for a broadcaster
+# broadcaster_id must match the currently authenticated user
+@client.stream_schedule.list(broadcaster_id: 123)
+
+# Get iCalendar format of stream schedule
+# broadcaster_id must match the currently authenticated user
+@client.stream_schedule.icalendar(broadcaster_id: 123)
+
+# Update stream schedule settings
+# broadcaster_id must match the currently authenticated user
+@client.stream_schedule.update(broadcaster_id: 123, is_vacation_enabled: true)
+
+# Create a schedule segment
+# broadcaster_id must match the currently authenticated user
+@client.stream_schedule.create_segment(
+  broadcaster_id: 123,
+  start_time: "2023-08-01T16:00:00Z",
+  timezone: "America/New_York",
+  duration: "240",
+  is_recurring: false,
+  category_id: "509658",
+  title: "Special Stream"
+)
+
+# Update a schedule segment
+# broadcaster_id must match the currently authenticated user
+@client.stream_schedule.update_segment(broadcaster_id: 123, id: "segment-id", title: "Updated Title")
+
+# Delete a schedule segment
+# broadcaster_id must match the currently authenticated user
+@client.stream_schedule.delete_segment(broadcaster_id: 123, id: "segment-id")
+```
+
+### Stream Markers
+
+```ruby
+# Create a stream marker
+# Required scope: channel:manage:broadcast
+# user_id must match the currently authenticated user
+@client.stream_markers.create(user_id: 123, description: "Important moment")
+
+# Get stream markers for a user or video
+# Required scope: user:read:broadcast
+# user_id must match the currently authenticated user
+@client.stream_markers.list(user_id: 123)
+@client.stream_markers.list(video_id: "video-id")
+```
+
+### Tags
+
+```ruby
+# Get all stream tags
+@client.tags.list
+
+# Get stream tags for a specific broadcaster
+@client.tags.stream(broadcaster_id: 123)
+
+# Replace stream tags for a broadcaster
+# Required scope: channel:manage:broadcast
+# broadcaster_id must match the currently authenticated user
+tag_ids = ["tag-id-1", "tag-id-2"]
+@client.tags.replace(broadcaster_id: 123, tag_ids: tag_ids)
+```
+
+### Hype Train Events
+
+```ruby
+# Get hype train events for a broadcaster
+# Required scope: channel:read:hype_train
+# broadcaster_id must match the currently authenticated user
+@client.hype_train_events.list(broadcaster_id: 123)
+```
+
+### Moderator Events
+
+```ruby
+# Get moderator events for a broadcaster
+# Required scope: moderation:read
+# broadcaster_id must match the currently authenticated user
+@client.moderator_events.list(broadcaster_id: 123)
 ```
 
 
