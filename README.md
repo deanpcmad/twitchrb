@@ -1,5 +1,9 @@
 # TwitchRB
 
+[![CI](https://github.com/deanpcmad/twitchrb/actions/workflows/ci.yml/badge.svg)](https://github.com/deanpcmad/twitchrb/actions/workflows/ci.yml)
+[![Gem Version](https://badge.fury.io/rb/twitchrb.svg)](https://badge.fury.io/rb/twitchrb)
+[![Downloads](https://img.shields.io/gem/dt/twitchrb.svg)](https://rubygems.org/gems/twitchrb)
+
 TwitchRB is the easiest and most complete Ruby library for the [Twitch Helix API](https://dev.twitch.tv/docs/api).
 
 ## Installation
