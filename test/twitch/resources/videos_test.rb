@@ -57,7 +57,7 @@ class VideosResourceTest < Minitest::Test
 
   def test_videos_list_missing_params_raises_error
     setup_client
-    
+
     assert_raises(RuntimeError) do
       @client.videos.list(first: 5)
     end
@@ -65,14 +65,14 @@ class VideosResourceTest < Minitest::Test
 
   def test_videos_retrieve
     setup_client
-    
+
     # First get a real video ID from the videos list
     videos = @client.videos.list(user_id: "141981764", first: 1)
-    
+
     if videos.data.any?
       video_id = videos.data.first.id
       video = @client.videos.retrieve(id: video_id)
-      
+
       if video
         assert_equal Twitch::Video, video.class
         assert_equal video_id, video.id
@@ -85,7 +85,7 @@ class VideosResourceTest < Minitest::Test
 
   def test_videos_delete_requires_scope
     setup_client
-    
+
     assert_raises(Twitch::Errors::AuthenticationMissingError) do
       @client.videos.delete(video_id: "1234567890")
     end

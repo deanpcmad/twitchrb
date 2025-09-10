@@ -1,0 +1,103 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitch.tv/helix/eventsub/subscriptions?first=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.4.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - j73btpx0da5n9gp6ijrpbgfu147n40
+      Authorization:
+      - Bearer <AUTHORIZATION>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '72'
+      connection:
+      - keep-alive
+      date:
+      - Wed, 10 Sep 2025 12:24:47 GMT
+      vary:
+      - Accept-Encoding, Origin
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1757507088'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      x-cache:
+      - Miss from cloudfront
+      via:
+      - 1.1 e471ca1599f70ab7567a9f538342e2de.cloudfront.net (CloudFront)
+      x-amz-cf-pop:
+      - LHR5-P5
+      x-amz-cf-id:
+      - QnD4UDyVKmOnusouLZNldX-f-JQU7pquS8vcVQesnHRgSEKen2DSEg==
+      strict-transport-security:
+      - max-age=300; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"total":0,"data":[],"max_total_cost":10,"total_cost":0,"pagination":{}}'
+  recorded_at: Wed, 10 Sep 2025 12:24:47 GMT
+- request:
+    method: delete
+    uri: https://api.twitch.tv/helix/eventsub/subscriptions?id=non-existent-id
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.4.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - j73btpx0da5n9gp6ijrpbgfu147n40
+      Authorization:
+      - Bearer <AUTHORIZATION>
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '56'
+      connection:
+      - keep-alive
+      date:
+      - Wed, 10 Sep 2025 12:24:47 GMT
+      vary:
+      - Accept-Encoding, Origin
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1757507088'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      x-cache:
+      - Error from cloudfront
+      via:
+      - 1.1 dd9d266e3b8d8f3acf05baa4f4949342.cloudfront.net (CloudFront)
+      x-amz-cf-pop:
+      - LHR5-P5
+      x-amz-cf-id:
+      - cf5-nJeWWEWvjacDQPDv-nI6vZmtvEdBxzROYE3vpbzmy6iHH3qz6w==
+      strict-transport-security:
+      - max-age=300; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"error":"Not Found","status":404,"message":"not found"}'
+  recorded_at: Wed, 10 Sep 2025 12:24:47 GMT
+recorded_with: VCR 6.3.1

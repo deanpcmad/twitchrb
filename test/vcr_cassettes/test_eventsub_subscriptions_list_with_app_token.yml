@@ -1,0 +1,91 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://id.twitch.tv/oauth2/token
+    body:
+      encoding: UTF-8
+      string: client_id=j73btpx0da5n9gp6ijrpbgfu147n40&client_secret=<CLIENT_SECRET>&grant_type=client_credentials&scope
+    headers:
+      User-Agent:
+      - Faraday v2.13.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Wed, 10 Sep 2025 12:29:32 GMT
+      content-type:
+      - application/json
+      content-length:
+      - '93'
+      connection:
+      - keep-alive
+      server:
+      - nginx
+      access-control-allow-origin:
+      - "*"
+      x-ctxlog-logid:
+      - 1-68c16f2c-5c36bb4f41f6db2d57a13e85
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"<APP_ACCESS_TOKEN>","expires_in":5269931,"token_type":"bearer"}
+
+        '
+  recorded_at: Wed, 10 Sep 2025 12:29:32 GMT
+- request:
+    method: get
+    uri: https://api.twitch.tv/helix/eventsub/subscriptions
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.4.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - j73btpx0da5n9gp6ijrpbgfu147n40
+      Authorization:
+      - Bearer rpfg3k2svz6nkmoy5mhuhy11u68ab8
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '766'
+      connection:
+      - keep-alive
+      date:
+      - Wed, 10 Sep 2025 12:29:32 GMT
+      vary:
+      - Accept-Encoding, Origin
+      content-encoding:
+      - gzip
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1757507373'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      x-cache:
+      - Miss from cloudfront
+      via:
+      - 1.1 85a9aae281a3b2be048faf2c627f9c06.cloudfront.net (CloudFront)
+      x-amz-cf-pop:
+      - LHR5-P5
+      x-amz-cf-id:
+      - P1Cqm7BHGL6lw0QgOfe1_eZSvfgTbeUD7-Jc9gXt4M68AbvWq7-9Hw==
+      strict-transport-security:
+      - max-age=300; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"total":11,"data":[{"id":"851f1bfc-d43c-4a7a-a3d3-144260a1d228","status":"conduit_deleted","type":"channel.chat.message","version":"1","condition":{"broadcaster_user_id":"72938118","user_id":"438264323"},"created_at":"2025-09-10T11:57:48.998977036Z","transport":{"method":"conduit","conduit_id":"a0a2185e-434c-489c-b894-66f4b8dcb5fb"},"cost":0},{"id":"2cc6fe5d-2802-42eb-ab5a-cead6689e888","status":"conduit_deleted","type":"channel.chat.notification","version":"1","condition":{"broadcaster_user_id":"72938118","user_id":"438264323"},"created_at":"2025-09-10T11:57:49.283746199Z","transport":{"method":"conduit","conduit_id":"a0a2185e-434c-489c-b894-66f4b8dcb5fb"},"cost":0},{"id":"90d78884-ed6d-457c-93aa-cfa73cb35c97","status":"conduit_deleted","type":"channel.chat.message","version":"1","condition":{"broadcaster_user_id":"719509646","user_id":"438264323"},"created_at":"2025-09-10T11:58:27.316515935Z","transport":{"method":"conduit","conduit_id":"a0a2185e-434c-489c-b894-66f4b8dcb5fb"},"cost":0},{"id":"9c8549c4-750e-4e39-99b2-abf893b0eab6","status":"conduit_deleted","type":"channel.chat.notification","version":"1","condition":{"broadcaster_user_id":"719509646","user_id":"438264323"},"created_at":"2025-09-10T11:58:27.582480608Z","transport":{"method":"conduit","conduit_id":"a0a2185e-434c-489c-b894-66f4b8dcb5fb"},"cost":0},{"id":"468085bc-1aea-4177-88b6-47f783e6196a","status":"conduit_deleted","type":"channel.chat.message","version":"1","condition":{"broadcaster_user_id":"1310426148","user_id":"438264323"},"created_at":"2025-09-10T12:06:00.04323699Z","transport":{"method":"conduit","conduit_id":"a0a2185e-434c-489c-b894-66f4b8dcb5fb"},"cost":0},{"id":"8f4b57e6-d7ad-4556-bd25-29ce36d7c0a7","status":"conduit_deleted","type":"channel.chat.notification","version":"1","condition":{"broadcaster_user_id":"1310426148","user_id":"438264323"},"created_at":"2025-09-10T12:06:00.566770685Z","transport":{"method":"conduit","conduit_id":"a0a2185e-434c-489c-b894-66f4b8dcb5fb"},"cost":0},{"id":"f86a011b-b608-498d-b487-535b484912c3","status":"conduit_deleted","type":"channel.chat.message","version":"1","condition":{"broadcaster_user_id":"148624191","user_id":"438264323"},"created_at":"2025-09-10T12:06:01.097549456Z","transport":{"method":"conduit","conduit_id":"a0a2185e-434c-489c-b894-66f4b8dcb5fb"},"cost":0},{"id":"7762cade-d28f-4c4c-b084-3b301b32320b","status":"conduit_deleted","type":"channel.chat.notification","version":"1","condition":{"broadcaster_user_id":"148624191","user_id":"438264323"},"created_at":"2025-09-10T12:06:01.591300468Z","transport":{"method":"conduit","conduit_id":"a0a2185e-434c-489c-b894-66f4b8dcb5fb"},"cost":0},{"id":"ce1cfc3e-4b68-42e9-8c92-5696d97f4812","status":"conduit_deleted","type":"channel.chat.message","version":"1","condition":{"broadcaster_user_id":"37733475","user_id":"438264323"},"created_at":"2025-09-10T12:06:02.13871844Z","transport":{"method":"conduit","conduit_id":"a0a2185e-434c-489c-b894-66f4b8dcb5fb"},"cost":0},{"id":"8e855582-6bc8-4f7b-aa73-6c03ff52e694","status":"conduit_deleted","type":"channel.chat.notification","version":"1","condition":{"broadcaster_user_id":"37733475","user_id":"438264323"},"created_at":"2025-09-10T12:06:02.692954298Z","transport":{"method":"conduit","conduit_id":"a0a2185e-434c-489c-b894-66f4b8dcb5fb"},"cost":0},{"id":"449bf352-f863-4245-9822-58334efa61e0","status":"webhook_callback_verification_pending","type":"channel.update","version":"1","condition":{"broadcaster_user_id":"141981764"},"created_at":"2025-09-10T12:29:31.211770377Z","transport":{"method":"webhook","callback":"https://example.com/webhooks/callback"},"cost":1}],"max_total_cost":10000,"total_cost":1,"pagination":{}}'
+  recorded_at: Wed, 10 Sep 2025 12:29:32 GMT
+recorded_with: VCR 6.3.1

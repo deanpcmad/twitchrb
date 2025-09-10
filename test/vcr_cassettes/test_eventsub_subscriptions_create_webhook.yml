@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.twitch.tv/helix/eventsub/subscriptions
+    body:
+      encoding: UTF-8
+      string: '{"type":"channel.update","version":"1","condition":{"broadcaster_user_id":"141981764"},"transport":{"method":"webhook","callback":"https://example.com/webhooks/callback","secret":"secretkey123"}}'
+    headers:
+      User-Agent:
+      - twitchrb/v1.4.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - j73btpx0da5n9gp6ijrpbgfu147n40
+      Authorization:
+      - Bearer <AUTHORIZATION>
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '110'
+      connection:
+      - keep-alive
+      date:
+      - Wed, 10 Sep 2025 12:24:47 GMT
+      vary:
+      - Accept-Encoding, Origin
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1757507088'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      x-cache:
+      - Error from cloudfront
+      via:
+      - 1.1 81a723d8ae123d0a22af94ba42db81b4.cloudfront.net (CloudFront)
+      x-amz-cf-pop:
+      - LHR5-P5
+      x-amz-cf-id:
+      - ckAiVFkDKC78319l28DWcVnL8oC2E9ByOeA4mZYpg8qoJW24EpR3Rg==
+      strict-transport-security:
+      - max-age=300; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"error":"Bad Request","status":400,"message":"auth must use app access
+        token to create webhook subscription"}'
+  recorded_at: Wed, 10 Sep 2025 12:24:47 GMT
+recorded_with: VCR 6.3.1

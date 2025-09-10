@@ -1,0 +1,54 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitch.tv/helix/eventsub/conduits/shards?conduit_id=invalid-conduit-id
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.4.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - j73btpx0da5n9gp6ijrpbgfu147n40
+      Authorization:
+      - Bearer <AUTHORIZATION>
+  response:
+    status:
+      code: 401
+      message: Unauthorized
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '91'
+      connection:
+      - keep-alive
+      date:
+      - Wed, 10 Sep 2025 12:25:12 GMT
+      vary:
+      - Accept-Encoding, Origin
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1757507113'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      x-cache:
+      - Error from cloudfront
+      via:
+      - 1.1 1c2c16534f44f4d44b003578fd571f36.cloudfront.net (CloudFront)
+      x-amz-cf-pop:
+      - LHR5-P5
+      x-amz-cf-id:
+      - hEsdrQyxMWk5-YB33_q6b1oDCCAr5FZt_PWG8zpgti9MyAZpBlKV-Q==
+      strict-transport-security:
+      - max-age=300; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"error":"Unauthorized","status":401,"message":"The API accepts only
+        an app access token."}'
+  recorded_at: Wed, 10 Sep 2025 12:25:12 GMT
+recorded_with: VCR 6.3.1

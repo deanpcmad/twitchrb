@@ -1,0 +1,91 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://id.twitch.tv/oauth2/token
+    body:
+      encoding: UTF-8
+      string: client_id=j73btpx0da5n9gp6ijrpbgfu147n40&client_secret=<CLIENT_SECRET>&grant_type=client_credentials&scope
+    headers:
+      User-Agent:
+      - Faraday v2.13.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Wed, 10 Sep 2025 12:29:30 GMT
+      content-type:
+      - application/json
+      content-length:
+      - '93'
+      connection:
+      - keep-alive
+      server:
+      - nginx
+      access-control-allow-origin:
+      - "*"
+      x-ctxlog-logid:
+      - 1-68c16f2a-091d87cb2b0b2609411c8e9a
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"<APP_ACCESS_TOKEN>","expires_in":4911113,"token_type":"bearer"}
+
+        '
+  recorded_at: Wed, 10 Sep 2025 12:29:30 GMT
+- request:
+    method: post
+    uri: https://api.twitch.tv/helix/eventsub/subscriptions
+    body:
+      encoding: UTF-8
+      string: '{"type":"channel.update","version":"1","condition":{"broadcaster_user_id":"141981764"},"transport":{"method":"webhook","callback":"https://example.com/webhooks/callback","secret":"secretkey123"}}'
+    headers:
+      User-Agent:
+      - twitchrb/v1.4.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - j73btpx0da5n9gp6ijrpbgfu147n40
+      Authorization:
+      - Bearer s3lh22zi9wmds9wfvmxg63xllu4f0m
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 202
+      message: Accepted
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '379'
+      connection:
+      - keep-alive
+      date:
+      - Wed, 10 Sep 2025 12:29:31 GMT
+      vary:
+      - Accept-Encoding, Origin
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1757507372'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      x-cache:
+      - Miss from cloudfront
+      via:
+      - 1.1 3db1cc68458f8051db3f40a4f7a87b9c.cloudfront.net (CloudFront)
+      x-amz-cf-pop:
+      - LHR5-P5
+      x-amz-cf-id:
+      - Tsw_3VK8QdCUCliifISHfgiciOw0-P68omFfGkt2TKsCpfnMWYuOTQ==
+      strict-transport-security:
+      - max-age=300; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"449bf352-f863-4245-9822-58334efa61e0","status":"webhook_callback_verification_pending","type":"channel.update","version":"1","condition":{"broadcaster_user_id":"141981764"},"created_at":"2025-09-10T12:29:31.211770377Z","transport":{"method":"webhook","callback":"https://example.com/webhooks/callback"},"cost":1}],"total":11,"max_total_cost":10000,"total_cost":1}'
+  recorded_at: Wed, 10 Sep 2025 12:29:31 GMT
+recorded_with: VCR 6.3.1

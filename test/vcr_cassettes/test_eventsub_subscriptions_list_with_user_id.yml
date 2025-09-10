@@ -1,0 +1,53 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitch.tv/helix/eventsub/subscriptions?user_id=141981764
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.4.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - j73btpx0da5n9gp6ijrpbgfu147n40
+      Authorization:
+      - Bearer <AUTHORIZATION>
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '72'
+      connection:
+      - keep-alive
+      date:
+      - Wed, 10 Sep 2025 12:24:48 GMT
+      vary:
+      - Accept-Encoding, Origin
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1757507089'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      x-cache:
+      - Miss from cloudfront
+      via:
+      - 1.1 3db1cc68458f8051db3f40a4f7a87b9c.cloudfront.net (CloudFront)
+      x-amz-cf-pop:
+      - LHR5-P5
+      x-amz-cf-id:
+      - D2ZikV6lF8unayqwMklnTc3ZxGJRcnFX5kscaOcX08PXwvNkluUpBA==
+      strict-transport-security:
+      - max-age=300; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"total":0,"data":[],"max_total_cost":10,"total_cost":0,"pagination":{}}'
+  recorded_at: Wed, 10 Sep 2025 12:24:48 GMT
+recorded_with: VCR 6.3.1

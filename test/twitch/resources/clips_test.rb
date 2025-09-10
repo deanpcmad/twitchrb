@@ -23,7 +23,7 @@ class ClipsResourceTest < Minitest::Test
     setup_client
     started_at = "2023-01-01T00:00:00Z"
     ended_at = "2023-12-31T23:59:59Z"
-    
+
     clips = @client.clips.list(
       broadcaster_id: "141981764",
       started_at: started_at,
@@ -38,7 +38,7 @@ class ClipsResourceTest < Minitest::Test
 
   def test_clips_list_missing_params_raises_error
     setup_client
-    
+
     assert_raises(RuntimeError) do
       @client.clips.list(first: 5)
     end
@@ -46,14 +46,14 @@ class ClipsResourceTest < Minitest::Test
 
   def test_clips_retrieve
     setup_client
-    
+
     # First get a real clip ID from the clips list
     clips = @client.clips.list(broadcaster_id: "141981764", first: 1)
-    
+
     if clips.data.any?
       clip_id = clips.data.first.id
       clip = @client.clips.retrieve(id: clip_id)
-      
+
       assert_equal Twitch::Clip, clip.class
       assert_equal clip_id, clip.id
     else
@@ -64,7 +64,7 @@ class ClipsResourceTest < Minitest::Test
 
   def test_clips_create_requires_scope
     setup_client
-    
+
     assert_raises(Twitch::Errors::AuthenticationMissingError) do
       @client.clips.create(broadcaster_id: "141981764", has_delay: false)
     end

@@ -1,0 +1,50 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.twitch.tv/helix/eventsub/conduits
+    body:
+      encoding: UTF-8
+      string: '{"shard_count":0}'
+    headers:
+      User-Agent:
+      - twitchrb/v1.4.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - j73btpx0da5n9gp6ijrpbgfu147n40
+      Authorization:
+      - Bearer <AUTHORIZATION>
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '91'
+      connection:
+      - keep-alive
+      date:
+      - Wed, 10 Sep 2025 12:25:11 GMT
+      vary:
+      - Accept-Encoding, Origin
+      timing-allow-origin:
+      - https://www.twitch.tv
+      x-cache:
+      - Error from cloudfront
+      via:
+      - 1.1 819eb5d1ade73da58bdea62726593c44.cloudfront.net (CloudFront)
+      x-amz-cf-pop:
+      - LHR5-P5
+      x-amz-cf-id:
+      - Jf06wDL2OoIa_qJti0Ro9nyDmOJ04_D02TmE54zbPSRRE8hCKcFM9Q==
+      strict-transport-security:
+      - max-age=300; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"error":"Bad Request","status":400,"message":"Missing required parameter
+        \"shard_count\""}'
+  recorded_at: Wed, 10 Sep 2025 12:25:11 GMT
+recorded_with: VCR 6.3.1

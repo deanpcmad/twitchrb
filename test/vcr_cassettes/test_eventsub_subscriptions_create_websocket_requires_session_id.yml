@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.twitch.tv/helix/eventsub/subscriptions
+    body:
+      encoding: UTF-8
+      string: '{"type":"channel.update","version":"1","condition":{"broadcaster_user_id":"141981764"},"transport":{"method":"websocket","session_id":"AQoQexAWVYKSTIu4ec_2VAxyuhAB"}}'
+    headers:
+      User-Agent:
+      - twitchrb/v1.4.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - j73btpx0da5n9gp6ijrpbgfu147n40
+      Authorization:
+      - Bearer <AUTHORIZATION>
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '119'
+      connection:
+      - keep-alive
+      date:
+      - Wed, 10 Sep 2025 12:24:49 GMT
+      vary:
+      - Accept-Encoding, Origin
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1757507090'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      x-cache:
+      - Error from cloudfront
+      via:
+      - 1.1 0448444ece782fee77bace5748242ab6.cloudfront.net (CloudFront)
+      x-amz-cf-pop:
+      - LHR5-P5
+      x-amz-cf-id:
+      - x9Dsh9WaiSXDc_K3KI7oZZG3kNdU9Rrxsu5tc2c6EaNuw6WneqTgTg==
+      strict-transport-security:
+      - max-age=300; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"error":"Bad Request","status":400,"message":"websocket transport
+        session does not exist or has already disconnected"}'
+  recorded_at: Wed, 10 Sep 2025 12:24:49 GMT
+recorded_with: VCR 6.3.1

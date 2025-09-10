@@ -1,0 +1,137 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://id.twitch.tv/oauth2/token
+    body:
+      encoding: UTF-8
+      string: client_id=j73btpx0da5n9gp6ijrpbgfu147n40&client_secret=<CLIENT_SECRET>&grant_type=client_credentials&scope
+    headers:
+      User-Agent:
+      - Faraday v2.13.4
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      date:
+      - Wed, 10 Sep 2025 12:29:36 GMT
+      content-type:
+      - application/json
+      content-length:
+      - '93'
+      connection:
+      - keep-alive
+      server:
+      - nginx
+      access-control-allow-origin:
+      - "*"
+      x-ctxlog-logid:
+      - 1-68c16f30-1146bc9b4f98caa5053abefc
+    body:
+      encoding: UTF-8
+      string: '{"access_token":"<APP_ACCESS_TOKEN>","expires_in":5632265,"token_type":"bearer"}
+
+        '
+  recorded_at: Wed, 10 Sep 2025 12:29:36 GMT
+- request:
+    method: post
+    uri: https://api.twitch.tv/helix/eventsub/conduits
+    body:
+      encoding: UTF-8
+      string: '{"shard_count":1}'
+    headers:
+      User-Agent:
+      - twitchrb/v1.4.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - j73btpx0da5n9gp6ijrpbgfu147n40
+      Authorization:
+      - Bearer l6wf4z9myf52rh6pkg08bvsxjtpx08
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '72'
+      connection:
+      - keep-alive
+      date:
+      - Wed, 10 Sep 2025 12:29:36 GMT
+      vary:
+      - Accept-Encoding, Origin
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1757507377'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      x-cache:
+      - Miss from cloudfront
+      via:
+      - 1.1 655830280c89af326c929c2caa93b126.cloudfront.net (CloudFront)
+      x-amz-cf-pop:
+      - LHR5-P5
+      x-amz-cf-id:
+      - 8_FrUIb45uNMNtG3czgg99KV8QB6QRUfW8qju6uaOzYmW340dkoDUw==
+      strict-transport-security:
+      - max-age=300; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"f7d998fc-5e72-440d-ad29-10f0a2b5e68a","shard_count":1}]}'
+  recorded_at: Wed, 10 Sep 2025 12:29:37 GMT
+- request:
+    method: delete
+    uri: https://api.twitch.tv/helix/eventsub/conduits?id=f7d998fc-5e72-440d-ad29-10f0a2b5e68a
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.4.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - j73btpx0da5n9gp6ijrpbgfu147n40
+      Authorization:
+      - Bearer l6wf4z9myf52rh6pkg08bvsxjtpx08
+  response:
+    status:
+      code: 204
+      message: No Content
+    headers:
+      connection:
+      - keep-alive
+      date:
+      - Wed, 10 Sep 2025 12:29:37 GMT
+      vary:
+      - Accept-Encoding, Origin
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1757507378'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      x-cache:
+      - Miss from cloudfront
+      via:
+      - 1.1 4c823760d02ea19cc173866704236948.cloudfront.net (CloudFront)
+      x-amz-cf-pop:
+      - LHR5-P5
+      x-amz-cf-id:
+      - IRJyUxg0bm-_bN2s7QibKfUJ4WtILppzLoR4zqGkBd9ceNxKaeKKyQ==
+      strict-transport-security:
+      - max-age=300; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: ''
+  recorded_at: Wed, 10 Sep 2025 12:29:37 GMT
+recorded_with: VCR 6.3.1

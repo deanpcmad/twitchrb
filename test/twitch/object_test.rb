@@ -21,7 +21,7 @@ class ObjectTest < Minitest::Test
 
   def test_empty_hash
     object = Twitch::Object.new({})
-    refute_nil object
+    assert_not_nil object
   end
 
   def test_nil_values
@@ -37,7 +37,7 @@ class ObjectTest < Minitest::Test
   end
 
   def test_mixed_array_types
-    object = Twitch::Object.new(data: ["string", 123, { nested: "value" }, true])
+    object = Twitch::Object.new(data: [ "string", 123, { nested: "value" }, true ])
     assert_equal "string", object.data[0]
     assert_equal 123, object.data[1]
     assert_equal "value", object.data[2].nested

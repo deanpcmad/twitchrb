@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.twitch.tv/helix/eventsub/subscriptions
+    body:
+      encoding: UTF-8
+      string: '{"type":"channel.update","version":"1","condition":{"broadcaster_user_id":"141981764"},"transport":{"method":"invalid_method"}}'
+    headers:
+      User-Agent:
+      - twitchrb/v1.4.0 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - j73btpx0da5n9gp6ijrpbgfu147n40
+      Authorization:
+      - Bearer <AUTHORIZATION>
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 400
+      message: Bad Request
+    headers:
+      content-type:
+      - application/json; charset=utf-8
+      content-length:
+      - '102'
+      connection:
+      - keep-alive
+      date:
+      - Wed, 10 Sep 2025 12:24:49 GMT
+      ratelimit-limit:
+      - '800'
+      ratelimit-remaining:
+      - '799'
+      ratelimit-reset:
+      - '1757507090'
+      timing-allow-origin:
+      - https://www.twitch.tv
+      vary:
+      - Accept-Encoding, Origin
+      x-cache:
+      - Error from cloudfront
+      via:
+      - 1.1 31ef019c1ddee9b68951720b335aec36.cloudfront.net (CloudFront)
+      x-amz-cf-pop:
+      - LHR5-P5
+      x-amz-cf-id:
+      - chqPkQ0VHDLHazrf2u3IKgrLS5wpLaOBluuBPopNYok6Vk4_1U6UUA==
+      strict-transport-security:
+      - max-age=300; includeSubDomains
+    body:
+      encoding: UTF-8
+      string: '{"error":"Bad Request","status":400,"message":"The value specified
+        in the method field is not valid."}'
+  recorded_at: Wed, 10 Sep 2025 12:24:49 GMT
+recorded_with: VCR 6.3.1
