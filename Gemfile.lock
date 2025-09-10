@@ -7,7 +7,7 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (8.0.2.1)
+    activesupport (7.2.2.2)
       base64
       benchmark (>= 0.3)
       bigdecimal
@@ -19,7 +19,6 @@ GEM
       minitest (>= 5.1)
       securerandom (>= 0.3)
       tzinfo (~> 2.0, >= 2.0.5)
-      uri (>= 0.13.1)
     ast (2.4.3)
     base64 (0.3.0)
     benchmark (0.4.1)
@@ -96,6 +95,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activesupport (>= 4.2.0, < 8.0)
   dotenv
   minitest (~> 5.0)
   rake (~> 12.0)
