@@ -14,12 +14,27 @@ module Twitch
     private
 
     def set_twitch_error_values
-      @twitch_error_code = @response_body.dig("error")
-      @twitch_error_message = @response_body.dig("message")
+      parsed_body = parse_response_body
+      @twitch_error_code = parsed_body.dig("error")
+      @twitch_error_message = parsed_body.dig("message")
+    end
+
+    def parse_response_body
+      case @response_body
+      when Hash
+        @response_body
+      when String
+        JSON.parse(@response_body)
+      else
+        {}
+      end
+    rescue JSON::ParserError
+      {}
     end
 
     def error_message
-      @twitch_error_message || @response_body.dig("error")
+      parsed_body = parse_response_body
+      @twitch_error_message || parsed_body.dig("error")
     rescue NoMethodError
       "An unknown error occurred."
     end
