@@ -13,6 +13,7 @@ module Twitch
   autoload :Collection, "twitch/collection"
   autoload :Resource, "twitch/resource"
   autoload :Object, "twitch/object"
+  autoload :Configuration, "twitch/configuration"
 
   autoload :OAuth, "twitch/oauth"
 
@@ -99,4 +100,18 @@ module Twitch
   autoload :ChatMessage, "twitch/objects/chat_message"
   autoload :UnbanRequest, "twitch/objects/unban_request"
   autoload :Warning, "twitch/objects/warning"
+
+  class << self
+    def configuration
+      @configuration ||= Configuration.new
+    end
+
+    def configure
+      yield(configuration) if block_given?
+    end
+
+    def reset_configuration!
+      @configuration = Configuration.new
+    end
+  end
 end

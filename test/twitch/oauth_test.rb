@@ -15,6 +15,35 @@ class OAuthTest < Minitest::Test
     assert_equal "test_secret", oauth.client_secret
   end
 
+  def test_default_dev_mode_is_false
+    oauth = Twitch::OAuth.new(client_id: "test_id", client_secret: "test_secret")
+    assert_equal false, oauth.dev_mode
+  end
+
+  def test_dev_mode_can_be_enabled
+    oauth = Twitch::OAuth.new(client_id: "test_id", client_secret: "test_secret", dev_mode: true)
+    assert_equal true, oauth.dev_mode
+  end
+
+  def test_default_oauth_url_uses_base_url
+    oauth = Twitch::OAuth.new(client_id: "test_id", client_secret: "test_secret")
+    assert_equal Twitch::OAuth::OAUTH_BASE_URL, oauth.oauth_url
+  end
+
+  def test_custom_oauth_url_can_be_set
+    custom_url = "http://localhost:3000/oauth"
+    oauth = Twitch::OAuth.new(client_id: "test_id", client_secret: "test_secret", oauth_url: custom_url)
+    assert_equal custom_url, oauth.oauth_url
+  end
+
+  def test_dev_mode_with_custom_oauth_url
+    custom_url = "http://localhost:3000/oauth"
+    oauth = Twitch::OAuth.new(client_id: "test_id", client_secret: "test_secret", dev_mode: true, oauth_url: custom_url)
+
+    assert_equal true, oauth.dev_mode
+    assert_equal custom_url, oauth.oauth_url
+  end
+
   def test_oauth_create_client_credentials_token
     skip "Requires valid client credentials" unless ENV["TWITCH_CLIENT_SECRET"]
 

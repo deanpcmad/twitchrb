@@ -16,11 +16,39 @@ gem "twitchrb"
 
 ## Usage
 
+### Configuration
+
+You can configure TwitchRB globally to set default credentials that will be used for all clients and OAuth operations:
+
+```ruby
+Twitch.configure do |config|
+  config.client_id = "your_client_id"
+  config.client_secret = "your_client_secret"  # For OAuth operations
+  config.access_token = "your_access_token"    # Optional default token
+end
+```
+
+With global configuration set up, you can create clients without passing credentials each time:
+
+```ruby
+# Uses the globally configured credentials
+@client = Twitch::Client.new
+
+# You can still override the global settings if needed
+@client = Twitch::Client.new(access_token: "different_token")
+```
+
+OAuth operations will also use the global configuration:
+
+```ruby
+# Uses the globally configured client_id and client_secret
+@oauth = Twitch::OAuth.new
+@oauth.create(grant_type: "client_credentials")
+```
+
 ### Set Client Details
 
-Firstly you'll need to set a Client ID and an Access Token.
-
-An access token is required because the Helix API requires authentication.
+If you prefer not to use global configuration, you can set credentials directly on each client:
 
 ```ruby
 @client = Twitch::Client.new(client_id: "abc123", access_token: "xyz123")

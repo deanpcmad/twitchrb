@@ -2,12 +2,14 @@ module Twitch
   class Client
     BASE_URL = "https://api.twitch.tv/helix"
 
-    attr_reader :client_id, :access_token, :adapter
+    attr_reader :client_id, :access_token, :adapter, :dev_mode, :api_url
 
-    def initialize(client_id:, access_token:, adapter: Faraday.default_adapter)
-      @client_id = client_id
-      @access_token = access_token
+    def initialize(client_id: nil, access_token: nil, adapter: Faraday.default_adapter, dev_mode: nil, api_url: nil)
+      @client_id = client_id || Twitch.configuration.client_id
+      @access_token = access_token || Twitch.configuration.access_token
       @adapter = adapter
+      @dev_mode = dev_mode.nil? ? Twitch.configuration.dev_mode : dev_mode
+      @api_url = api_url || Twitch.configuration.api_url
     end
 
     def users
@@ -159,7 +161,7 @@ module Twitch
     end
 
     def connection
-      @connection ||= Faraday.new(BASE_URL) do |conn|
+      @connection ||= Faraday.new(api_url) do |conn|
         conn.request :authorization, :Bearer, access_token
 
         conn.headers = {

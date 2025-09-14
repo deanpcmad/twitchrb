@@ -19,5 +19,8 @@ require 'dotenv/load'
 
 @clientapp = Twitch::Client.new(client_id: ENV["TWITCH_CLIENT_ID"], access_token: ENV["TWITCH_APP_ACCESS_TOKEN"])
 
+@clientdev = Twitch::Client.new(client_id: ENV["TWITCH_CLIENT_ID"], access_token: ENV["TWITCH_ACCESS_TOKEN"], dev_mode: true, api_url: "http://localhost:3000")
+@oauthdev = Twitch::OAuth.new(client_id: ENV["TWITCH_CLIENT_ID"], client_secret: ENV["TWITCH_CLIENT_SECRET"], dev_mode: true, oauth_url: "http://localhost:3000/oauth2")
+
 require "irb"
 IRB.start(__FILE__)
