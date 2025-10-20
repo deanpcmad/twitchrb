@@ -99,4 +99,5 @@ module Twitch
   autoload :ChatMessage, "twitch/objects/chat_message"
   autoload :UnbanRequest, "twitch/objects/unban_request"
   autoload :Warning, "twitch/objects/warning"
+  autoload :UserAuthorization, "twitch/objects/user_authorization"
 end

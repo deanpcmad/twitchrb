@@ -149,6 +149,13 @@ This library includes the ability to create, refresh and revoke OAuth tokens.
 @client.users.emotes(user_id: 123)
 @client.users.emotes(user_id: 123, broadcaster_id: 321)
 @client.users.emotes(user_id: 123, after: "abc123")
+
+# Gets the authorization scopes that the specified user(s) have granted the application. Takes a single User ID or multiple as an array.
+# Requires an App Access Token
+# Returns a collection of Twitch::UserAuthorization's
+# #<Twitch::UserAuthorization user_id="72938118", user_name="deanpcmad", user_login="deanpcmad", scopes=["user:read:email"], has_authorized=true>
+@client.users.authorization(id: 123)
+@client.users.authorization(ids: [123, 321])
 ```
 
 ### Channels

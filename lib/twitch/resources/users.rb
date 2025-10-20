@@ -93,5 +93,17 @@ module Twitch
       response = get_request("chat/emotes/user", params: attrs.merge(params))
       Collection.from_response(response, type: Emote)
     end
+
+    def authorization(id: nil, ids: nil)
+      raise "Either id or ids is required" unless !id.nil? || !ids.nil?
+
+      if id
+        response = get_request("authorization/users", params: { user_id: id })
+      elsif ids
+        response = get_request("authorization/users", params: { user_id: ids })
+      end
+
+      Collection.from_response(response, type: UserAuthorization)
+    end
   end
 end
