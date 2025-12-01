@@ -45,5 +45,10 @@ module Twitch
       response = get_request("channels/editors?broadcaster_id=#{broadcaster_id}")
       Collection.from_response(response, type: ChannelEditor)
     end
+
+    def stream_key(broadcaster_id:)
+      response = get_request("streams/key?broadcaster_id=#{broadcaster_id}")
+      StreamKey.new(response.body.dig("data")[0])
+    end
   end
 end

@@ -190,6 +190,12 @@ attributes = {title: "My new title"}
 
 # Retrieves editors for a channel
 @client.channels.editors(broadcaster_id: 141981764)
+
+# Retrieve the Stream Key for a channel
+# broadcaster_id must match the currently authenticated user
+# Required scope: channel:read:stream_key
+@client.channels.stream_key(broadcaster_id: 123123)
+=> #<Twitch::StreamKey stream_key="live_abc123">
 ```
 
 ### Videos

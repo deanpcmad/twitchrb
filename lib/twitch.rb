@@ -59,6 +59,7 @@ module Twitch
   autoload :User, "twitch/objects/user"
   autoload :FollowedUser, "twitch/objects/followed_user"
   autoload :BlockedUser, "twitch/objects/blocked_user"
+  autoload :StreamKey, "twitch/objects/stream_key"
 
   autoload :Channel, "twitch/objects/channel"
   autoload :ChannelEditor, "twitch/objects/channel_editor"
