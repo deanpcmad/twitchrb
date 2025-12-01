@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    twitchrb (1.7.0)
+    twitchrb (1.8.0)
       faraday (~> 2.11)
       ostruct (~> 0.6.0)
 
