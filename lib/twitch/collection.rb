@@ -1,5 +1,7 @@
 module Twitch
   class Collection
+    include Enumerable
+
     attr_reader :data, :total, :cursor
 
     def self.from_response(response, type:)
