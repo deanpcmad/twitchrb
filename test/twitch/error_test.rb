@@ -28,4 +28,54 @@ class ErrorTest < Minitest::Test
 
     assert_equal "Connection failed", error.message
   end
+
+  def test_rate_limit_error_with_full_info
+    reset_time = Time.now.to_i + 60
+    error = Twitch::Errors::RateLimitError.new(
+      { "error" => "Too Many Requests", "message" => "Rate limited" },
+      429,
+      reset_at: reset_time,
+      remaining: 0,
+      limit: 120
+    )
+
+    assert_equal 429, error.http_status_code
+    assert_equal reset_time, error.reset_at
+    assert_equal 0, error.remaining
+    assert_equal 120, error.limit
+    assert error.message.include?("Resets at")
+    assert error.message.include?("0/120 requests")
+  end
+
+  def test_rate_limit_error_with_partial_info
+    reset_time = Time.now.to_i + 60
+    error = Twitch::Errors::RateLimitError.new(
+      { "error" => "Too Many Requests" },
+      429,
+      reset_at: reset_time
+    )
+
+    assert_equal 429, error.http_status_code
+    assert_equal reset_time, error.reset_at
+    assert error.message.include?("Resets at")
+  end
+
+  def test_rate_limit_error_without_reset_info
+    error = Twitch::Errors::RateLimitError.new(
+      { "error" => "Too Many Requests" },
+      429
+    )
+
+    assert_equal 429, error.http_status_code
+    assert_nil error.reset_at
+  end
+
+  def test_too_many_requests_error_still_works
+    error = Twitch::ErrorFactory.create(
+      { "error" => "Too Many Requests", "message" => "Rate limited" },
+      429
+    )
+
+    assert_equal "Error 429: Your request exceeded the API rate limit. 'Rate limited'", error.message
+  end
 end

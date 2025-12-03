@@ -2,12 +2,24 @@ module Twitch
   class Client
     BASE_URL = "https://api.twitch.tv/helix"
 
-    attr_reader :client_id, :access_token, :adapter
+    attr_reader :client_id, :access_token, :adapter, :rate_limiter
+    attr_reader :rate_limit_threshold, :auto_retry_rate_limit, :logger
 
-    def initialize(client_id:, access_token:, adapter: Faraday.default_adapter)
+    def initialize(
+      client_id:,
+      access_token:,
+      adapter: Faraday.default_adapter,
+      rate_limit_threshold: 10,
+      auto_retry_rate_limit: true,
+      logger: nil
+    )
       @client_id = client_id
       @access_token = access_token
       @adapter = adapter
+      @rate_limit_threshold = rate_limit_threshold
+      @auto_retry_rate_limit = auto_retry_rate_limit
+      @logger = logger
+      @rate_limiter = RateLimiter.new(logger: logger)
     end
 
     def users

@@ -96,6 +96,34 @@ module Twitch
       end
     end
 
+    class RateLimitError < TooManyRequestsError
+      attr_reader :reset_at, :remaining, :limit
+
+      def initialize(response_body, http_status_code, reset_at: nil, remaining: nil, limit: nil)
+        @reset_at = reset_at
+        @remaining = remaining
+        @limit = limit
+        super(response_body, http_status_code)
+      end
+
+      private
+
+      def build_message
+        base_message = super
+        rate_info = build_rate_info
+        "#{base_message}#{rate_info}"
+      end
+
+      def build_rate_info
+        return "" if reset_at.nil?
+
+        reset_time = Time.at(reset_at).strftime("%H:%M:%S")
+        info = " (Resets at #{reset_time}"
+        info += ", #{remaining}/#{limit} requests" if remaining && limit
+        info + ")"
+      end
+    end
+
     class InternalError < ErrorGenerator
       private
 

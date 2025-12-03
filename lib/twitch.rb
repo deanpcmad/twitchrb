@@ -9,6 +9,8 @@ module Twitch
   autoload :ErrorGenerator, "twitch/error_generator"
   autoload :ErrorFactory, "twitch/error_generator"
 
+  autoload :RateLimiter, "twitch/rate_limiter"
+
   autoload :Client, "twitch/client"
   autoload :Collection, "twitch/collection"
   autoload :Resource, "twitch/resource"

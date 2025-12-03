@@ -68,6 +68,82 @@ results.cursor
 #=> Twitch::Collection
 ```
 
+### Rate Limiting
+
+The Twitch API has rate limits to ensure fair usage. TwitchRB automatically tracks rate limit information from API responses and can warn you when approaching limits.
+
+#### Automatic Rate Limit Tracking
+
+By default, the client tracks rate limit headers from all API responses:
+
+```ruby
+@client = Twitch::Client.new(client_id: "abc123", access_token: "xyz123")
+
+# Make an API call
+user = @client.users.retrieve(id: 12345)
+
+# Check current rate limit status
+@client.rate_limiter.remaining   #=> 119
+@client.rate_limiter.limit       #=> 120
+@client.rate_limiter.reset_at    #=> 1701619234 (Unix timestamp)
+@client.rate_limiter.status      #=> "119/120 requests remaining"
+```
+
+#### Configuring Rate Limit Warnings
+
+You can configure the client to warn when approaching the rate limit:
+
+```ruby
+# With logging enabled (e.g., Rails logger)
+@client = Twitch::Client.new(
+  client_id: "abc123",
+  access_token: "xyz123",
+  logger: Rails.logger,
+  rate_limit_threshold: 10  # Warn when remaining <= 10
+)
+
+# When approaching the limit, a warning will be logged:
+# "Twitch API rate limit approaching: 5/120 requests remaining. Resets in 45 seconds."
+```
+
+#### Handling Rate Limit Errors
+
+When you hit the rate limit (429 response), the library raises a `Twitch::Errors::RateLimitError` with detailed information:
+
+```ruby
+begin
+  @client.users.retrieve(id: 12345)
+rescue Twitch::Errors::RateLimitError => e
+  puts e.message
+  #=> "Error 429: Your request exceeded the API rate limit. (Resets at 14:23:45, 0/120 requests)"
+
+  puts e.reset_at     #=> 1701619234 (Unix timestamp)
+  puts e.remaining    #=> 0
+  puts e.limit        #=> 120
+end
+```
+
+#### Rate Limiter Methods
+
+The `rate_limiter` object has several useful methods:
+
+```ruby
+# Check if approaching limit
+@client.rate_limiter.approaching_limit?(threshold: 10)  #=> true/false
+
+# Get seconds until reset
+@client.rate_limiter.reset_in  #=> 45
+
+# Check if rate limited
+@client.rate_limiter.rate_limited?  #=> false
+
+# Wait until rate limit resets (useful for batch operations)
+@client.rate_limiter.wait_if_rate_limited
+
+# Reset tracking (useful when creating new client instances)
+@client.rate_limiter.reset
+```
+
 ### OAuth
 
 This library includes the ability to create, refresh and revoke OAuth tokens.

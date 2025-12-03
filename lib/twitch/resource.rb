@@ -29,6 +29,9 @@ module Twitch
     end
 
     def handle_response(response)
+      # Extract and update rate limit info from response headers
+      update_rate_limit(response)
+
       return true if response.status == 204
       return response unless error?(response)
 
@@ -41,8 +44,32 @@ module Twitch
     end
 
     def raise_error(response)
+      # Special handling for rate limit errors
+      if response.status == 429
+        raise_rate_limit_error(response)
+      end
+
       error = Twitch::ErrorFactory.create(response.body, response.status)
       raise error if error
+    end
+
+    private
+
+    def update_rate_limit(response)
+      client.rate_limiter.update(response.headers)
+      client.rate_limiter.warn_if_approaching(threshold: client.rate_limit_threshold)
+    end
+
+    def raise_rate_limit_error(response)
+      headers = response.headers
+      error = Twitch::Errors::RateLimitError.new(
+        response.body,
+        response.status,
+        reset_at: headers["ratelimit-reset"]&.to_i,
+        remaining: headers["ratelimit-remaining"]&.to_i,
+        limit: headers["ratelimit-limit"]&.to_i
+      )
+      raise error
     end
   end
 end
