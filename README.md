@@ -272,6 +272,11 @@ attributes = {title: "My new title"}
 # Required scope: channel:read:stream_key
 @client.channels.stream_key(broadcaster_id: 123123)
 => #<Twitch::StreamKey stream_key="live_abc123">
+
+# Run a commercial
+# broadcaster_id must match the currently authenticated user
+# Required scope: channel:edit:commercial
+@client.channels.commercial(broadcaster_id: 123123, length: 30)
 ```
 
 ### Videos

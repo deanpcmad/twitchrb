@@ -50,5 +50,9 @@ module Twitch
       response = get_request("streams/key?broadcaster_id=#{broadcaster_id}")
       StreamKey.new(response.body.dig("data")[0])
     end
+
+    def commercial(broadcaster_id:, length:)
+      post_request("channels/commercial", body: { broadcaster_id: broadcaster_id, length: length })
+    end
   end
 end
