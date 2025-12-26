@@ -24,6 +24,7 @@ GEM
     base64 (0.3.0)
     benchmark (0.4.1)
     bigdecimal (3.3.1)
+    cgi (0.5.1)
     concurrent-ruby (1.3.5)
     connection_pool (2.5.4)
     date (3.5.1)
@@ -119,6 +120,7 @@ PLATFORMS
 
 DEPENDENCIES
   activesupport (>= 4.2.0, < 8.0)
+  cgi
   dotenv
   irb
   minitest (~> 5.0)

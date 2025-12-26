@@ -10,3 +10,4 @@ gem "vcr"
 gem "rubocop-rails-omakase", require: false
 gem "activesupport", ">= 4.2.0", "< 8.0"
 gem "irb"
+gem "cgi"
