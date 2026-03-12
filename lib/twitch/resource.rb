@@ -9,22 +9,27 @@ module Twitch
     private
 
     def get_request(url, params: {}, headers: {})
+      validate_request_path!(url)
       handle_response client.connection.get(url, params, headers)
     end
 
     def post_request(url, body:, headers: {})
+      validate_request_path!(url)
       handle_response client.connection.post(url, body, headers)
     end
 
     def patch_request(url, body:, headers: {})
+      validate_request_path!(url)
       handle_response client.connection.patch(url, body, headers)
     end
 
     def put_request(url, body:, headers: {})
+      validate_request_path!(url)
       handle_response client.connection.put(url, body, headers)
     end
 
     def delete_request(url, params: {}, headers: {})
+      validate_request_path!(url)
       handle_response client.connection.delete(url, params, headers)
     end
 
@@ -70,6 +75,14 @@ module Twitch
         limit: headers["ratelimit-limit"]&.to_i
       )
       raise error
+    end
+
+    def validate_request_path!(url)
+      return unless url.start_with?("//") || URI(url).absolute?
+
+      raise Twitch::UnsafeRequestPathError, "request path must be relative to the Twitch API base URL"
+    rescue URI::InvalidURIError
+      nil
     end
   end
 end

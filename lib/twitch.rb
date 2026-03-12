@@ -5,6 +5,7 @@ require "twitch/version"
 
 module Twitch
   autoload :Error, "twitch/error"
+  autoload :UnsafeRequestPathError, "twitch/error"
   autoload :Errors, "twitch/error_generator"
   autoload :ErrorGenerator, "twitch/error_generator"
   autoload :ErrorFactory, "twitch/error_generator"
