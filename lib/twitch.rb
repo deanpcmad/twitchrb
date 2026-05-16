@@ -59,6 +59,7 @@ module Twitch
   autoload :ShoutoutsResource, "twitch/resources/shoutouts"
   autoload :UnbanRequestsResource, "twitch/resources/unban_requests"
   autoload :WarningsResource, "twitch/resources/warnings"
+  autoload :SuspiciousUsersResource, "twitch/resources/suspicious_users"
 
 
   autoload :User, "twitch/objects/user"
@@ -108,5 +109,6 @@ module Twitch
   autoload :PinnedChatMessage, "twitch/objects/pinned_chat_message"
   autoload :UnbanRequest, "twitch/objects/unban_request"
   autoload :Warning, "twitch/objects/warning"
+  autoload :SuspiciousUser, "twitch/objects/suspicious_user"
   autoload :UserAuthorization, "twitch/objects/user_authorization"
 end

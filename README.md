@@ -739,6 +739,20 @@ messages = [{msg_id: "abc1", msg_text: "is this allowed?"}, {msg_id: "abc2", msg
 @client.warnings.create broadcaster_id: 123, moderator_id: 123, user_id: 321, reason: "dont do that"
 ```
 
+### Suspicious Users
+
+```ruby
+# Add suspicious status to a chat user
+# Required scope: moderator:manage:suspicious_users
+# moderator_id must match the currently authenticated moderator
+@client.suspicious_users.create broadcaster_id: 123, moderator_id: 321, user_id: 456, status: "RESTRICTED"
+
+# Remove suspicious status from a chat user
+# Required scope: moderator:manage:suspicious_users
+# moderator_id must match the currently authenticated moderator
+@client.suspicious_users.delete broadcaster_id: 123, moderator_id: 321, user_id: 456
+```
+
 ### Streams
 
 ```ruby

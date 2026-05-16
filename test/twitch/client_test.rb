@@ -52,4 +52,9 @@ class ClientTest < Minitest::Test
     client = Twitch::Client.new client_id: "123", access_token: "abc123"
     assert_instance_of Twitch::HypeTrainStatusResource, client.hype_train_status
   end
+
+  def test_suspicious_users_resource_accessor
+    client = Twitch::Client.new client_id: "123", access_token: "abc123"
+    assert_instance_of Twitch::SuspiciousUsersResource, client.suspicious_users
+  end
 end
