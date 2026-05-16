@@ -122,6 +122,10 @@ module Twitch
       HypeTrainEventsResource.new(self)
     end
 
+    def hype_train_status
+      HypeTrainStatusResource.new(self)
+    end
+
     def announcements
       AnnouncementsResource.new(self)
     end

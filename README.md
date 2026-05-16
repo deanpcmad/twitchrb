@@ -880,13 +880,13 @@ tag_ids = ["tag-id-1", "tag-id-2"]
 @client.tags.replace(broadcaster_id: 123, tag_ids: tag_ids)
 ```
 
-### Hype Train Events
+### Hype Train Status
 
 ```ruby
-# Get hype train events for a broadcaster
+# Get hype train status for a broadcaster
 # Required scope: channel:read:hype_train
 # broadcaster_id must match the currently authenticated user
-@client.hype_train_events.list(broadcaster_id: 123)
+@client.hype_train_status.retrieve(broadcaster_id: 123)
 ```
 
 ### Moderator Events
