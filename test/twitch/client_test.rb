@@ -62,4 +62,9 @@ class ClientTest < Minitest::Test
     client = Twitch::Client.new client_id: "123", access_token: "abc123"
     assert_instance_of Twitch::SharedChatSessionsResource, client.shared_chat_sessions
   end
+
+  def test_custom_power_ups_resource_accessor
+    client = Twitch::Client.new client_id: "123", access_token: "abc123"
+    assert_instance_of Twitch::CustomPowerUpsResource, client.custom_power_ups
+  end
 end

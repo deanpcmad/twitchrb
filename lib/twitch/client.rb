@@ -114,6 +114,10 @@ module Twitch
       CustomRewardRedemptionsResource.new(self)
     end
 
+    def custom_power_ups
+      CustomPowerUpsResource.new(self)
+    end
+
     def goals
       GoalsResource.new(self)
     end

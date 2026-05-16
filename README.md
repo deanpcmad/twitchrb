@@ -397,9 +397,30 @@ rescue Twitch::Errors::EventsubSubscriptionConflictError => e
   e.existing_subscription_id
 end
 
+# The generic EventSub API also supports beta subscription types such as
+# channel.custom_power_up_redemption.add with version "beta"
+@client.eventsub_subscriptions.create(
+  type: "channel.custom_power_up_redemption.add",
+  version: "beta",
+  condition: {broadcaster_user_id: 123},
+  transport: {method: "webhook", callback: "webhook_url", secret: "secret"}
+)
+
 # Delete an EventSub Subscription
 # IDs are UUIDs
 @client.eventsub_subscriptions.delete(id: "abc12-abc12-abc12")
+```
+
+### Custom Power-ups
+
+```ruby
+# Get all custom Power-ups for a broadcaster
+# Required scope: bits:read
+# broadcaster_id must match the currently authenticated user
+@client.custom_power_ups.list(broadcaster_id: 123)
+
+# Filter custom Power-ups by ID
+@client.custom_power_ups.list(broadcaster_id: 123, ids: ["power-up-1", "power-up-2"])
 ```
 
 ### EventSub Conduits
