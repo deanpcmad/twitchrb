@@ -8,7 +8,7 @@ require "vcr"
 require "webmock/minitest"
 require "dotenv/load"
 
-WebMock.disable_net_connect!(allow: "id.twitch.tv")
+WebMock.disable_net_connect!
 
 HELIX_URL = "https://api.twitch.tv/helix".freeze
 FIXTURES_DIR = File.expand_path("fixtures", __dir__).freeze

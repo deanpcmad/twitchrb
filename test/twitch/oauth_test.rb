@@ -1,11 +1,13 @@
 require "test_helper"
 
-class OAuthTest < Minitest::Test
+class OAuthTest < WebmockTest
+  TOKEN_URL    = "https://id.twitch.tv/oauth2/token".freeze
+  DEVICE_URL   = "https://id.twitch.tv/oauth2/device".freeze
+  VALIDATE_URL = "https://id.twitch.tv/oauth2/validate".freeze
+  REVOKE_URL   = "https://id.twitch.tv/oauth2/revoke".freeze
+
   def setup
-    @oauth = Twitch::OAuth.new(
-      client_id: ENV["TWITCH_CLIENT_ID"],
-      client_secret: ENV["TWITCH_CLIENT_SECRET"]
-    )
+    @oauth = Twitch::OAuth.new(client_id: "test_client_id", client_secret: "test_client_secret")
   end
 
   def test_oauth_initialization
@@ -16,134 +18,137 @@ class OAuthTest < Minitest::Test
   end
 
   def test_oauth_create_client_credentials_token
-    skip "Requires valid client credentials" unless ENV["TWITCH_CLIENT_SECRET"]
+    stub_request(:post, TOKEN_URL).to_return(
+      status: 200,
+      body: { access_token: "abcd1234", expires_in: 5011271, token_type: "bearer" }.to_json,
+      headers: { "Content-Type" => "application/json" }
+    )
 
     token = @oauth.create(grant_type: "client_credentials")
 
-    if token
-      assert_respond_to token, :access_token
-      assert_respond_to token, :token_type
-      assert_equal "bearer", token.token_type
-      refute_nil token.access_token
-    end
+    assert_equal "bearer", token.token_type
+    assert_equal "abcd1234", token.access_token
   end
 
   def test_oauth_create_client_credentials_with_scopes
-    skip "Requires valid client credentials" unless ENV["TWITCH_CLIENT_SECRET"]
+    stub_request(:post, TOKEN_URL)
+      .with(body: hash_including("scope" => "channel:read:subscriptions"))
+      .to_return(
+        status: 200,
+        body: {
+          access_token: "abcd1234",
+          expires_in: 5011271,
+          scope: [ "channel:read:subscriptions" ],
+          token_type: "bearer"
+        }.to_json,
+        headers: { "Content-Type" => "application/json" }
+      )
 
-    token = @oauth.create(
-      grant_type: "client_credentials",
-      scope: "channel:read:subscriptions"
-    )
+    token = @oauth.create(grant_type: "client_credentials", scope: "channel:read:subscriptions")
 
-    if token
-      assert_respond_to token, :access_token
-      assert_respond_to token, :scope
-      assert_equal "bearer", token.token_type
-      refute_nil token.access_token
-    end
+    assert_equal "bearer", token.token_type
+    assert_equal "abcd1234", token.access_token
+    assert_equal [ "channel:read:subscriptions" ], token.scope
   end
 
   def test_oauth_validate_token
-    skip "Requires valid client credentials" unless ENV["TWITCH_CLIENT_SECRET"]
+    stub_request(:get, VALIDATE_URL)
+      .with(headers: { "Authorization" => "OAuth valid_token" })
+      .to_return(
+        status: 200,
+        body: {
+          client_id: "test_client_id",
+          login: "twitchdev",
+          scopes: [ "channel:read:subscriptions" ],
+          user_id: "141981764",
+          expires_in: 5520838
+        }.to_json,
+        headers: { "Content-Type" => "application/json" }
+      )
 
-    # First get a valid token
-    token_response = @oauth.create(grant_type: "client_credentials")
-    skip "Could not create token for validation test" unless token_response
+    validation = @oauth.validate(token: "valid_token")
 
-    validation = @oauth.validate(token: token_response.access_token)
-
-    if validation
-      assert_respond_to validation, :client_id
-      assert_respond_to validation, :expires_in
-      assert_equal ENV["TWITCH_CLIENT_ID"], validation.client_id
-    end
+    assert_equal "test_client_id", validation.client_id
+    assert_equal 5520838, validation.expires_in
   end
 
   def test_oauth_validate_invalid_token
-    validation = @oauth.validate(token: "invalid_token_123")
+    stub_request(:get, VALIDATE_URL)
+      .with(headers: { "Authorization" => "OAuth invalid_token_123" })
+      .to_return(status: 401, body: { status: 401, message: "invalid access token" }.to_json,
+        headers: { "Content-Type" => "application/json" })
 
-    assert_equal false, validation
+    assert_equal false, @oauth.validate(token: "invalid_token_123")
   end
 
   def test_oauth_revoke_token
-    skip "Requires valid client credentials" unless ENV["TWITCH_CLIENT_SECRET"]
+    stub_request(:post, REVOKE_URL)
+      .with(body: hash_including("token" => "valid_token"))
+      .to_return(status: 200, body: "")
 
-    # First get a valid token
-    token_response = @oauth.create(grant_type: "client_credentials")
-    skip "Could not create token for revoke test" unless token_response
-
-    result = @oauth.revoke(token: token_response.access_token)
-
-    assert_equal true, result
-
-    # Verify token is now invalid
-    validation = @oauth.validate(token: token_response.access_token)
-    assert_equal false, validation
+    assert_equal true, @oauth.revoke(token: "valid_token")
   end
 
   def test_oauth_device_flow_initiation
-    skip "Requires valid client credentials" unless ENV["TWITCH_CLIENT_SECRET"]
+    stub_request(:post, DEVICE_URL)
+      .with(body: hash_including("scope" => "user:read:email"))
+      .to_return(
+        status: 200,
+        body: {
+          device_code: "abcd1234",
+          user_code: "ABCDEFGH",
+          verification_uri: "https://www.twitch.tv/activate?device-code=ABCDEFGH",
+          expires_in: 1800,
+          interval: 5
+        }.to_json,
+        headers: { "Content-Type" => "application/json" }
+      )
 
     device_response = @oauth.device(scopes: "user:read:email")
 
-    if device_response
-      assert_respond_to device_response, :device_code
-      assert_respond_to device_response, :user_code
-      assert_respond_to device_response, :verification_uri
-      assert_respond_to device_response, :expires_in
-      assert_respond_to device_response, :interval
-      refute_nil device_response.device_code
-      refute_nil device_response.user_code
-      refute_nil device_response.verification_uri
-    end
+    assert_equal "abcd1234", device_response.device_code
+    assert_equal "ABCDEFGH", device_response.user_code
+    assert_equal "https://www.twitch.tv/activate?device-code=ABCDEFGH", device_response.verification_uri
+    assert_equal 1800, device_response.expires_in
+    assert_equal 5, device_response.interval
   end
 
   def test_oauth_refresh_token_with_invalid_token
-    result = @oauth.refresh(refresh_token: "invalid_refresh_token")
+    stub_request(:post, TOKEN_URL)
+      .with(body: hash_including("grant_type" => "refresh_token", "refresh_token" => "invalid_refresh_token"))
+      .to_return(status: 400, body: { status: 400, message: "Invalid refresh token" }.to_json,
+        headers: { "Content-Type" => "application/json" })
 
-    assert_equal false, result
+    assert_equal false, @oauth.refresh(refresh_token: "invalid_refresh_token")
   end
 
   def test_oauth_create_with_invalid_grant_type
-    result = @oauth.create(grant_type: "invalid_grant_type")
+    stub_request(:post, TOKEN_URL)
+      .with(body: hash_including("grant_type" => "invalid_grant_type"))
+      .to_return(status: 400, body: { status: 400, message: "Invalid grant type" }.to_json,
+        headers: { "Content-Type" => "application/json" })
 
-    assert_equal false, result
+    assert_equal false, @oauth.create(grant_type: "invalid_grant_type")
   end
 
   def test_oauth_create_with_invalid_credentials
-    bad_oauth = Twitch::OAuth.new(
-      client_id: "invalid_client_id",
-      client_secret: "invalid_client_secret"
-    )
+    stub_request(:post, TOKEN_URL)
+      .with(body: hash_including("client_id" => "invalid_client_id"))
+      .to_return(status: 403, body: { status: 403, message: "invalid client" }.to_json,
+        headers: { "Content-Type" => "application/json" })
 
-    result = bad_oauth.create(grant_type: "client_credentials")
+    bad_oauth = Twitch::OAuth.new(client_id: "invalid_client_id", client_secret: "invalid_client_secret")
 
-    assert_equal false, result
+    assert_equal false, bad_oauth.create(grant_type: "client_credentials")
   end
 
   def test_oauth_revoke_invalid_token
-    result = @oauth.revoke(token: "invalid_token")
+    stub_request(:post, REVOKE_URL)
+      .with(body: hash_including("token" => "invalid_token"))
+      .to_return(status: 400, body: { status: 400, message: "Invalid token" }.to_json,
+        headers: { "Content-Type" => "application/json" })
 
-    # Revoking invalid token should still return true (no error)
-    assert_equal true, result
-  end
-
-  def test_oauth_device_with_invalid_scopes
-    skip "Requires valid client credentials" unless ENV["TWITCH_CLIENT_SECRET"]
-
-    # This test actually succeeds - Twitch allows any scope string in device flow
-    # The validation happens when the user actually authorizes
-    result = @oauth.device(scopes: "invalid:scope")
-
-    # Should return a device response even with invalid scopes
-    if result
-      assert_respond_to result, :device_code
-      assert_respond_to result, :user_code
-      refute_nil result.device_code
-      refute_nil result.user_code
-    else
-      assert_equal false, result
-    end
+    # revoke returns true even on error responses (matches existing behavior)
+    assert_equal true, @oauth.revoke(token: "invalid_token")
   end
 end
