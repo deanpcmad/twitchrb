@@ -305,10 +305,14 @@ attributes = {title: "My new title"}
 
 # Create a clip of a given Channel
 # Required scope: clips:edit
-@client.clips.create(broadcaster_id: 1234)
+# title is optional
+# duration is optional and can be from 5 to 60 seconds; defaults to 30 if not set
+@client.clips.create(broadcaster_id: 1234, title: "Best moment", duration: 12.5)
 
 # Create a clip from a VOD
 # Required scope: editor:manage:clips or channel:manage:clips
+# title is optional
+# duration is optional and can be from 5 to 60 seconds; defaults to 30 if not set
 @client.clips.create_from_vod(
   editor_id: 1234,
   broadcaster_id: 1234,
