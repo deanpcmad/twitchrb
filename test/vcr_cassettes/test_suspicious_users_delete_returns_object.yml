@@ -1,0 +1,27 @@
+---
+http_interactions:
+- request:
+    method: delete
+    uri: https://api.twitch.tv/helix/moderation/suspicious_users?broadcaster_id=123&moderator_id=321&user_id=9876
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.9.2 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - '123'
+      Authorization:
+      - Bearer abc123
+  response:
+    status:
+      code: 200
+      message:
+    headers:
+      content-type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"user_id":"9876","broadcaster_id":"123","moderator_id":"321","updated_at":"2025-12-01T23:08:18+00:00","status":"NO_TREATMENT","types":["MANUALLY_ADDED"]}]}'
+  recorded_at: Sat, 16 May 2026 11:17:04 GMT
+recorded_with: VCR 6.4.0

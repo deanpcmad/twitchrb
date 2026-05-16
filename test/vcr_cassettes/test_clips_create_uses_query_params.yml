@@ -1,0 +1,29 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.twitch.tv/helix/clips?broadcaster_id=123&duration=12.5&title=Best+moment
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      User-Agent:
+      - twitchrb/v1.9.2 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - '123'
+      Authorization:
+      - Bearer abc123
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 202
+      message:
+    headers:
+      content-type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"id":"clip-1","edit_url":"https://clips.twitch.tv/clip-1/edit"}]}'
+  recorded_at: Sat, 16 May 2026 11:17:13 GMT
+recorded_with: VCR 6.4.0

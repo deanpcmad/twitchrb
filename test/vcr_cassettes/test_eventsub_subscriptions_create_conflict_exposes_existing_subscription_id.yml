@@ -1,0 +1,29 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.twitch.tv/helix/eventsub/subscriptions
+    body:
+      encoding: UTF-8
+      string: '{"type":"channel.update","version":"1","condition":{"broadcaster_user_id":"141981764"},"transport":{"method":"webhook","callback":"https://example.com/webhooks/callback","secret":"secretkey123"}}'
+    headers:
+      User-Agent:
+      - twitchrb/v1.9.2 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - '123'
+      Authorization:
+      - Bearer abc123
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 409
+      message:
+    headers:
+      content-type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"error":"Conflict","status":409,"message":"subscription already exists","data":[{"id":"existing-subscription-id"}]}'
+  recorded_at: Sat, 16 May 2026 11:17:00 GMT
+recorded_with: VCR 6.4.0

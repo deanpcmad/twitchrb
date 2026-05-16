@@ -1,8 +1,13 @@
 require "test_helper"
 
-class UsersResourceTest < Minitest::Test
+class UsersResourceTest < WebmockTest
+  def setup
+    @client = Twitch::Client.new(client_id: "test_client_id", access_token: "test_token")
+  end
+
   def test_users_retrieve_by_id
-    setup_client
+    stub_helix(:get, "users", query: { "id" => "141981764" }, fixture: "get_users")
+
     user = @client.users.retrieve(id: 141981764)
 
     assert_equal Twitch::User, user.class
@@ -10,7 +15,8 @@ class UsersResourceTest < Minitest::Test
   end
 
   def test_users_retrieve_by_username
-    setup_client
+    stub_helix(:get, "users", query: { "login" => "twitchdev" }, fixture: "get_users")
+
     user = @client.users.retrieve(username: "twitchdev")
 
     assert_equal Twitch::User, user.class
@@ -18,7 +24,10 @@ class UsersResourceTest < Minitest::Test
   end
 
   def test_users_retrieve_by_ids
-    setup_client
+    stub_request(:get, "#{HELIX_URL}/users?id%5B%5D=141981764&id%5B%5D=72938118")
+      .to_return(status: 200, body: helix_fixture("get_users_many"),
+        headers: { "Content-Type" => "application/json" })
+
     users = @client.users.retrieve(ids: [ "141981764", "72938118" ])
 
     assert_equal Twitch::Collection, users.class
@@ -26,10 +35,17 @@ class UsersResourceTest < Minitest::Test
   end
 
   def test_users_retrieve_by_usernames
-    setup_client
+    stub_request(:get, "#{HELIX_URL}/users?login%5B%5D=twitchdev&login%5B%5D=deanpcmad")
+      .to_return(status: 200, body: helix_fixture("get_users_many"),
+        headers: { "Content-Type" => "application/json" })
+
     users = @client.users.retrieve(usernames: [ "twitchdev", "deanpcmad" ])
 
     assert_equal Twitch::Collection, users.class
     assert_equal 2, users.data.count
+  end
+
+  def test_users_retrieve_raises_without_args
+    assert_raises(RuntimeError) { @client.users.retrieve }
   end
 end

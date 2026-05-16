@@ -1,0 +1,17 @@
+{
+  "data": [
+    {
+      "id": "29595",
+      "name": "Dota 2",
+      "box_art_url": "https://static-cdn.jtvnw.net/ttv-boxart/29595-{width}x{height}.jpg",
+      "igdb_id": "118"
+    },
+    {
+      "id": "512710",
+      "name": "Call of Duty: Warzone",
+      "box_art_url": "https://static-cdn.jtvnw.net/ttv-boxart/512710-{width}x{height}.jpg",
+      "igdb_id": ""
+    }
+  ],
+  "pagination": {}
+}

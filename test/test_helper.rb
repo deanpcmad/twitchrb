@@ -5,11 +5,36 @@ require "minitest/autorun"
 require "faraday"
 require "json"
 require "vcr"
+require "webmock/minitest"
 require "dotenv/load"
+
+WebMock.disable_net_connect!(allow: "id.twitch.tv")
+
+HELIX_URL = "https://api.twitch.tv/helix".freeze
+FIXTURES_DIR = File.expand_path("fixtures", __dir__).freeze
+
+def helix_fixture(name)
+  File.read(File.join(FIXTURES_DIR, "helix", "#{name}.json"))
+end
+
+def stub_helix(method, path, query: nil, fixture: nil, status: 200, body: nil)
+  body ||= fixture ? helix_fixture(fixture) : "{}"
+  stub = stub_request(method, "#{HELIX_URL}/#{path}")
+  stub = stub.with(query: query) if query
+  stub.to_return(status: status, body: body, headers: { "Content-Type" => "application/json" })
+end
+
+# Tests that opt out of VCR (WebMock-based) inherit from this class.
+class WebmockTest < Minitest::Test
+  def setup; end
+  def teardown; end
+end
 
 VCR.configure do |config|
   config.cassette_library_dir = "test/vcr_cassettes"
   config.hook_into :faraday
+  # When no cassette is active, hand the request off to WebMock (used by stub-based tests).
+  config.allow_http_connections_when_no_cassette = true
 
   config.filter_sensitive_data("<AUTHORIZATION>") { ENV["TWITCH_ACCESS_TOKEN"] }
   config.filter_sensitive_data("<CLIENT_SECRET>") { ENV["TWITCH_CLIENT_SECRET"] }

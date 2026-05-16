@@ -1,0 +1,27 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.twitch.tv/helix/clips/downloads?broadcaster_id=123&clip_id%5B%5D=clip-1&clip_id%5B%5D=clip-2&editor_id=321
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - twitchrb/v1.9.2 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - '123'
+      Authorization:
+      - Bearer abc123
+  response:
+    status:
+      code: 200
+      message:
+    headers:
+      content-type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"clip_id":"clip-1","landscape_download_url":"https://cdn.example/clip-1.mp4","portrait_download_url":null},{"clip_id":"clip-2","landscape_download_url":"https://cdn.example/clip-2.mp4","portrait_download_url":"https://cdn.example/clip-2-portrait.mp4"}]}'
+  recorded_at: Sat, 16 May 2026 11:17:13 GMT
+recorded_with: VCR 6.4.0
