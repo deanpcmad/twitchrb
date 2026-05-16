@@ -62,21 +62,9 @@ def setup_client
 end
 
 def setup_app_client
-  return @app_client if @app_client
-
-  # Create OAuth instance to get app access token
-  oauth = Twitch::OAuth.new(
-    client_id: ENV["TWITCH_CLIENT_ID"],
-    client_secret: ENV["TWITCH_CLIENT_SECRET"]
-  )
-
-  # Get app access token
-  token_response = oauth.create(grant_type: "client_credentials")
-  return nil unless token_response
-
   @app_client ||= Twitch::Client.new(
-    client_id: ENV["TWITCH_CLIENT_ID"],
-    access_token: token_response.access_token
+    client_id: ENV.fetch("TWITCH_CLIENT_ID", "test_client_id"),
+    access_token: "test_app_token"
   )
 end
 

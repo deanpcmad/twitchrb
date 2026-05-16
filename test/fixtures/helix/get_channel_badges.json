@@ -1,0 +1,19 @@
+{
+  "data": [
+    {
+      "set_id": "bits",
+      "versions": [
+        {
+          "id": "1",
+          "image_url_1x": "https://static-cdn.jtvnw.net/badges/v1/example/1",
+          "image_url_2x": "https://static-cdn.jtvnw.net/badges/v1/example/2",
+          "image_url_4x": "https://static-cdn.jtvnw.net/badges/v1/example/3",
+          "title": "cheer 1",
+          "description": "cheer 1",
+          "click_action": "visit_url",
+          "click_url": "https://bits.twitch.tv"
+        }
+      ]
+    }
+  ]
+}

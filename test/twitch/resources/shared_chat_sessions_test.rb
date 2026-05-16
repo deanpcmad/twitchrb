@@ -1,36 +1,33 @@
 require "test_helper"
 
-class SharedChatSessionsResourceTest < Minitest::Test
+class SharedChatSessionsResourceTest < WebmockTest
+  def setup
+    @client = Twitch::Client.new(client_id: "test_client_id", access_token: "test_token")
+  end
+
   def test_shared_chat_sessions_retrieve_returns_object
-    stubs = Faraday::Adapter::Test::Stubs.new do |stub|
-      stub.get("https://api.twitch.tv/helix/shared_chat/session") do |env|
-        assert_equal({ "broadcaster_id" => "123" }, env.params)
+    stub_request(:get, "#{HELIX_URL}/shared_chat/session")
+      .with(query: { "broadcaster_id" => "123" })
+      .to_return(
+        status: 200,
+        body: {
+          data: [
+            {
+              session_id: "session-1",
+              host_broadcaster_id: "123",
+              participants: [
+                { broadcaster_id: "123" },
+                { broadcaster_id: "456" }
+              ],
+              created_at: "2025-04-10T12:00:00Z",
+              updated_at: "2025-04-10T12:05:00Z"
+            }
+          ]
+        }.to_json,
+        headers: { "Content-Type" => "application/json" }
+      )
 
-        [
-          200,
-          { "content-type" => "application/json" },
-          JSON.dump(
-            data: [
-              {
-                session_id: "session-1",
-                host_broadcaster_id: "123",
-                participants: [
-                  { broadcaster_id: "123" },
-                  { broadcaster_id: "456" }
-                ],
-                created_at: "2025-04-10T12:00:00Z",
-                updated_at: "2025-04-10T12:05:00Z"
-              }
-            ]
-          )
-        ]
-      end
-    end
-
-    client = Twitch::Client.new(client_id: "123", access_token: "abc123", adapter: :test)
-    client.instance_variable_set(:@stubs, stubs)
-
-    session = client.shared_chat_sessions.retrieve(broadcaster_id: "123")
+    session = @client.shared_chat_sessions.retrieve(broadcaster_id: "123")
 
     assert_instance_of Twitch::SharedChatSession, session
     assert_equal "session-1", session.session_id
@@ -38,15 +35,11 @@ class SharedChatSessionsResourceTest < Minitest::Test
   end
 
   def test_shared_chat_sessions_retrieve_returns_nil_when_none_exist
-    stubs = Faraday::Adapter::Test::Stubs.new do |stub|
-      stub.get("https://api.twitch.tv/helix/shared_chat/session") do
-        [ 200, { "content-type" => "application/json" }, JSON.dump(data: []) ]
-      end
-    end
+    stub_request(:get, "#{HELIX_URL}/shared_chat/session")
+      .with(query: { "broadcaster_id" => "123" })
+      .to_return(status: 200, body: { data: [] }.to_json,
+        headers: { "Content-Type" => "application/json" })
 
-    client = Twitch::Client.new(client_id: "123", access_token: "abc123", adapter: :test)
-    client.instance_variable_set(:@stubs, stubs)
-
-    assert_nil client.shared_chat_sessions.retrieve(broadcaster_id: "123")
+    assert_nil @client.shared_chat_sessions.retrieve(broadcaster_id: "123")
   end
 end

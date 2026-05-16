@@ -1,27 +1,19 @@
 require "test_helper"
 
-class AnnouncementsResourceTest < Minitest::Test
+class AnnouncementsResourceTest < WebmockTest
+  def setup
+    @client = Twitch::Client.new(client_id: "test_client_id", access_token: "test_token")
+  end
+
   def test_announcements_create_supports_for_source_only
-    stubs = Faraday::Adapter::Test::Stubs.new do |stub|
-      stub.post("https://api.twitch.tv/helix/chat/announcements") do |env|
-        assert_equal(
-          { "broadcaster_id" => "123", "moderator_id" => "321" },
-          env.params
-        )
+    stub_request(:post, "#{HELIX_URL}/chat/announcements")
+      .with(
+        query: { "broadcaster_id" => "123", "moderator_id" => "321" },
+        body: hash_including("message" => "test message", "color" => "purple", "for_source_only" => false)
+      )
+      .to_return(status: 204, body: "")
 
-        body = JSON.parse(env.body)
-        assert_equal "test message", body["message"]
-        assert_equal "purple", body["color"]
-        assert_equal false, body["for_source_only"]
-
-        [ 204, {}, "" ]
-      end
-    end
-
-    client = Twitch::Client.new(client_id: "123", access_token: "abc123", adapter: :test)
-    client.instance_variable_set(:@stubs, stubs)
-
-    assert client.announcements.create(
+    assert @client.announcements.create(
       broadcaster_id: "123",
       moderator_id: "321",
       message: "test message",

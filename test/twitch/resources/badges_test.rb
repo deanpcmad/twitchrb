@@ -1,8 +1,13 @@
 require "test_helper"
 
-class BadgesResourceTest < Minitest::Test
+class BadgesResourceTest < WebmockTest
+  def setup
+    @client = Twitch::Client.new(client_id: "test_client_id", access_token: "test_token")
+  end
+
   def test_badges_channel
-    setup_client
+    stub_helix(:get, "chat/badges", query: { "broadcaster_id" => "141981764" }, fixture: "get_channel_badges")
+
     badges = @client.badges.channel(broadcaster_id: "141981764")
 
     assert_equal Twitch::Collection, badges.class
@@ -10,7 +15,8 @@ class BadgesResourceTest < Minitest::Test
   end
 
   def test_badges_global
-    setup_client
+    stub_helix(:get, "chat/badges/global", fixture: "get_global_badges")
+
     badges = @client.badges.global
 
     assert_equal Twitch::Collection, badges.class

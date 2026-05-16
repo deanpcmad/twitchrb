@@ -1,41 +1,34 @@
 require "test_helper"
 
-class SuspiciousUsersResourceTest < Minitest::Test
+class SuspiciousUsersResourceTest < WebmockTest
+  def setup
+    @client = Twitch::Client.new(client_id: "test_client_id", access_token: "test_token")
+  end
+
   def test_suspicious_users_create_returns_object
-    stubs = Faraday::Adapter::Test::Stubs.new do |stub|
-      stub.post("https://api.twitch.tv/helix/moderation/suspicious_users") do |env|
-        assert_equal(
-          { "broadcaster_id" => "123", "moderator_id" => "321" },
-          env.params
-        )
+    stub_request(:post, "#{HELIX_URL}/moderation/suspicious_users")
+      .with(
+        query: { "broadcaster_id" => "123", "moderator_id" => "321" },
+        body: hash_including("user_id" => "9876", "status" => "RESTRICTED")
+      )
+      .to_return(
+        status: 200,
+        body: {
+          data: [
+            {
+              user_id: "9876",
+              broadcaster_id: "123",
+              moderator_id: "321",
+              updated_at: "2025-12-01T23:08:18+00:00",
+              status: "RESTRICTED",
+              types: [ "MANUALLY_ADDED" ]
+            }
+          ]
+        }.to_json,
+        headers: { "Content-Type" => "application/json" }
+      )
 
-        body = JSON.parse(env.body)
-        assert_equal "9876", body["user_id"]
-        assert_equal "RESTRICTED", body["status"]
-
-        [
-          200,
-          { "content-type" => "application/json" },
-          JSON.dump(
-            data: [
-              {
-                user_id: "9876",
-                broadcaster_id: "123",
-                moderator_id: "321",
-                updated_at: "2025-12-01T23:08:18+00:00",
-                status: "RESTRICTED",
-                types: [ "MANUALLY_ADDED" ]
-              }
-            ]
-          )
-        ]
-      end
-    end
-
-    client = Twitch::Client.new(client_id: "123", access_token: "abc123", adapter: :test)
-    client.instance_variable_set(:@stubs, stubs)
-
-    user = client.suspicious_users.create(
+    user = @client.suspicious_users.create(
       broadcaster_id: "123",
       moderator_id: "321",
       user_id: "9876",
@@ -49,40 +42,26 @@ class SuspiciousUsersResourceTest < Minitest::Test
   end
 
   def test_suspicious_users_delete_returns_object
-    stubs = Faraday::Adapter::Test::Stubs.new do |stub|
-      stub.delete("https://api.twitch.tv/helix/moderation/suspicious_users") do |env|
-        assert_equal(
-          {
-            "broadcaster_id" => "123",
-            "moderator_id" => "321",
-            "user_id" => "9876"
-          },
-          env.params
-        )
+    stub_request(:delete, "#{HELIX_URL}/moderation/suspicious_users")
+      .with(query: { "broadcaster_id" => "123", "moderator_id" => "321", "user_id" => "9876" })
+      .to_return(
+        status: 200,
+        body: {
+          data: [
+            {
+              user_id: "9876",
+              broadcaster_id: "123",
+              moderator_id: "321",
+              updated_at: "2025-12-01T23:08:18+00:00",
+              status: "NO_TREATMENT",
+              types: [ "MANUALLY_ADDED" ]
+            }
+          ]
+        }.to_json,
+        headers: { "Content-Type" => "application/json" }
+      )
 
-        [
-          200,
-          { "content-type" => "application/json" },
-          JSON.dump(
-            data: [
-              {
-                user_id: "9876",
-                broadcaster_id: "123",
-                moderator_id: "321",
-                updated_at: "2025-12-01T23:08:18+00:00",
-                status: "NO_TREATMENT",
-                types: [ "MANUALLY_ADDED" ]
-              }
-            ]
-          )
-        ]
-      end
-    end
-
-    client = Twitch::Client.new(client_id: "123", access_token: "abc123", adapter: :test)
-    client.instance_variable_set(:@stubs, stubs)
-
-    user = client.suspicious_users.delete(
+    user = @client.suspicious_users.delete(
       broadcaster_id: "123",
       moderator_id: "321",
       user_id: "9876"
