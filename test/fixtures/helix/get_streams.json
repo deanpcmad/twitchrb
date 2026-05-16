@@ -1,0 +1,22 @@
+{
+  "data": [
+    {
+      "id": "123456789",
+      "user_id": "141981764",
+      "user_login": "twitchdev",
+      "user_name": "TwitchDev",
+      "game_id": "509658",
+      "game_name": "Just Chatting",
+      "type": "live",
+      "title": "Live coding stream",
+      "viewer_count": 1234,
+      "started_at": "2025-04-10T12:00:00Z",
+      "language": "en",
+      "thumbnail_url": "https://static-cdn.jtvnw.net/previews-ttv/live_user_twitchdev-{width}x{height}.jpg",
+      "tag_ids": [],
+      "tags": [ "English" ],
+      "is_mature": false
+    }
+  ],
+  "pagination": { "cursor": "eyJiIjpudWxsLCJhIjp7Ik9mZnNldCI6MX19" }
+}

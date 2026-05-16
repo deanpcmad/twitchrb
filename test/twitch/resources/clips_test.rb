@@ -1,8 +1,15 @@
 require "test_helper"
 
-class ClipsResourceTest < Minitest::Test
+class ClipsResourceTest < WebmockTest
+  def setup
+    @client = Twitch::Client.new(client_id: "test_client_id", access_token: "test_token")
+  end
+
   def test_clips_list_by_broadcaster_id
-    setup_client
+    stub_helix(:get, "clips",
+      query: { "broadcaster_id" => "141981764", "first" => "5" },
+      fixture: "get_clips")
+
     clips = @client.clips.list(broadcaster_id: "141981764", first: 5)
 
     assert_equal Twitch::Collection, clips.class
@@ -11,59 +18,60 @@ class ClipsResourceTest < Minitest::Test
   end
 
   def test_clips_list_by_game_id
-    setup_client
+    stub_helix(:get, "clips",
+      query: { "game_id" => "33214", "first" => "3" },
+      fixture: "get_clips")
+
     clips = @client.clips.list(game_id: "33214", first: 3)
 
     assert_equal Twitch::Collection, clips.class
-    assert clips.data.count <= 3
     assert clips.data.all? { |clip| clip.is_a?(Twitch::Clip) }
   end
 
   def test_clips_list_with_date_range
-    setup_client
-    started_at = "2023-01-01T00:00:00Z"
-    ended_at = "2023-12-31T23:59:59Z"
+    stub_helix(:get, "clips",
+      query: {
+        "broadcaster_id" => "141981764",
+        "started_at" => "2023-01-01T00:00:00Z",
+        "ended_at" => "2023-12-31T23:59:59Z",
+        "first" => "5"
+      },
+      fixture: "get_clips")
 
     clips = @client.clips.list(
       broadcaster_id: "141981764",
-      started_at: started_at,
-      ended_at: ended_at,
+      started_at: "2023-01-01T00:00:00Z",
+      ended_at: "2023-12-31T23:59:59Z",
       first: 5
     )
 
     assert_equal Twitch::Collection, clips.class
-    assert clips.data.count <= 5
     assert clips.data.all? { |clip| clip.is_a?(Twitch::Clip) }
   end
 
   def test_clips_list_missing_params_raises_error
-    setup_client
-
-    assert_raises(RuntimeError) do
-      @client.clips.list(first: 5)
-    end
+    assert_raises(RuntimeError) { @client.clips.list(first: 5) }
   end
 
   def test_clips_retrieve
-    setup_client
+    stub_helix(:get, "clips",
+      query: { "id" => "AwkwardHelplessSalamanderSwiftRage" },
+      fixture: "get_clip")
 
-    # First get a real clip ID from the clips list
-    clips = @client.clips.list(broadcaster_id: "141981764", first: 1)
+    clip = @client.clips.retrieve(id: "AwkwardHelplessSalamanderSwiftRage")
 
-    if clips.data.any?
-      clip_id = clips.data.first.id
-      clip = @client.clips.retrieve(id: clip_id)
-
-      assert_equal Twitch::Clip, clip.class
-      assert_equal clip_id, clip.id
-    else
-      # Skip test if no clips available
-      skip "No clips available for broadcaster"
-    end
+    assert_equal Twitch::Clip, clip.class
+    assert_equal "AwkwardHelplessSalamanderSwiftRage", clip.id
   end
 
   def test_clips_create_requires_scope
-    setup_client
+    stub_request(:post, "#{HELIX_URL}/clips")
+      .with(query: { "broadcaster_id" => "141981764", "has_delay" => "false" })
+      .to_return(
+        status: 401,
+        body: { error: "Unauthorized", status: 401, message: "Missing scope: clips:edit" }.to_json,
+        headers: { "Content-Type" => "application/json" }
+      )
 
     assert_raises(Twitch::Errors::AuthenticationMissingError) do
       @client.clips.create(broadcaster_id: "141981764", has_delay: false)

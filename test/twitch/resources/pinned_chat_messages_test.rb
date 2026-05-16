@@ -1,78 +1,56 @@
 require "test_helper"
 
-class PinnedChatMessagesResourceTest < Minitest::Test
+class PinnedChatMessagesResourceTest < WebmockTest
+  def setup
+    @client = Twitch::Client.new(client_id: "test_client_id", access_token: "test_token")
+  end
+
   def test_pinned_chat_messages_retrieve_returns_object
-    stubs = Faraday::Adapter::Test::Stubs.new do |stub|
-      stub.get("https://api.twitch.tv/helix/chat/pins") do |env|
-        assert_equal({ "broadcaster_id" => "123", "moderator_id" => "321" }, env.params)
-
-        [
-          200,
-          { "content-type" => "application/json" },
-          JSON.dump(
+    stub_request(:get, "#{HELIX_URL}/chat/pins")
+      .with(query: { "broadcaster_id" => "123", "moderator_id" => "321" })
+      .to_return(
+        status: 200,
+        body: {
+          data: [
             {
-            data: [
-              {
-                id: "pin-1",
-                message_id: "msg-1",
-                broadcaster_id: "123",
-                moderator_id: "321",
-                fragments: [
-                  { type: "text", text: "Pinned message" }
-                ]
-              }
-            ]
+              id: "pin-1",
+              message_id: "msg-1",
+              broadcaster_id: "123",
+              moderator_id: "321",
+              fragments: [ { type: "text", text: "Pinned message" } ]
             }
-          )
-        ]
-      end
-    end
+          ]
+        }.to_json,
+        headers: { "Content-Type" => "application/json" }
+      )
 
-    client = Twitch::Client.new(client_id: "123", access_token: "abc123", adapter: :test)
-    client.instance_variable_set(:@stubs, stubs)
+    pinned = @client.pinned_chat_messages.retrieve(broadcaster_id: "123", moderator_id: "321")
 
-    pinned_message = client.pinned_chat_messages.retrieve(broadcaster_id: "123", moderator_id: "321")
-
-    assert_instance_of Twitch::PinnedChatMessage, pinned_message
-    assert_equal "pin-1", pinned_message.id
-    assert_equal "Pinned message", pinned_message.fragments.first.text
+    assert_instance_of Twitch::PinnedChatMessage, pinned
+    assert_equal "pin-1", pinned.id
+    assert_equal "Pinned message", pinned.fragments.first.text
   end
 
   def test_pinned_chat_messages_retrieve_returns_nil_when_none_exist
-    stubs = Faraday::Adapter::Test::Stubs.new do |stub|
-      stub.get("https://api.twitch.tv/helix/chat/pins") do
-        [ 200, { "content-type" => "application/json" }, JSON.dump(data: []) ]
-      end
-    end
+    stub_request(:get, "#{HELIX_URL}/chat/pins")
+      .with(query: { "broadcaster_id" => "123", "moderator_id" => "321" })
+      .to_return(status: 200, body: { data: [] }.to_json,
+        headers: { "Content-Type" => "application/json" })
 
-    client = Twitch::Client.new(client_id: "123", access_token: "abc123", adapter: :test)
-    client.instance_variable_set(:@stubs, stubs)
-
-    assert_nil client.pinned_chat_messages.retrieve(broadcaster_id: "123", moderator_id: "321")
+    assert_nil @client.pinned_chat_messages.retrieve(broadcaster_id: "123", moderator_id: "321")
   end
 
   def test_pinned_chat_messages_create_uses_query_params
-    stubs = Faraday::Adapter::Test::Stubs.new do |stub|
-      stub.put("https://api.twitch.tv/helix/chat/pins") do |env|
-        assert_equal(
-          {
-            "broadcaster_id" => "123",
-            "moderator_id" => "321",
-            "message_id" => "msg-1",
-            "duration_seconds" => "90"
-          },
-          env.params
-        )
-        assert_equal "{}", env.body
+    stub_request(:put, "#{HELIX_URL}/chat/pins")
+      .with(query: {
+        "broadcaster_id" => "123",
+        "moderator_id" => "321",
+        "message_id" => "msg-1",
+        "duration_seconds" => "90"
+      })
+      .to_return(status: 204, body: "")
 
-        [ 204, {}, "" ]
-      end
-    end
-
-    client = Twitch::Client.new(client_id: "123", access_token: "abc123", adapter: :test)
-    client.instance_variable_set(:@stubs, stubs)
-
-    assert client.pinned_chat_messages.create(
+    assert @client.pinned_chat_messages.create(
       broadcaster_id: "123",
       moderator_id: "321",
       message_id: "msg-1",
@@ -81,27 +59,16 @@ class PinnedChatMessagesResourceTest < Minitest::Test
   end
 
   def test_pinned_chat_messages_update_uses_query_params
-    stubs = Faraday::Adapter::Test::Stubs.new do |stub|
-      stub.patch("https://api.twitch.tv/helix/chat/pins") do |env|
-        assert_equal(
-          {
-            "broadcaster_id" => "123",
-            "moderator_id" => "321",
-            "message_id" => "msg-1",
-            "duration_seconds" => "120"
-          },
-          env.params
-        )
-        assert_equal "{}", env.body
+    stub_request(:patch, "#{HELIX_URL}/chat/pins")
+      .with(query: {
+        "broadcaster_id" => "123",
+        "moderator_id" => "321",
+        "message_id" => "msg-1",
+        "duration_seconds" => "120"
+      })
+      .to_return(status: 204, body: "")
 
-        [ 204, {}, "" ]
-      end
-    end
-
-    client = Twitch::Client.new(client_id: "123", access_token: "abc123", adapter: :test)
-    client.instance_variable_set(:@stubs, stubs)
-
-    assert client.pinned_chat_messages.update(
+    assert @client.pinned_chat_messages.update(
       broadcaster_id: "123",
       moderator_id: "321",
       message_id: "msg-1",
@@ -110,24 +77,14 @@ class PinnedChatMessagesResourceTest < Minitest::Test
   end
 
   def test_pinned_chat_messages_delete_uses_query_params
-    stubs = Faraday::Adapter::Test::Stubs.new do |stub|
-      stub.delete("https://api.twitch.tv/helix/chat/pins") do |env|
-        assert_equal(
-          {
-            "broadcaster_id" => "123",
-            "moderator_id" => "321",
-            "message_id" => "msg-1"
-          },
-          env.params
-        )
+    stub_request(:delete, "#{HELIX_URL}/chat/pins")
+      .with(query: { "broadcaster_id" => "123", "moderator_id" => "321", "message_id" => "msg-1" })
+      .to_return(status: 204, body: "")
 
-        [ 204, {}, "" ]
-      end
-    end
-
-    client = Twitch::Client.new(client_id: "123", access_token: "abc123", adapter: :test)
-    client.instance_variable_set(:@stubs, stubs)
-
-    assert client.pinned_chat_messages.delete(broadcaster_id: "123", moderator_id: "321", message_id: "msg-1")
+    assert @client.pinned_chat_messages.delete(
+      broadcaster_id: "123",
+      moderator_id: "321",
+      message_id: "msg-1"
+    )
   end
 end

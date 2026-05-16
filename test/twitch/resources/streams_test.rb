@@ -1,17 +1,24 @@
 require "test_helper"
 
-class StreamsResourceTest < Minitest::Test
+class StreamsResourceTest < WebmockTest
+  def setup
+    @client = Twitch::Client.new(client_id: "test_client_id", access_token: "test_token")
+  end
+
   def test_streams_list
-    setup_client
+    stub_helix(:get, "streams", query: { "first" => "10" }, fixture: "get_streams")
+
     streams = @client.streams.list(first: 10)
 
     assert_equal Twitch::Collection, streams.class
-    assert streams.data.count <= 10
     assert streams.data.all? { |stream| stream.is_a?(Twitch::Stream) }
   end
 
   def test_streams_list_by_user_id
-    setup_client
+    stub_request(:get, "#{HELIX_URL}/streams?user_id%5B%5D=141981764")
+      .to_return(status: 200, body: helix_fixture("get_streams"),
+        headers: { "Content-Type" => "application/json" })
+
     streams = @client.streams.list(user_id: [ "141981764" ])
 
     assert_equal Twitch::Collection, streams.class
@@ -19,7 +26,10 @@ class StreamsResourceTest < Minitest::Test
   end
 
   def test_streams_list_by_user_login
-    setup_client
+    stub_request(:get, "#{HELIX_URL}/streams?user_login%5B%5D=twitchdev")
+      .to_return(status: 200, body: helix_fixture("get_streams"),
+        headers: { "Content-Type" => "application/json" })
+
     streams = @client.streams.list(user_login: [ "twitchdev" ])
 
     assert_equal Twitch::Collection, streams.class
@@ -27,45 +37,50 @@ class StreamsResourceTest < Minitest::Test
   end
 
   def test_streams_list_by_game_id
-    setup_client
+    stub_request(:get, "#{HELIX_URL}/streams?game_id%5B%5D=33214&first=5")
+      .to_return(status: 200, body: helix_fixture("get_streams"),
+        headers: { "Content-Type" => "application/json" })
+
     streams = @client.streams.list(game_id: [ "33214" ], first: 5)
 
     assert_equal Twitch::Collection, streams.class
-    assert streams.data.count <= 5
     assert streams.data.all? { |stream| stream.is_a?(Twitch::Stream) }
   end
 
   def test_streams_list_with_language
-    setup_client
+    stub_request(:get, "#{HELIX_URL}/streams?language%5B%5D=en&first=3")
+      .to_return(status: 200, body: helix_fixture("get_streams"),
+        headers: { "Content-Type" => "application/json" })
+
     streams = @client.streams.list(language: [ "en" ], first: 3)
 
     assert_equal Twitch::Collection, streams.class
-    assert streams.data.count <= 3
     assert streams.data.all? { |stream| stream.is_a?(Twitch::Stream) }
   end
 
   def test_streams_list_with_pagination
-    setup_client
+    stub_helix(:get, "streams", query: { "first" => "5" }, fixture: "get_streams")
+    stub_helix(:get, "streams",
+      query: { "first" => "5", "after" => "eyJiIjpudWxsLCJhIjp7Ik9mZnNldCI6MX19" },
+      fixture: "get_streams")
 
-    # First get real pagination cursor from a streams call
     first_page = @client.streams.list(first: 5)
+    assert first_page.cursor, "expected pagination cursor in fixture"
 
-    if first_page.cursor
-      streams = @client.streams.list(first: 5, after: first_page.cursor)
+    page2 = @client.streams.list(first: 5, after: first_page.cursor)
 
-      assert_equal Twitch::Collection, streams.class
-      assert streams.data.count <= 5
-      assert streams.data.all? { |stream| stream.is_a?(Twitch::Stream) }
-    else
-      # Test just verifies basic functionality without pagination
-      assert_equal Twitch::Collection, first_page.class
-      assert first_page.data.count <= 5
-      assert first_page.data.all? { |stream| stream.is_a?(Twitch::Stream) }
-    end
+    assert_equal Twitch::Collection, page2.class
+    assert page2.data.all? { |stream| stream.is_a?(Twitch::Stream) }
   end
 
   def test_streams_followed_requires_scope
-    setup_client
+    stub_request(:get, "#{HELIX_URL}/streams/followed")
+      .with(query: { "user_id" => "141981764", "first" => "5" })
+      .to_return(
+        status: 401,
+        body: { error: "Unauthorized", status: 401, message: "Missing scope: user:read:follows" }.to_json,
+        headers: { "Content-Type" => "application/json" }
+      )
 
     assert_raises(Twitch::Errors::AuthenticationMissingError) do
       @client.streams.followed(user_id: "141981764", first: 5)

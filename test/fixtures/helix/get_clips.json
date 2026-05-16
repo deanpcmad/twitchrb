@@ -1,0 +1,24 @@
+{
+  "data": [
+    {
+      "id": "AwkwardHelplessSalamanderSwiftRage",
+      "url": "https://clips.twitch.tv/AwkwardHelplessSalamanderSwiftRage",
+      "embed_url": "https://clips.twitch.tv/embed?clip=AwkwardHelplessSalamanderSwiftRage",
+      "broadcaster_id": "141981764",
+      "broadcaster_name": "TwitchDev",
+      "creator_id": "146616692",
+      "creator_name": "ViewerName",
+      "video_id": "",
+      "game_id": "33214",
+      "language": "en",
+      "title": "Tut Tut",
+      "view_count": 10,
+      "created_at": "2017-11-30T22:34:18Z",
+      "thumbnail_url": "https://clips-media-assets2.twitch.tv/example-preview-480x272.jpg",
+      "duration": 12.9,
+      "vod_offset": 1957,
+      "is_featured": false
+    }
+  ],
+  "pagination": { "cursor": "eyJiIjpudWxsLCJhIjp7IkN1cnNvciI6Ik1RIn19" }
+}
