@@ -1,0 +1,21 @@
+{
+  "data": [
+    {
+      "id": "0",
+      "status": "enabled",
+      "transport": {
+        "method": "webhook",
+        "callback": "https://example.com/webhooks/callback"
+      }
+    },
+    {
+      "id": "1",
+      "status": "enabled",
+      "transport": {
+        "method": "webhook",
+        "callback": "https://example.com/webhooks/callback"
+      }
+    }
+  ],
+  "pagination": {}
+}

@@ -1,0 +1,21 @@
+{
+  "total": 1,
+  "data": [
+    {
+      "id": "26b1c993-bfcf-44d9-b876-379dacafe75a",
+      "status": "enabled",
+      "type": "channel.update",
+      "version": "1",
+      "condition": { "broadcaster_user_id": "141981764" },
+      "created_at": "2025-04-10T12:00:00Z",
+      "transport": {
+        "method": "webhook",
+        "callback": "https://example.com/webhooks/callback"
+      },
+      "cost": 0
+    }
+  ],
+  "total_cost": 0,
+  "max_total_cost": 10000,
+  "pagination": { "cursor": "eyJiIjpudWxsLCJhIjp7Ik9mZnNldCI6MX19" }
+}
