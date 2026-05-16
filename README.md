@@ -464,6 +464,10 @@ shards = [
 # moderator_id can be either the currently authenticated moderator or the broadcaster
 # color can be either blue, green, orange, purple, primary. If left blank, primary is default
 @client.announcements.create broadcaster_id: 123, moderator_id: 123, message: "test message", color: "purple"
+
+# When using an App Access Token during a shared chat session, set for_source_only: false
+# to send the announcement to all channels in the session instead of only the source channel
+@client.announcements.create broadcaster_id: 123, moderator_id: 123, message: "shared announcement", for_source_only: false
 ```
 
 ### Create a Shoutout
