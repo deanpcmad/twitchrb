@@ -1,0 +1,118 @@
+#!/usr/bin/env ruby
+# Hits the real Twitch API to verify the gem still matches what Twitch returns.
+# Run before releases, or on a schedule. Unit tests use WebMock and won't catch
+# Twitch-side schema drift; this will.
+#
+# Required env (load via .env):
+#   TWITCH_CLIENT_ID
+#   TWITCH_ACCESS_TOKEN          # user token
+#   TWITCH_CLIENT_SECRET         # only needed for app-token checks
+#
+# Optional env — enables write checks that actually send messages:
+#   TWITCH_SMOKE_BROADCASTER_ID  # channel to post into
+#   TWITCH_SMOKE_MODERATOR_ID    # must match the user/bot in the token
+#                                # (also used as sender_id for chat messages)
+#
+# Usage:
+#   bin/smoke               # run all checks
+#   bin/smoke users games   # run only the named checks
+
+require "bundler/setup"
+require "twitch"
+require "dotenv/load"
+
+unless ENV["TWITCH_CLIENT_ID"] && ENV["TWITCH_ACCESS_TOKEN"]
+  abort "Missing TWITCH_CLIENT_ID / TWITCH_ACCESS_TOKEN — set them in .env"
+end
+
+client = Twitch::Client.new(
+  client_id: ENV["TWITCH_CLIENT_ID"],
+  access_token: ENV["TWITCH_ACCESS_TOKEN"]
+)
+
+app_client = nil
+if ENV["TWITCH_CLIENT_SECRET"]
+  oauth = Twitch::OAuth.new(
+    client_id: ENV["TWITCH_CLIENT_ID"],
+    client_secret: ENV["TWITCH_CLIENT_SECRET"]
+  )
+  token = oauth.create(grant_type: "client_credentials")
+  app_client = Twitch::Client.new(client_id: ENV["TWITCH_CLIENT_ID"], access_token: token.access_token) if token
+end
+
+broadcaster_id = ENV["TWITCH_SMOKE_BROADCASTER_ID"]
+moderator_id   = ENV["TWITCH_SMOKE_MODERATOR_ID"]
+timestamp      = Time.now.strftime("%Y-%m-%d %H:%M:%S")
+
+CHECKS = {
+  "users"            => -> { client.users.retrieve(username: "twitchdev") },
+  "users_many"       => -> { client.users.retrieve(usernames: [ "twitchdev", "twitch" ]) },
+  "channels"         => -> { client.channels.retrieve(id: 141981764) },
+  "games"            => -> { client.games.retrieve(name: "Just Chatting") },
+  "games_top"        => -> { client.games.top(first: 5) },
+  "streams"          => -> { client.streams.list(first: 5) },
+  "clips"            => -> { client.clips.list(broadcaster_id: "141981764", first: 3) },
+  "videos"           => -> { client.videos.list(user_id: "141981764", first: 3) },
+  "badges_global"    => -> { client.badges.global },
+  "badges_channel"   => -> { client.badges.channel(broadcaster_id: "141981764") },
+  "emotes_global"    => -> { client.emotes.global },
+  "emotes_channel"   => -> { client.emotes.channel(broadcaster_id: "141981764") },
+  "eventsub_list"    => -> { client.eventsub_subscriptions.list },
+
+  # app-token only
+  "conduits_list"    => -> { app_client && app_client.eventsub_conduits.list },
+  "app_subs_list"    => -> { app_client && app_client.eventsub_subscriptions.list },
+
+  # write checks — only run when broadcaster + moderator ids are set
+  "chat_message"     => -> {
+    client.chat_messages.create(
+      broadcaster_id: broadcaster_id,
+      sender_id: moderator_id,
+      message: "twitchrb smoke test #{timestamp}"
+    )
+  },
+  "announcement"     => -> {
+    client.announcements.create(
+      broadcaster_id: broadcaster_id,
+      moderator_id: moderator_id,
+      message: "twitchrb smoke test announcement #{timestamp}",
+      color: "primary"
+    )
+  }
+}.freeze
+
+requested = ARGV.empty? ? CHECKS.keys : ARGV
+unknown = requested - CHECKS.keys
+abort "Unknown check(s): #{unknown.join(", ")}\nAvailable: #{CHECKS.keys.join(", ")}" if unknown.any?
+
+failures = 0
+write_checks = %w[chat_message announcement]
+
+requested.each do |name|
+  if name.start_with?("conduits", "app_subs") && app_client.nil?
+    puts "- #{name.ljust(18)} skipped (no TWITCH_CLIENT_SECRET)"
+    next
+  end
+
+  if write_checks.include?(name) && (broadcaster_id.nil? || moderator_id.nil?)
+    puts "- #{name.ljust(18)} skipped (set TWITCH_SMOKE_BROADCASTER_ID + TWITCH_SMOKE_MODERATOR_ID)"
+    next
+  end
+
+  begin
+    result = CHECKS[name].call
+    count = result.respond_to?(:data) ? result.data.size : 1
+    puts "✓ #{name.ljust(18)} (#{count} record#{"s" unless count == 1})"
+  rescue => e
+    failures += 1
+    puts "✗ #{name.ljust(18)} #{e.class}: #{e.message}"
+  end
+end
+
+puts
+if failures.zero?
+  puts "All checks passed."
+else
+  puts "#{failures} check(s) failed."
+  exit 1
+end
