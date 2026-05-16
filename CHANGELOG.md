@@ -4,7 +4,7 @@ All notable changes to `twitchrb` are documented in this file.
 
 Published release notes were sourced from GitHub releases where available. Older tag-only versions and the current unreleased work were reconstructed from local git history.
 
-## [1.10.0] - Unreleased
+## [1.10.0] - 2026-05-16
 
 ### Added
 - Added custom power-up API support.
