@@ -134,6 +134,10 @@ module Twitch
       ChatMessagesResource.new(self)
     end
 
+    def pinned_chat_messages
+      PinnedChatMessagesResource.new(self)
+    end
+
     def vips
       VipsResource.new(self)
     end

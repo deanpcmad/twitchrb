@@ -1,7 +1,13 @@
 module Twitch
   class ChatMessagesResource < Resource
-    def create(broadcaster_id:, sender_id:, message:, reply_to: nil)
-      attrs = { broadcaster_id: broadcaster_id, sender_id: sender_id, message: message, reply_parent_message_id: reply_to }
+    def create(broadcaster_id:, sender_id:, message:, reply_to: nil, pin: nil)
+      attrs = {
+        broadcaster_id: broadcaster_id,
+        sender_id: sender_id,
+        message: message,
+        reply_parent_message_id: reply_to,
+        pin: pin
+      }.compact
 
       response = post_request("chat/messages", body: attrs)
       ChatMessage.new(response.body.dig("data")[0])

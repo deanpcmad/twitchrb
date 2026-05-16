@@ -1,0 +1,29 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.twitch.tv/helix/chat/messages
+    body:
+      encoding: UTF-8
+      string: '{"broadcaster_id":"123","sender_id":"321","message":"Pinned message","pin":true}'
+    headers:
+      User-Agent:
+      - twitchrb/v1.9.2 (github.com/deanpcmad/twitchrb)
+      Client-id:
+      - '123'
+      Authorization:
+      - Bearer abc123
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message:
+    headers:
+      content-type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '{"data":[{"message_id":"msg-1","is_sent":true,"drop_reason":null}]}'
+  recorded_at: Sat, 16 May 2026 10:19:50 GMT
+recorded_with: VCR 6.4.0

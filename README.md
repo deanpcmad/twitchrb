@@ -539,10 +539,34 @@ shards = [
 # reply_to is optional and is the UUID of the message to reply to
 @client.chat_messages.create broadcaster_id: 123, sender_id: 321, message: "A test message", reply_to: "aabbcc"
 
+# Optionally pin the message immediately after sending it
+# Requires moderator:manage:chat_messages and the sender must be the broadcaster or a moderator
+@client.chat_messages.create broadcaster_id: 123, sender_id: 321, message: "Read the rules", pin: true
+
 # Removes a single chat message from the broadcaster's chat room
 # Requires moderator:manage:chat_messages
 # moderator_id can be either the currently authenticated moderator or the broadcaster
 @client.chat_messages.delete broadcaster_id: 123, moderator_id: 123, message_id: "abc123-abc123"
+```
+
+### Pinned Chat Messages
+
+```ruby
+# Get the currently pinned chat message
+# Requires moderator:read:chat_messages or moderator:manage:chat_messages
+@client.pinned_chat_messages.retrieve broadcaster_id: 123, moderator_id: 321
+
+# Pin a message
+# Requires moderator:manage:chat_messages
+@client.pinned_chat_messages.create broadcaster_id: 123, moderator_id: 321, message_id: "abc123-abc123", duration_seconds: 300
+
+# Update a pinned message's duration
+# Requires moderator:manage:chat_messages
+@client.pinned_chat_messages.update broadcaster_id: 123, moderator_id: 321, message_id: "abc123-abc123", duration_seconds: 120
+
+# Unpin a message
+# Requires moderator:manage:chat_messages
+@client.pinned_chat_messages.delete broadcaster_id: 123, moderator_id: 321, message_id: "abc123-abc123"
 ```
 
 ### Whispers
