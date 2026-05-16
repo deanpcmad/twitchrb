@@ -170,6 +170,10 @@ module Twitch
       ShoutoutsResource.new(self)
     end
 
+    def shared_chat_sessions
+      SharedChatSessionsResource.new(self)
+    end
+
     def unban_requests
       UnbanRequestsResource.new(self)
     end

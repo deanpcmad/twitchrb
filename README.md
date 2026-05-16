@@ -554,6 +554,10 @@ shards = [
 # reply_to is optional and is the UUID of the message to reply to
 @client.chat_messages.create broadcaster_id: 123, sender_id: 321, message: "A test message", reply_to: "aabbcc"
 
+# When using an App Access Token during a shared chat session, control whether the message
+# is only sent to the source channel or shared to all channels in the session
+@client.chat_messages.create broadcaster_id: 123, sender_id: 321, message: "Shared chat message", for_source_only: false
+
 # Optionally pin the message immediately after sending it
 # Requires moderator:manage:chat_messages and the sender must be the broadcaster or a moderator
 @client.chat_messages.create broadcaster_id: 123, sender_id: 321, message: "Read the rules", pin: true
@@ -675,6 +679,13 @@ messages = [{msg_id: "abc1", msg_text: "is this allowed?"}, {msg_id: "abc2", msg
 # Required scope: moderator:read:chatters
 # broadcaster_id must match the currently authenticated user
 @client.chatters.list broadcaster_id: 123, moderator_id: 123
+```
+
+### Shared Chat Sessions
+
+```ruby
+# Get the active shared chat session for a broadcaster
+@client.shared_chat_sessions.retrieve broadcaster_id: 123
 ```
 
 ### Channel Points Custom Rewards

@@ -57,4 +57,9 @@ class ClientTest < Minitest::Test
     client = Twitch::Client.new client_id: "123", access_token: "abc123"
     assert_instance_of Twitch::SuspiciousUsersResource, client.suspicious_users
   end
+
+  def test_shared_chat_sessions_resource_accessor
+    client = Twitch::Client.new client_id: "123", access_token: "abc123"
+    assert_instance_of Twitch::SharedChatSessionsResource, client.shared_chat_sessions
+  end
 end
