@@ -26,6 +26,28 @@ An access token is required because the Helix API requires authentication.
 @client = Twitch::Client.new(client_id: "abc123", access_token: "xyz123")
 ```
 
+#### User vs. App Access Tokens
+
+Most endpoints accept a **user access token** — issued for a specific Twitch user via the
+[authorization code](https://dev.twitch.tv/docs/authentication/getting-tokens-oauth/#authorization-code-grant-flow)
+or [device code](https://dev.twitch.tv/docs/authentication/getting-tokens-oauth/#device-code-grant-flow) flows,
+and required for anything that acts on behalf of a user (sending chat, managing channels, etc.).
+
+Some endpoints require an **app access token** instead — issued to your application, not a user. These
+are the EventSub APIs (subscriptions over webhooks, conduits, and shards), plus a few others noted in
+each section below. App tokens are obtained with the `client_credentials` grant and need only your
+Client ID and Client Secret:
+
+```ruby
+oauth = Twitch::OAuth.new(client_id: "abc123", client_secret: "your-client-secret")
+token = oauth.create(grant_type: "client_credentials")
+
+@app_client = Twitch::Client.new(client_id: "abc123", access_token: token.access_token)
+```
+
+App tokens expire (typically after ~60 days). Use `oauth.validate(token: ...)` to check the remaining
+lifetime, and `oauth.create(grant_type: "client_credentials")` to mint a fresh one when needed.
+
 ### Resources
 
 The gem maps as closely as we can to the Twitch API so you can easily convert API examples to gem code.
