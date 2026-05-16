@@ -2,10 +2,10 @@
 http_interactions:
 - request:
     method: post
-    uri: https://api.twitch.tv/helix/clips
+    uri: https://api.twitch.tv/helix/clips?broadcaster_id=141981764&has_delay=false
     body:
       encoding: UTF-8
-      string: '{"has_delay":false,"broadcaster_id":"141981764"}'
+      string: '{}'
     headers:
       User-Agent:
       - twitchrb/v1.4.0 (github.com/deanpcmad/twitchrb)

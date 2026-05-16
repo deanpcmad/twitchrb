@@ -296,7 +296,7 @@ attributes = {title: "My new title"}
 ```ruby
 # Retrieves a list of clips
 # Available parameters: broadcaster_id or game_id
-@client.clips.list(user_id: 12345)
+@client.clips.list(broadcaster_id: 12345)
 @client.clips.list(game_id: 12345)
 
 # Retrieves a clip by its ID.
@@ -306,6 +306,21 @@ attributes = {title: "My new title"}
 # Create a clip of a given Channel
 # Required scope: clips:edit
 @client.clips.create(broadcaster_id: 1234)
+
+# Create a clip from a VOD
+# Required scope: editor:manage:clips or channel:manage:clips
+@client.clips.create_from_vod(
+  editor_id: 1234,
+  broadcaster_id: 1234,
+  vod_id: 5678,
+  vod_offset: 45,
+  duration: 15.0,
+  title: "VOD highlight"
+)
+
+# Get download URLs for one or more clips
+# Required scope: editor:manage:clips or channel:manage:clips
+@client.clips.downloads(editor_id: 1234, broadcaster_id: 1234, clip_ids: ["clip-1", "clip-2"])
 ```
 
 ### Emotes

@@ -73,6 +73,7 @@ module Twitch
   autoload :Game, "twitch/objects/game"
   autoload :Video, "twitch/objects/video"
   autoload :Clip, "twitch/objects/clip"
+  autoload :ClipDownload, "twitch/objects/clip_download"
   autoload :EventsubSubscription, "twitch/objects/eventsub_subscription"
   autoload :EventsubConduit, "twitch/objects/eventsub_conduit"
   autoload :EventsubConduitShard, "twitch/objects/eventsub_conduit_shard"
