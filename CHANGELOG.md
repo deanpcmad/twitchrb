@@ -17,9 +17,6 @@ Published release notes were sourced from GitHub releases where available. Older
 ### Changed
 - Replaced hype train events with the status API.
 - Improved EventSub subscription conflict handling.
-- Migrated tests from VCR fixtures toward WebMock.
-- Added Ruby 4.0 test coverage and refreshed dependency/test matrix settings.
-- Updated clip and authentication documentation.
 
 ### Fixed
 - Fixed SSRF via protocol-relative request paths.
