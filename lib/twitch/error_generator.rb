@@ -88,6 +88,15 @@ module Twitch
       end
     end
 
+    class EventsubSubscriptionConflictError < ConflictError
+      attr_reader :existing_subscription_id
+
+      def initialize(response_body, http_status_code, existing_subscription_id: nil)
+        @existing_subscription_id = existing_subscription_id
+        super(response_body, http_status_code)
+      end
+    end
+
     class TooManyRequestsError < ErrorGenerator
       private
 

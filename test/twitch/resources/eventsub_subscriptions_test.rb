@@ -43,6 +43,43 @@ class EventsubSubscriptionsResourceTest < Minitest::Test
     assert subscriptions.data.all? { |sub| sub.is_a?(Twitch::EventsubSubscription) }
   end
 
+  def test_eventsub_subscriptions_list_with_conduit_id
+    stubs = Faraday::Adapter::Test::Stubs.new do |stub|
+      stub.get("https://api.twitch.tv/helix/eventsub/subscriptions") do |env|
+        assert_equal({ "conduit_id" => "conduit-123" }, env.params)
+
+        [
+          200,
+          { "content-type" => "application/json" },
+          JSON.dump(
+            total: 1,
+            data: [
+              {
+                id: "sub-1",
+                status: "enabled",
+                type: "channel.chat.message",
+                version: "1",
+                condition: { broadcaster_user_id: "123", user_id: "321" },
+                transport: { method: "conduit", conduit_id: "conduit-123" },
+                cost: 0,
+                created_at: "2026-04-17T12:00:00Z"
+              }
+            ],
+            pagination: {}
+          )
+        ]
+      end
+    end
+
+    client = Twitch::Client.new(client_id: "123", access_token: "abc123", adapter: :test)
+    client.instance_variable_set(:@stubs, stubs)
+
+    subscriptions = client.eventsub_subscriptions.list(conduit_id: "conduit-123")
+
+    assert_equal Twitch::Collection, subscriptions.class
+    assert_equal "sub-1", subscriptions.first.id
+  end
+
   def test_eventsub_subscriptions_list_with_pagination
     setup_client
 
@@ -157,5 +194,45 @@ class EventsubSubscriptionsResourceTest < Minitest::Test
         }
       )
     end
+  end
+
+  def test_eventsub_subscriptions_create_conflict_exposes_existing_subscription_id
+    stubs = Faraday::Adapter::Test::Stubs.new do |stub|
+      stub.post("https://api.twitch.tv/helix/eventsub/subscriptions") do |_env|
+        [
+          409,
+          { "content-type" => "application/json" },
+          JSON.dump(
+            error: "Conflict",
+            status: 409,
+            message: "subscription already exists",
+            data: [
+              { id: "existing-subscription-id" }
+            ]
+          )
+        ]
+      end
+    end
+
+    client = Twitch::Client.new(client_id: "123", access_token: "abc123", adapter: :test)
+    client.instance_variable_set(:@stubs, stubs)
+
+    error = assert_raises(Twitch::Errors::EventsubSubscriptionConflictError) do
+      client.eventsub_subscriptions.create(
+        type: "channel.update",
+        version: "1",
+        condition: {
+          broadcaster_user_id: "141981764"
+        },
+        transport: {
+          method: "webhook",
+          callback: "https://example.com/webhooks/callback",
+          secret: "secretkey123"
+        }
+      )
+    end
+
+    assert_equal "existing-subscription-id", error.existing_subscription_id
+    assert_equal "subscription already exists", error.twitch_error_message
   end
 end

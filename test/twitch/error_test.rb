@@ -29,6 +29,17 @@ class ErrorTest < Minitest::Test
     assert_equal "Connection failed", error.message
   end
 
+  def test_eventsub_subscription_conflict_error_exposes_existing_id
+    error = Twitch::Errors::EventsubSubscriptionConflictError.new(
+      { "error" => "Conflict", "message" => "subscription already exists" },
+      409,
+      existing_subscription_id: "sub-123"
+    )
+
+    assert_equal "sub-123", error.existing_subscription_id
+    assert_equal "Error 409: Your request was a conflict. 'subscription already exists'", error.message
+  end
+
   def test_rate_limit_error_with_full_info
     reset_time = Time.now.to_i + 60
     error = Twitch::Errors::RateLimitError.new(

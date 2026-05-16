@@ -370,10 +370,11 @@ These require an application OAuth access token.
 
 ```ruby
 # Retrieves a list of EventSub Subscriptions
-# Available parameters: status, type, after
+# Available parameters: status, type, user_id, after, conduit_id, subscription_id
 @client.eventsub_subscriptions.list
 @client.eventsub_subscriptions.list(status: "enabled")
 @client.eventsub_subscriptions.list(type: "channel.follow")
+@client.eventsub_subscriptions.list(conduit_id: "conduit-id")
 
 # Create an EventSub Subscription
 @client.eventsub_subscriptions.create(
@@ -382,6 +383,19 @@ These require an application OAuth access token.
   condition: {broadcaster_user_id: 123},
   transport: {method: "webhook", callback: "webhook_url", secret: "secret"}
 )
+
+# If Twitch returns a 409 conflict for an already-existing subscription,
+# the raised error exposes the existing subscription ID
+begin
+  @client.eventsub_subscriptions.create(
+    type: "channel.follow",
+    version: 1,
+    condition: {broadcaster_user_id: 123},
+    transport: {method: "webhook", callback: "webhook_url", secret: "secret"}
+  )
+rescue Twitch::Errors::EventsubSubscriptionConflictError => e
+  e.existing_subscription_id
+end
 
 # Delete an EventSub Subscription
 # IDs are UUIDs
